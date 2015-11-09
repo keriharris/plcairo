@@ -1,0 +1,10 @@
+The files  in  this directory  contain  short,  easy  to  understand  examples
+highlighting some of  plcairo's rendering capabilities.  The files are plcairo
+ports of sample code at http://cairographics.org/samples/.
+
+The files in the backend subdirectory contain examples of how to render output
+using some of plcairo's supported backends.
+
+The  test  file  vermeer.png  ("Meisje met de parel"  by  Johannes Vermeer)  is
+licensed under Public Domain via Commons -
+https://commons.wikimedia.org/wiki/File:Meisje_met_de_parel.jpg#/media/File:Meisje_met_de_parel.jpg

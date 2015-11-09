@@ -1,0 +1,73 @@
+dnl Process this file with autoconf to produce a configure script.
+
+AC_INIT(src/plcairo.h)
+AC_PREREQ([2.50])
+AC_CONFIG_HEADER(src/config.h)
+
+AC_SUBST(CC)
+AC_SUBST(SWI_CFLAGS)
+AC_SUBST(SWI_LIBS)
+AC_SUBST(SWI_BASE)
+AC_SUBST(SWI_ARCH)
+AC_SUBST(SWI_SOLIBDIR)
+AC_SUBST(SWI_PLLIBDIR)
+AC_SUBST(PLGI_CFLAGS)
+AC_SUBST(PLGI_LIBS)
+AC_SUBST(CAIRO_CFLAGS)
+AC_SUBST(CAIRO_LIBS)
+AC_SUBST(CAIRO_GOBJECT_CFLAGS)
+AC_SUBST(CAIRO_GOBJECT_LIBS)
+AC_SUBST(GI_CFLAGS)
+AC_SUBST(GI_LIBS)
+AC_SUBST(SOTARGET)
+AC_SUBST(PLTARGET)
+
+AC_PROG_INSTALL
+AC_PROG_CC([])
+
+AC_CHECK_SIZEOF(long)
+
+PKG_CHECK_MODULES(SWI,
+    swipl
+)
+
+SWI_BASE=$($PKG_CONFIG --variable=PLBASE swipl)
+SWI_ARCH=$($PKG_CONFIG --variable=PLARCH swipl)
+SWI_SOLIBDIR=$SWI_BASE/lib/$SWI_ARCH
+SWI_PLLIBDIR=$SWI_BASE/library
+
+PKG_CHECK_MODULES(CAIRO,
+    cairo
+)
+
+PKG_CHECK_MODULES(CAIRO_GOBJECT,
+    cairo-gobject
+)
+
+PKG_CHECK_MODULES(GI,
+    gobject-introspection-1.0
+)
+
+PLGI_DIR=$(cd "$(dirname ../plgi/src)"; pwd)/$(basename ../plgi/src)
+AC_MSG_CHECKING([for plgi.h])
+if test -f $PLGI_DIR/plgi.h; then
+    AC_SUBST(PLGI_CFLAGS, ["-I$PLGI_DIR"])
+    AC_MSG_RESULT([yes])
+else
+    AC_MSG_RESULT([no])
+    AC_MSG_ERROR([plgi.h not found])
+fi
+
+AC_MSG_CHECKING([for plgi.so])
+if test -f $PLGI_DIR/plgi.so; then
+    AC_SUBST(PLGI_LIBS, ["$PLGI_DIR/plgi.so"])
+    AC_MSG_RESULT([yes])
+else
+    AC_MSG_RESULT([no])
+    AC_MSG_ERROR([plgi.so not found])
+fi
+
+SOTARGET="plgi.$SO"
+PLTARGET=`echo $SOTARGET | sed "s/\.$SO/.pl/g"`
+
+AC_OUTPUT(Makefile src/Makefile)

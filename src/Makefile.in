@@ -1,0 +1,56 @@
+########################################################################
+#  This file is part of PLcairo.
+#
+#   Copyright (C) 2015 Keri Harris <keri@gentoo.org>
+#
+#   PLcairo is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU Lesser General Public License as
+#   published by the Free Software Foundation, either version 2.1
+#   of the License, or (at your option) any later version.
+#
+#   PLcairo is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with PLcairo.  If not, see <http://www.gnu.org/licenses/>.
+#
+########################################################################
+
+QUIET_CC= @echo "   [CC]      $@" 1>&2;
+QUIET_LD= @echo "   [LD]      $@" 1>&2;
+
+PROLOGDIR=../prolog
+SWI_SOLIBDIR=@SWI_SOLIBDIR@
+SWI_PLLIBDIR=@SWI_PLLIBDIR@
+
+CFLAGS+= -Wall -I. @SWI_CFLAGS@ @PLGI_CFLAGS@ @CAIRO_CFLAGS@ @CAIRO_GOBJECT_CFLAGS@ @GI_CFLAGS@
+LDFLAGS= -Wall -shared @SWI_LIBS@ @PLGI_LIBS@ @CAIRO_LIBS@ @CAIRO_GOBJECT_LIBS@ @GI_LIBS@
+
+CC=@CC@
+
+INSTALL=@INSTALL@
+INSTALL_PROGRAM=@INSTALL_PROGRAM@
+INSTALL_DATA=@INSTALL_DATA@
+
+OBJECTS= plcairo.o plcairo_callbacks.o plcairo_context.o plcairo_device.o plcairo_error.o plcairo_font_face.o plcairo_font_options.o plcairo_image_surface.o plcairo_matrix.o plcairo_path.o plcairo_pattern.o plcairo_pdf_surface.o plcairo_png_surface.o plcairo_ps_surface.o plcairo_raster_source.o plcairo_recording_surface.o plcairo_region.o plcairo_scaled_font.o plcairo_script_surface.o plcairo_surface.o plcairo_svg_surface.o plcairo_text.o plcairo_transformation.o
+
+all: plcairo.so
+
+plcairo.so: $(OBJECTS)
+	$(QUIET_LD)$(CC) -o $@ $^ $(LDFLAGS)
+
+.c.o:
+	$(QUIET_CC)$(CC) $(CFLAGS) -o $@ -c $^
+
+install: plcairo.so
+	mkdir -p $(DESTDIR)$(SWI_SOLIBDIR)
+	$(INSTALL_PROGRAM) plcairo.so $(DESTDIR)$(SWI_SOLIBDIR)
+	$(INSTALL_DATA) $(PROLOGDIR)/plcairo.pl $(DESTDIR)$(SWI_PLLIBDIR)
+
+clean:
+	rm -f *.o *.so
+
+distclean: clean
+	rm -f Makefile config.h

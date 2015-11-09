@@ -1,0 +1,40 @@
+PLcairo is a set of Prolog bindings for the cairo graphics library. PLcairo provides the Prolog developer with an API to 2D vector-graphics that can be rendered on multiple output devices. PLcairo supports the following backends: Gtk, image buffers, PostScript, PDF, SVG.
+
+A number of short example programs exist in the plcairo/examples directory highlighting some of the capabilities of PLcairo.
+
+
+
+Installation
+============
+
+PLcairo has the following requirements:
+
+* SWI-Prolog [1]
+* PLGI [2]
+* cairo >= 1.12.0 [3]
+* GObject Introspection >= 1.40 [4]
+* pkg-config [5]
+
+The easiest way to install PLcairo is by using SWI-Prolog's package manager:
+
+	?- pack_install(plcairo).
+
+PLcairo can also be compiled and installed directly from sources in the following manner:
+
+	% cd plcairo-$VERSION
+	% autoconf
+	% ./configure
+	% make
+	% make install
+
+[1] http://www.swi-prolog.org/
+[2] https://github.com/keriharris/plgi
+[3] http://cairographics.org/
+[4] https://wiki.gnome.org/Projects/GObjectIntrospection
+[5] http://www.freedesktop.org/wiki/Software/pkg-config/
+
+
+
+License
+=======
+PLcairo is free software and is available to be redistributed and/or modified under the terms of the GNU Lesser General Public License version 2.1 (LGPLv2.1).

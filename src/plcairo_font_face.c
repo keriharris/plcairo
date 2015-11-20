@@ -27,7 +27,7 @@ plcairo_term_to_font_face(term_t              t,
 {
   PLGIBlob *blob;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_font_face_t: %p", t, *font_face);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_font_face_t: %p", t, *font_face);
 
   if ( !plgi_get_blob(t, &blob) )
   { return PL_type_error("CairoFontFace", t);
@@ -51,7 +51,7 @@ plcairo_font_face_to_term(cairo_font_face_t *font_face,
   gpointer data;
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    CairoFontFace: %p  --->  term: 0x%lx", font_face, t);
+  PLCAIRO_debug("    CairoFontFace: %p  --->  term: 0x%lx", font_face, t);
 
   if ( !font_face )
   { return ( plgi_put_null(t0) && PL_unify(t, t0) );
@@ -82,7 +82,7 @@ plcairo_term_to_font_type(term_t             t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_font_type_t: %p", t, type);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_font_type_t: %p", t, type);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoFontType", t);
@@ -125,7 +125,7 @@ plcairo_font_type_to_term(cairo_font_type_t type,
 {
   atom_t a;
 
-  PLGI_debug("    cairo_font_type_t: %d  --->  term: 0x%lx", type, t);
+  PLCAIRO_debug("    cairo_font_type_t: %d  --->  term: 0x%lx", type, t);
 
   if ( !ATOM_cairo_font_type_toy )
   {

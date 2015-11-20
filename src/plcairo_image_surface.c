@@ -34,7 +34,7 @@ plcairo_term_to_format(term_t          t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_format_t: %p", t, format);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_format_t: %p", t, format);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("cairo_format_t", t);
@@ -85,7 +85,7 @@ plcairo_format_to_term(cairo_format_t format,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_format_t: %d  --->  term: 0x%lx", format, t);
+  PLCAIRO_debug("    cairo_format_t: %d  --->  term: 0x%lx", format, t);
 
   if ( !ATOM_cairo_format_invalid )
   {

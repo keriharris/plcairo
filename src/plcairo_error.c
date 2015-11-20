@@ -22,7 +22,7 @@
 cairo_bool_t
 plcairo_raise_error(char *message)
 {
-  PLGI_debug("!!! raising exception: %s", message);
+  PLCAIRO_debug("!!! raising exception: %s", message);
 
   term_t except = PL_new_term_ref();
   if ( !PL_unify_term(except,
@@ -53,7 +53,7 @@ plcairo_raise_error__va(char *fmt, ...)
 cairo_bool_t
 plcairo_raise_error_status(int status)
 {
-  PLGI_debug("!!! raising exception: %s", cairo_status_to_string(status));
+  PLCAIRO_debug("!!! raising exception: %s", cairo_status_to_string(status));
 
   term_t except = PL_new_term_ref();
   if ( !PL_unify_term(except,

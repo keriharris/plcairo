@@ -25,6 +25,43 @@
 
 
                 /*******************************
+                 *            Debug            *
+                 *******************************/
+
+cairo_bool_t plcairo_debug_active(void);
+int plcairo_exit_debug(int status, void *arg);
+
+#define PLCAIRO_debug_helper(fmt, ...) \
+        { fprintf(stderr, "[PLcairo] " fmt "%s\n", __VA_ARGS__); \
+        }
+
+#define PLCAIRO_debug(...) \
+        do { if (plcairo_debug_active()) \
+             { PLCAIRO_debug_helper(__VA_ARGS__, ""); \
+             } \
+           } while (0)
+
+#define plcairo_debug_dashes "--------------------------"
+#define plcairo_debug_n_dashes \
+        ( (int)( strlen(plcairo_debug_dashes) - strlen(__func__) / 2 ) )
+
+#define PLCAIRO_debug_header \
+        PLCAIRO_debug("%.*s <begin>  %s  <begin> %.*s", \
+                      plcairo_debug_n_dashes, plcairo_debug_dashes, \
+                      __func__, \
+                      plcairo_debug_n_dashes, plcairo_debug_dashes)
+
+#define PLCAIRO_debug_trailer \
+        PLCAIRO_debug("%.*s <end>  %s  <end> %.*s", \
+                      plcairo_debug_n_dashes+2, plcairo_debug_dashes, \
+                      __func__, \
+                      plcairo_debug_n_dashes+2, plcairo_debug_dashes)
+
+#define PLGI_WARN_UNUSED G_GNUC_WARN_UNUSED_RESULT
+
+
+
+                /*******************************
                  *    Cairo Integral Types     *
                  *******************************/
 

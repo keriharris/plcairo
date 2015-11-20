@@ -26,7 +26,7 @@ plcairo_term_to_context(term_t    t,
 {
   PLGIBlob *blob;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_t: %p", t, *cr);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_t: %p", t, *cr);
 
   if ( !plgi_get_blob(t, &blob) )
   { return PL_type_error("CairoContext", t);
@@ -50,7 +50,7 @@ plcairo_context_to_term(cairo_t *cr,
   gpointer data;
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_t: %p  --->  term: 0x%lx", cr, t);
+  PLCAIRO_debug("    cairo_t: %p  --->  term: 0x%lx", cr, t);
 
   if ( !cr )
   { return ( plgi_put_null(t0) && PL_unify(t, t0) );
@@ -83,7 +83,7 @@ plcairo_term_to_antialias(term_t             t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_antialias_t: %p", t, antialias);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_antialias_t: %p", t, antialias);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoAntialias", t);
@@ -134,7 +134,7 @@ plcairo_antialias_to_term(cairo_antialias_t antialias,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_antialias_t: %d  --->  term: 0x%lx", antialias, t);
+  PLCAIRO_debug("    cairo_antialias_t: %d  --->  term: 0x%lx", antialias, t);
 
   if ( !ATOM_cairo_antialias_default )
   {
@@ -186,7 +186,7 @@ plcairo_term_to_fill_rule(term_t             t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_fill_rule_t: %p", t, fill_rule);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_fill_rule_t: %p", t, fill_rule);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoFillRule", t);
@@ -217,7 +217,7 @@ plcairo_fill_rule_to_term(cairo_fill_rule_t fill_rule,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_fill_rule_t: %d  --->  term: 0x%lx", fill_rule, t);
+  PLCAIRO_debug("    cairo_fill_rule_t: %d  --->  term: 0x%lx", fill_rule, t);
 
   if ( !ATOM_cairo_fill_rule_winding )
   {
@@ -250,7 +250,7 @@ plcairo_term_to_line_cap(term_t            t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_line_cap_t: %p", t, line_cap);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_line_cap_t: %p", t, line_cap);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoLineCap", t);
@@ -285,7 +285,7 @@ plcairo_line_cap_to_term(cairo_line_cap_t line_cap,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_line_cap_t: %d  --->  term: 0x%lx", line_cap, t);
+  PLCAIRO_debug("    cairo_line_cap_t: %d  --->  term: 0x%lx", line_cap, t);
 
   if ( !ATOM_cairo_line_cap_butt )
   {
@@ -322,7 +322,7 @@ plcairo_term_to_line_join(term_t             t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_line_join_t: %p", t, line_join);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_line_join_t: %p", t, line_join);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoLineJoin", t);
@@ -357,7 +357,7 @@ plcairo_line_join_to_term(cairo_line_join_t line_join,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_line_join_t: %d  --->  term: 0x%lx", line_join, t);
+  PLCAIRO_debug("    cairo_line_join_t: %d  --->  term: 0x%lx", line_join, t);
 
   if ( !ATOM_cairo_line_join_miter )
   {
@@ -420,7 +420,7 @@ plcairo_term_to_operator(term_t            t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_operator_t: %p", t, operator);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_operator_t: %p", t, operator);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoOperator", t);
@@ -559,7 +559,7 @@ plcairo_operator_to_term(cairo_operator_t operator,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_operator_t: %d  --->  term: 0x%lx", operator, t);
+  PLCAIRO_debug("    cairo_operator_t: %d  --->  term: 0x%lx", operator, t);
 
   if ( !ATOM_cairo_operator_clear )
   {
@@ -696,7 +696,7 @@ void plcairo_register_rectangle_t(void)
   PLGIFieldInfo *field_info;
   int n_fields, offset;
 
-  PLGI_debug("registering struct: CairoRectangle");
+  PLCAIRO_debug("registering struct: CairoRectangle");
 
   n_fields = 4;
   offset = 0;
@@ -724,7 +724,7 @@ plcairo_term_to_rectangle(term_t              t,
 {
   PLGIBlob *blob;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_rectangle_t: %p", t, *rectangle);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_rectangle_t: %p", t, *rectangle);
 
   if ( !plgi_get_blob(t, &blob) )
   { return PL_type_error("CairoRectangle", t);
@@ -748,7 +748,7 @@ plcairo_rectangle_to_term(cairo_rectangle_t *rectangle,
   gpointer data;
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_rectangle_t: %p  --->  term: 0x%lx", rectangle, t);
+  PLCAIRO_debug("    cairo_rectangle_t: %p  --->  term: 0x%lx", rectangle, t);
 
   if ( !rectangle )
   { return ( plgi_put_null(t0) && PL_unify(t, t0) );
@@ -778,7 +778,7 @@ plcairo_term_to_rectangle_list(term_t                   t,
   size_t num_rectangles;
   int i = 0;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_rectangle_list_t: %p", t, *rectangle_list);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_rectangle_list_t: %p", t, *rectangle_list);
 
   if ( PL_skip_list(list, 0, &num_rectangles) != PL_LIST )
   { return PL_type_error("list", t);
@@ -813,7 +813,7 @@ plcairo_rectangle_list_to_term(cairo_rectangle_list_t *rectangle_list,
   term_t head = PL_new_term_ref();
   int i;
 
-  PLGI_debug("    cairo_rectangle_list_t: %p  --->  term: 0x%lx", rectangle_list, t);
+  PLCAIRO_debug("    cairo_rectangle_list_t: %p  --->  term: 0x%lx", rectangle_list, t);
 
   if ( rectangle_list->status != CAIRO_STATUS_SUCCESS )
   { return plcairo_raise_error_status(rectangle_list->status);

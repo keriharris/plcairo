@@ -26,7 +26,7 @@ plcairo_term_to_font_options(term_t                 t,
 {
   PLGIBlob *blob;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_font_options_t: %p", t, *font_options);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_font_options_t: %p", t, *font_options);
 
   if ( !plgi_get_blob(t, &blob) )
   { return PL_type_error("CairoFontOptions", t);
@@ -50,7 +50,7 @@ plcairo_font_options_to_term(cairo_font_options_t *font_options,
   gpointer data;
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_font_options_t: %p  --->  term: 0x%lx", font_options, t);
+  PLCAIRO_debug("    cairo_font_options_t: %p  --->  term: 0x%lx", font_options, t);
 
   if ( !font_options )
   { return ( plgi_put_null(t0) && PL_unify(t, t0) );
@@ -79,7 +79,7 @@ plcairo_term_to_hint_metrics(term_t                t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_hint_metrics_t: %p", t, hint_metrics);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_hint_metrics_t: %p", t, hint_metrics);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoHintMetrics", t);
@@ -114,7 +114,7 @@ plcairo_hint_metrics_to_term(cairo_hint_metrics_t hint_metrics,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_hint_metrics_t: %d  --->  term: 0x%lx", hint_metrics, t);
+  PLCAIRO_debug("    cairo_hint_metrics_t: %d  --->  term: 0x%lx", hint_metrics, t);
 
   if ( !ATOM_cairo_hint_metrics_default )
   {
@@ -153,7 +153,7 @@ plcairo_term_to_hint_style(term_t              t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_hint_style_t: %p", t, hint_style);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_hint_style_t: %p", t, hint_style);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoHintStyle", t);
@@ -196,7 +196,7 @@ plcairo_hint_style_to_term(cairo_hint_style_t hint_style,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_hint_style_t: %d  --->  term: 0x%lx", hint_style, t);
+  PLCAIRO_debug("    cairo_hint_style_t: %d  --->  term: 0x%lx", hint_style, t);
 
   if ( !ATOM_cairo_hint_style_default )
   {
@@ -243,7 +243,7 @@ plcairo_term_to_subpixel_order(term_t             t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_subpixel_order_t: %p", t, subpixel_order);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_subpixel_order_t: %p", t, subpixel_order);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoSubpixelOrder", t);
@@ -286,7 +286,7 @@ plcairo_subpixel_order_to_term(cairo_subpixel_order_t subpixel_order,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_subpixel_order_t: %d  --->  term: 0x%lx", subpixel_order, t);
+  PLCAIRO_debug("    cairo_subpixel_order_t: %d  --->  term: 0x%lx", subpixel_order, t);
 
   if ( !ATOM_cairo_subpixel_order_default )
   {

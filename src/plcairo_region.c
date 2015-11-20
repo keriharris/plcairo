@@ -26,7 +26,7 @@ plcairo_term_to_region(term_t           t,
 {
   PLGIBlob *blob;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_region_t: %p", t, *region);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_region_t: %p", t, *region);
 
   if ( !plgi_get_blob(t, &blob) )
   { return PL_type_error("CairoRegion", t);
@@ -50,7 +50,7 @@ plcairo_region_to_term(cairo_region_t *region,
   gpointer data;
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_region_t: %p  --->  term: 0x%lx", region, t);
+  PLCAIRO_debug("    cairo_region_t: %p  --->  term: 0x%lx", region, t);
 
   if ( !region )
   { return ( plgi_put_null(t0) && PL_unify(t, t0) );
@@ -79,7 +79,7 @@ plcairo_term_to_region_overlap(term_t                  t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_region_overlap_t: %p", t, region_overlap);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_region_overlap_t: %p", t, region_overlap);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoRegionOverlap", t);
@@ -114,7 +114,7 @@ plcairo_region_overlap_to_term(cairo_region_overlap_t region_overlap,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_region_overlap_t: %d  --->  term: 0x%lx", region_overlap, t);
+  PLCAIRO_debug("    cairo_region_overlap_t: %d  --->  term: 0x%lx", region_overlap, t);
 
   if ( !ATOM_cairo_region_overlap_in )
   {
@@ -148,7 +148,7 @@ void plcairo_register_rectangle_int_t(void)
   PLGIFieldInfo *field_info;
   int n_fields, offset;
 
-  PLGI_debug("registering struct: CairoRectangleInt");
+  PLCAIRO_debug("registering struct: CairoRectangleInt");
 
   n_fields = 6;
   offset = 0;
@@ -176,7 +176,7 @@ plcairo_term_to_rectangle_int(term_t                  t,
 {
   PLGIBlob *blob;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_rectangle_int_t: %p", t, *rectangle);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_rectangle_int_t: %p", t, *rectangle);
 
   if ( !plgi_get_blob(t, &blob) )
   { return PL_type_error("CairoRectangleInt", t);
@@ -200,7 +200,7 @@ plcairo_rectangle_int_to_term(cairo_rectangle_int_t *rectangle,
   gpointer data;
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_rectangle_int_t: %p  --->  term: 0x%lx", rectangle, t);
+  PLCAIRO_debug("    cairo_rectangle_int_t: %p  --->  term: 0x%lx", rectangle, t);
 
   if ( !rectangle )
   { return ( plgi_put_null(t0) && PL_unify(t, t0) );

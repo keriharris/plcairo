@@ -32,7 +32,7 @@ plcairo_term_to_ps_level(term_t            t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_ps_level_t: %p", t, level);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_ps_level_t: %p", t, level);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoPSLevel", t);
@@ -63,7 +63,7 @@ plcairo_ps_level_to_term(cairo_ps_level_t level,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_ps_level_t: %d  --->  term: 0x%lx", level, t);
+  PLCAIRO_debug("    cairo_ps_level_t: %d  --->  term: 0x%lx", level, t);
 
   if ( !ATOM_cairo_ps_level_2 )
   {

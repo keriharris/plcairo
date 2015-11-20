@@ -26,7 +26,7 @@ plcairo_term_to_scaled_font(term_t                t,
 {
   PLGIBlob *blob;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_scaled_font_t: %p", t, *scaled_font);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_scaled_font_t: %p", t, *scaled_font);
 
   if ( !plgi_get_blob(t, &blob) )
   { return PL_type_error("CairoScaledFont", t);
@@ -50,7 +50,7 @@ plcairo_scaled_font_to_term(cairo_scaled_font_t *scaled_font,
   gpointer data;
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_scaled_font_t: %p  --->  term: 0x%lx", scaled_font, t);
+  PLCAIRO_debug("    cairo_scaled_font_t: %p  --->  term: 0x%lx", scaled_font, t);
 
   if ( !scaled_font )
   { return ( plgi_put_null(t0) && PL_unify(t, t0) );
@@ -75,7 +75,7 @@ void plcairo_register_font_extents_t(void)
   PLGIFieldInfo *field_info;
   int n_fields, offset;
 
-  PLGI_debug("registering struct: CairoFontExtents");
+  PLCAIRO_debug("registering struct: CairoFontExtents");
 
   n_fields = 5;
   offset = 0;
@@ -105,7 +105,7 @@ plcairo_term_to_font_extents(term_t                 t,
 {
   PLGIBlob *blob;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_font_extents_t: %p", t, *extents);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_font_extents_t: %p", t, *extents);
 
   if ( !plgi_get_blob(t, &blob) )
   { return PL_type_error("CairoFontExtents", t);
@@ -128,7 +128,7 @@ plcairo_font_extents_to_term(cairo_font_extents_t *extents,
   gpointer data;
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_font_extents_t: %p  --->  term: 0x%lx", extents, t);
+  PLCAIRO_debug("    cairo_font_extents_t: %p  --->  term: 0x%lx", extents, t);
 
   if ( !extents )
   { return ( plgi_put_null(t0) && PL_unify(t, t0) );
@@ -153,7 +153,7 @@ void plcairo_register_text_extents_t(void)
   PLGIFieldInfo *field_info;
   int n_fields, offset;
 
-  PLGI_debug("registering struct: CairoTextExtents");
+  PLCAIRO_debug("registering struct: CairoTextExtents");
 
   n_fields = 6;
   offset = 0;
@@ -184,7 +184,7 @@ plcairo_term_to_text_extents(term_t                 t,
 {
   PLGIBlob *blob;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_text_extents_t: %p", t, *extents);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_text_extents_t: %p", t, *extents);
 
   if ( !plgi_get_blob(t, &blob) )
   { return PL_type_error("CairoTextExtents", t);
@@ -207,7 +207,7 @@ plcairo_text_extents_to_term(cairo_text_extents_t *extents,
   gpointer data;
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_text_extents_t: %p  --->  term: 0x%lx", extents, t);
+  PLCAIRO_debug("    cairo_text_extents_t: %p  --->  term: 0x%lx", extents, t);
 
   if ( !extents )
   { return ( plgi_put_null(t0) && PL_unify(t, t0) );

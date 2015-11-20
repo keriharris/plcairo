@@ -26,7 +26,7 @@ plcairo_term_to_device(term_t    t,
 {
   PLGIBlob *blob;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_device_t: %p", t, *device);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_device_t: %p", t, *device);
 
   if ( !plgi_get_blob(t, &blob) )
   { return PL_type_error("CairoDevice", t);
@@ -50,7 +50,7 @@ plcairo_device_to_term(cairo_device_t *device,
   gpointer data;
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_device_t: %p  --->  term: 0x%lx", device, t);
+  PLCAIRO_debug("    cairo_device_t: %p  --->  term: 0x%lx", device, t);
 
   if ( !device )
   { return ( plgi_put_null(t0) && PL_unify(t, t0) );
@@ -85,7 +85,7 @@ plcairo_term_to_device_type(term_t               t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_device_type_t: %p", t, device_type);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_device_type_t: %p", t, device_type);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoDeviceType", t);
@@ -144,7 +144,7 @@ plcairo_device_type_to_term(cairo_device_type_t device_type,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_device_type_t: %d  --->  term: 0x%lx", device_type, t);
+  PLCAIRO_debug("    cairo_device_type_t: %d  --->  term: 0x%lx", device_type, t);
 
   if ( !ATOM_cairo_device_type_drm )
   {

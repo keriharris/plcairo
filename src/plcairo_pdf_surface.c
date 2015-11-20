@@ -32,7 +32,7 @@ plcairo_term_to_pdf_version(term_t               t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_pdf_version_t: %p", t, version);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_pdf_version_t: %p", t, version);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoPdfVersion", t);
@@ -63,7 +63,7 @@ plcairo_pdf_version_to_term(cairo_pdf_version_t version,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_pdf_version_t: %d  --->  term: 0x%lx", version, t);
+  PLCAIRO_debug("    cairo_pdf_version_t: %d  --->  term: 0x%lx", version, t);
 
   if ( !ATOM_cairo_pdf_version_1_4 )
   {

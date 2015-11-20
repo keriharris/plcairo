@@ -32,7 +32,7 @@ plcairo_term_to_script_mode(term_t               t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_script_mode_t: %p", t, mode);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_script_mode_t: %p", t, mode);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoScriptMode", t);
@@ -63,7 +63,7 @@ plcairo_script_mode_to_term(cairo_script_mode_t mode,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_script_mode_t: %d  --->  term: 0x%lx", mode, t);
+  PLCAIRO_debug("    cairo_script_mode_t: %d  --->  term: 0x%lx", mode, t);
 
   if ( !ATOM_cairo_script_mode_ascii )
   {

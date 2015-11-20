@@ -39,7 +39,7 @@ plcairo_write_func(void *closure,
   size_t written;
   cairo_status_t status;
 
-  PLGI_debug_header;
+  PLCAIRO_debug_header;
 
   if ( !closure )
   { status = CAIRO_STATUS_WRITE_ERROR;
@@ -59,7 +59,7 @@ plcairo_write_func(void *closure,
   written = Sfwrite(data, 1, length, stream);
   PL_release_stream(stream);
 
-  PLGI_debug("  wrote %ld bytes to stream: %p", written, stream);
+  PLCAIRO_debug("  wrote %ld bytes to stream: %p", written, stream);
 
   if ( written == length )
   { status = CAIRO_STATUS_SUCCESS;
@@ -70,7 +70,7 @@ plcairo_write_func(void *closure,
 
 cleanup:
 
-  PLGI_debug_trailer;
+  PLCAIRO_debug_trailer;
 
   return status;
 }
@@ -87,7 +87,7 @@ plcairo_read_func(void *closure,
   size_t read;
   cairo_status_t status;
 
-  PLGI_debug_header;
+  PLCAIRO_debug_header;
 
   if ( !closure )
   { status = CAIRO_STATUS_WRITE_ERROR;
@@ -107,7 +107,7 @@ plcairo_read_func(void *closure,
   read = Sfread(data, 1, length, stream);
   PL_release_stream(stream);
 
-  PLGI_debug("  read %ld bytes from stream: %p", read, stream);
+  PLCAIRO_debug("  read %ld bytes from stream: %p", read, stream);
 
   if ( read == length )
   { status = CAIRO_STATUS_SUCCESS;
@@ -118,7 +118,7 @@ plcairo_read_func(void *closure,
 
 cleanup:
 
-  PLGI_debug_trailer;
+  PLCAIRO_debug_trailer;
 
   return status;
 }

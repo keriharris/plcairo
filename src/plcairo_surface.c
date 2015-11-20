@@ -26,7 +26,7 @@ plcairo_term_to_surface(term_t            t,
 {
   PLGIBlob *blob;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_surface_t: %p", t, *surface);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_surface_t: %p", t, *surface);
 
   if ( !plgi_get_blob(t, &blob) )
   { return PL_type_error("CairoSurface", t);
@@ -50,7 +50,7 @@ plcairo_surface_to_term(cairo_surface_t *surface,
   gpointer data;
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_surface_t: %p  --->  term: 0x%lx", surface, t);
+  PLCAIRO_debug("    cairo_surface_t: %p  --->  term: 0x%lx", surface, t);
 
   if ( !surface )
   { return ( plgi_put_null(t0) && PL_unify(t, t0) );
@@ -81,7 +81,7 @@ plcairo_term_to_content(term_t           t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_content_t: %p", t, content);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_content_t: %p", t, content);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoContent", t);
@@ -116,7 +116,7 @@ plcairo_content_to_term(cairo_content_t content,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_content_t: %d  --->  term: 0x%lx", content, t);
+  PLCAIRO_debug("    cairo_content_t: %d  --->  term: 0x%lx", content, t);
 
   if ( !ATOM_cairo_content_color )
   {
@@ -175,7 +175,7 @@ plcairo_term_to_surface_type(term_t                t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_surface_type_t: %p", t, surface_type);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_surface_type_t: %p", t, surface_type);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoSurfaceType", t);
@@ -298,7 +298,7 @@ plcairo_surface_type_to_term(cairo_surface_type_t surface_type,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_surface_type_t: %d  --->  term: 0x%lx", surface_type, t);
+  PLCAIRO_debug("    cairo_surface_type_t: %d  --->  term: 0x%lx", surface_type, t);
 
   if ( !ATOM_cairo_surface_type_image )
   {

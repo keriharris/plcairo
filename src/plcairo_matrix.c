@@ -26,7 +26,7 @@ void plcairo_register_matrix_t(void)
   PLGIFieldInfo *field_info;
   int n_fields, offset;
 
-  PLGI_debug("registering struct: CairoMatrix");
+  PLCAIRO_debug("registering struct: CairoMatrix");
 
   n_fields = 6;
   offset = 0;
@@ -56,7 +56,7 @@ plcairo_term_to_matrix(term_t           t,
 {
   PLGIBlob *blob;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_matrix_t: %p", t, *matrix);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_matrix_t: %p", t, *matrix);
 
   if ( !plgi_get_blob(t, &blob) )
   { return PL_type_error("CairoMatrix", t);
@@ -80,7 +80,7 @@ plcairo_matrix_to_term(cairo_matrix_t *matrix,
   gpointer data;
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_matrix_t: %p  --->  term: 0x%lx", matrix, t);
+  PLCAIRO_debug("    cairo_matrix_t: %p  --->  term: 0x%lx", matrix, t);
 
   if ( !matrix )
   { return ( plgi_put_null(t0) && PL_unify(t, t0) );

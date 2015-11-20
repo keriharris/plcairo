@@ -78,7 +78,7 @@ plcairo_term_to_path(term_t         t,
   size_t num_data;
   int i = 0;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_path_t: %p", t, *path);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_path_t: %p", t, *path);
 
   if ( PL_skip_list(list, 0, &num_data) != PL_LIST )
   { return PL_type_error("list", t);
@@ -183,7 +183,7 @@ plcairo_path_to_term(cairo_path_t *path,
   term_t head = PL_new_term_ref();
   int i;
 
-  PLGI_debug("    cairo_path_t: %p  --->  term: 0x%lx", path, t);
+  PLCAIRO_debug("    cairo_path_t: %p  --->  term: 0x%lx", path, t);
 
   if ( path->status != CAIRO_STATUS_SUCCESS )
   { return plcairo_raise_error_status(path->status);
@@ -272,7 +272,7 @@ plcairo_term_to_path_data_type(term_t                  t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_path_data_type_t: %p", t, type);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_path_data_type_t: %p", t, type);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoPathDataType", t);
@@ -311,7 +311,7 @@ plcairo_path_data_type_to_term(cairo_path_data_type_t type,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_path_data_type_t: %d  --->  term: 0x%lx", type, t);
+  PLCAIRO_debug("    cairo_path_data_type_t: %d  --->  term: 0x%lx", type, t);
 
   if ( !ATOM_cairo_path_move_to )
   {

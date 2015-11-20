@@ -30,7 +30,7 @@ plcairo_term_to_font_slant(term_t              t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_font_slant_t: %p", t, slant);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_font_slant_t: %p", t, slant);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("cairo_font_slant_t", t);
@@ -65,7 +65,7 @@ plcairo_font_slant_to_term(cairo_font_slant_t slant,
 {
   atom_t a;
 
-  PLGI_debug("    cairo_font_slant_t: %d  --->  term: 0x%lx", slant, t);
+  PLCAIRO_debug("    cairo_font_slant_t: %d  --->  term: 0x%lx", slant, t);
 
   if ( !ATOM_cairo_font_slant_normal )
   {
@@ -101,7 +101,7 @@ plcairo_term_to_font_weight(term_t               t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_font_weight_t: %p", t, weight);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_font_weight_t: %p", t, weight);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("cairo_font_weight_t", t);
@@ -132,7 +132,7 @@ plcairo_font_weight_to_term(cairo_font_weight_t weight,
 {
   atom_t a;
 
-  PLGI_debug("    cairo_font_weight_t: %d  --->  term: 0x%lx", weight, t);
+  PLCAIRO_debug("    cairo_font_weight_t: %d  --->  term: 0x%lx", weight, t);
 
   if ( !ATOM_cairo_font_weight_normal )
   {
@@ -161,7 +161,7 @@ void plcairo_register_glyph_t(void)
   PLGIFieldInfo *field_info;
   int n_fields, offset;
 
-  PLGI_debug("registering struct: CairoGlyph");
+  PLCAIRO_debug("registering struct: CairoGlyph");
 
   n_fields = 3;
   offset = 0;
@@ -189,7 +189,7 @@ plcairo_term_to_glyph(term_t          t,
 {
   PLGIBlob *blob;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_glyph_t: %p", t, *glyph);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_glyph_t: %p", t, *glyph);
 
   if ( !plgi_get_blob(t, &blob) )
   { return PL_type_error("CairoGlyph", t);
@@ -212,7 +212,7 @@ plcairo_glyph_to_term(cairo_glyph_t *glyph,
   gpointer data;
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_glyph_t: %p  --->  term: 0x%lx", glyph, t);
+  PLCAIRO_debug("    cairo_glyph_t: %p  --->  term: 0x%lx", glyph, t);
 
   if ( !glyph )
   { return ( plgi_put_null(t0) && PL_unify(t, t0) );
@@ -237,7 +237,7 @@ void plcairo_register_text_cluster_t(void)
   PLGIFieldInfo *field_info;
   int n_fields, offset;
 
-  PLGI_debug("registering struct: CairoTextCluster");
+  PLCAIRO_debug("registering struct: CairoTextCluster");
 
   n_fields = 3;
   offset = 0;
@@ -264,7 +264,7 @@ plcairo_term_to_text_cluster(term_t                 t,
 {
   PLGIBlob *blob;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_text_cluster_t: %p", t, *text_cluster);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_text_cluster_t: %p", t, *text_cluster);
 
   if ( !plgi_get_blob(t, &blob) )
   { return PL_type_error("CairoGlyph", t);
@@ -287,7 +287,7 @@ plcairo_text_cluster_to_term(cairo_text_cluster_t *text_cluster,
   gpointer data;
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_text_cluster_t: %p  --->  term: 0x%lx", text_cluster, t);
+  PLCAIRO_debug("    cairo_text_cluster_t: %p  --->  term: 0x%lx", text_cluster, t);
 
   if ( !text_cluster )
   { return ( plgi_put_null(t0) && PL_unify(t, t0) );
@@ -316,7 +316,7 @@ plcairo_term_to_text_cluster_flags(term_t                      t,
   term_t head = PL_new_term_ref();
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_text_cluster_flags_t: %p", t, flags);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_text_cluster_flags_t: %p", t, flags);
 
   if ( !ATOM_cairo_text_cluster_flag_backward )
   {
@@ -349,7 +349,7 @@ cairo_bool_t
 plcairo_text_cluster_flags_to_term(cairo_text_cluster_flags_t flags,
                                    term_t                     t)
 {
-  PLGI_debug("    cairo_text_cluster_flags_t: %d  --->  term: 0x%lx", flags, t);
+  PLCAIRO_debug("    cairo_text_cluster_flags_t: %d  --->  term: 0x%lx", flags, t);
 
   if ( !ATOM_cairo_text_cluster_flag_backward )
   {

@@ -26,7 +26,7 @@ plcairo_term_to_pattern(term_t            t,
 {
   PLGIBlob *blob;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_pattern_t: %p", t, *pattern);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_pattern_t: %p", t, *pattern);
 
   if ( !plgi_get_blob(t, &blob) )
   { return PL_type_error("CairoPattern", t);
@@ -50,7 +50,7 @@ plcairo_pattern_to_term(cairo_pattern_t *pattern,
   gpointer data;
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_pattern_t: %p  --->  term: 0x%lx", pattern, t);
+  PLCAIRO_debug("    cairo_pattern_t: %p  --->  term: 0x%lx", pattern, t);
 
   if ( !pattern )
   { return ( plgi_put_null(t0) && PL_unify(t, t0) );
@@ -80,7 +80,7 @@ plcairo_term_to_extend(term_t          t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_extend_t: %p", t, extend);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_extend_t: %p", t, extend);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoExtend", t);
@@ -119,7 +119,7 @@ plcairo_extend_to_term(cairo_extend_t extend,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_extend_t: %d  --->  term: 0x%lx", extend, t);
+  PLCAIRO_debug("    cairo_extend_t: %d  --->  term: 0x%lx", extend, t);
 
   if ( !ATOM_cairo_extend_none )
   {
@@ -163,7 +163,7 @@ plcairo_term_to_filter(term_t          t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_filter_t: %p", t, filter);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_filter_t: %p", t, filter);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoFilter", t);
@@ -210,7 +210,7 @@ plcairo_filter_to_term(cairo_filter_t filter,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_filter_t: %d  --->  term: 0x%lx", filter, t);
+  PLCAIRO_debug("    cairo_filter_t: %d  --->  term: 0x%lx", filter, t);
 
   if ( !ATOM_cairo_filter_fast )
   {
@@ -262,7 +262,7 @@ plcairo_term_to_pattern_type(term_t                t,
 {
   atom_t a;
 
-  PLGI_debug("    term: 0x%lx  --->  cairo_pattern_type_t: %p", t, pattern_type);
+  PLCAIRO_debug("    term: 0x%lx  --->  cairo_pattern_type_t: %p", t, pattern_type);
 
   if ( !PL_get_atom(t, &a) )
   { return PL_type_error("CairoPatternType", t);
@@ -309,7 +309,7 @@ plcairo_pattern_type_to_term(cairo_pattern_type_t pattern_type,
 {
   term_t t0 = PL_new_term_ref();
 
-  PLGI_debug("    cairo_pattern_type_t: %d  --->  term: 0x%lx", pattern_type, t);
+  PLCAIRO_debug("    cairo_pattern_type_t: %d  --->  term: 0x%lx", pattern_type, t);
 
   if ( !ATOM_cairo_pattern_type_solid )
   {

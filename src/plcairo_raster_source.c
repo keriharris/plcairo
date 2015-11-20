@@ -23,7 +23,7 @@
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_pattern_create_raster_source)
+PLCAIRO_PRED_IMPL(plcairo_pattern_create_raster_source)
 {
   term_t t_content = FA0;
   term_t t_width = FA1;

@@ -325,7 +325,7 @@ plcairo_subpixel_order_to_term(cairo_subpixel_order_t subpixel_order,
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_font_options_create)
+PLCAIRO_PRED_IMPL(plcairo_font_options_create)
 {
   term_t t_options = FA0;
 
@@ -340,7 +340,7 @@ PLGI_PRED_IMPL(plcairo_font_options_create)
 }
 
 
-PLGI_PRED_IMPL(plcairo_font_options_equal)
+PLCAIRO_PRED_IMPL(plcairo_font_options_equal)
 {
   term_t t_options = FA0;
   term_t t_other = FA1;
@@ -362,7 +362,7 @@ PLGI_PRED_IMPL(plcairo_font_options_equal)
 }
 
 
-PLGI_PRED_IMPL(plcairo_font_options_get_antialias)
+PLCAIRO_PRED_IMPL(plcairo_font_options_get_antialias)
 {
   term_t t_options = FA0;
   term_t t_antialias = FA1;
@@ -381,7 +381,7 @@ PLGI_PRED_IMPL(plcairo_font_options_get_antialias)
 }
 
 
-PLGI_PRED_IMPL(plcairo_font_options_get_hint_metrics)
+PLCAIRO_PRED_IMPL(plcairo_font_options_get_hint_metrics)
 {
   term_t t_options = FA0;
   term_t t_hint_metrics = FA1;
@@ -400,7 +400,7 @@ PLGI_PRED_IMPL(plcairo_font_options_get_hint_metrics)
 }
 
 
-PLGI_PRED_IMPL(plcairo_font_options_get_hint_style)
+PLCAIRO_PRED_IMPL(plcairo_font_options_get_hint_style)
 {
   term_t t_options = FA0;
   term_t t_hint_style = FA1;
@@ -419,7 +419,7 @@ PLGI_PRED_IMPL(plcairo_font_options_get_hint_style)
 }
 
 
-PLGI_PRED_IMPL(plcairo_font_options_get_subpixel_order)
+PLCAIRO_PRED_IMPL(plcairo_font_options_get_subpixel_order)
 {
   term_t t_options = FA0;
   term_t t_subpixel_order = FA1;
@@ -438,7 +438,7 @@ PLGI_PRED_IMPL(plcairo_font_options_get_subpixel_order)
 }
 
 
-PLGI_PRED_IMPL(plcairo_font_options_hash)
+PLCAIRO_PRED_IMPL(plcairo_font_options_hash)
 {
   term_t t_options = FA0;
   term_t t_hash = FA1;
@@ -457,7 +457,7 @@ PLGI_PRED_IMPL(plcairo_font_options_hash)
 }
 
 
-PLGI_PRED_IMPL(plcairo_font_options_merge)
+PLCAIRO_PRED_IMPL(plcairo_font_options_merge)
 {
   term_t t_options = FA0;
   term_t t_other = FA1;
@@ -475,7 +475,7 @@ PLGI_PRED_IMPL(plcairo_font_options_merge)
 }
 
 
-PLGI_PRED_IMPL(plcairo_font_options_set_antialias)
+PLCAIRO_PRED_IMPL(plcairo_font_options_set_antialias)
 {
   term_t t_options = FA0;
   term_t t_antialias = FA1;
@@ -493,7 +493,7 @@ PLGI_PRED_IMPL(plcairo_font_options_set_antialias)
 }
 
 
-PLGI_PRED_IMPL(plcairo_font_options_set_hint_metrics)
+PLCAIRO_PRED_IMPL(plcairo_font_options_set_hint_metrics)
 {
   term_t t_options = FA0;
   term_t t_hint_metrics = FA1;
@@ -511,7 +511,7 @@ PLGI_PRED_IMPL(plcairo_font_options_set_hint_metrics)
 }
 
 
-PLGI_PRED_IMPL(plcairo_font_options_set_hint_style)
+PLCAIRO_PRED_IMPL(plcairo_font_options_set_hint_style)
 {
   term_t t_options = FA0;
   term_t t_hint_style = FA1;
@@ -529,7 +529,7 @@ PLGI_PRED_IMPL(plcairo_font_options_set_hint_style)
 }
 
 
-PLGI_PRED_IMPL(plcairo_font_options_set_subpixel_order)
+PLCAIRO_PRED_IMPL(plcairo_font_options_set_subpixel_order)
 {
   term_t t_options = FA0;
   term_t t_subpixel_order = FA1;

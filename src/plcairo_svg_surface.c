@@ -90,7 +90,7 @@ plcairo_svg_version_to_term(cairo_svg_version_t version,
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_svg_get_versions)
+PLCAIRO_PRED_IMPL(plcairo_svg_get_versions)
 {
   term_t t_versions = FA0;
 
@@ -122,7 +122,7 @@ PLGI_PRED_IMPL(plcairo_svg_get_versions)
 }
 
 
-PLGI_PRED_IMPL(plcairo_svg_surface_create)
+PLCAIRO_PRED_IMPL(plcairo_svg_surface_create)
 {
   term_t t_filename = FA0;
   term_t t_width_in_points = FA1;
@@ -146,7 +146,7 @@ PLGI_PRED_IMPL(plcairo_svg_surface_create)
 }
 
 
-PLGI_PRED_IMPL(plcairo_svg_surface_create_for_stream)
+PLCAIRO_PRED_IMPL(plcairo_svg_surface_create_for_stream)
 {
   term_t t_stream = FA0;
   term_t t_width_in_points = FA1;
@@ -170,7 +170,7 @@ PLGI_PRED_IMPL(plcairo_svg_surface_create_for_stream)
 }
 
 
-PLGI_PRED_IMPL(plcairo_svg_surface_restrict_to_version)
+PLCAIRO_PRED_IMPL(plcairo_svg_surface_restrict_to_version)
 {
   term_t t_surface = FA0;
   term_t t_version = FA1;
@@ -188,7 +188,7 @@ PLGI_PRED_IMPL(plcairo_svg_surface_restrict_to_version)
 }
 
 
-PLGI_PRED_IMPL(plcairo_svg_version_to_string)
+PLCAIRO_PRED_IMPL(plcairo_svg_version_to_string)
 {
   term_t t_version = FA0;
   term_t t_string = FA1;
@@ -207,23 +207,23 @@ PLGI_PRED_IMPL(plcairo_svg_version_to_string)
 
 #else
 
-PLGI_PRED_IMPL(plcairo_svg_get_versions)
+PLCAIRO_PRED_IMPL(plcairo_svg_get_versions)
 { return plgi_raise_error("cairo_svg_get_versions/1 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_svg_surface_create)
+PLCAIRO_PRED_IMPL(plcairo_svg_surface_create)
 { return plgi_raise_error("cairo_svg_surface_create/4 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_svg_surface_create_for_stream)
+PLCAIRO_PRED_IMPL(plcairo_svg_surface_create_for_stream)
 { return plgi_raise_error("cairo_svg_surface_create_for_stream/4 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_svg_surface_restrict_to_version)
+PLCAIRO_PRED_IMPL(plcairo_svg_surface_restrict_to_version)
 { return plgi_raise_error("cairo_svg_surface_restrict_to_version/2 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_svg_version_to_string)
+PLCAIRO_PRED_IMPL(plcairo_svg_version_to_string)
 { return plgi_raise_error("cairo_svg_version_to_string/2 not supported");
 }
 

@@ -199,7 +199,7 @@ plcairo_device_type_to_term(cairo_device_type_t device_type,
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_device_acquire)
+PLCAIRO_PRED_IMPL(plcairo_device_acquire)
 {
   term_t t_device = FA0;
 
@@ -218,7 +218,7 @@ PLGI_PRED_IMPL(plcairo_device_acquire)
 }
 
 
-PLGI_PRED_IMPL(plcairo_device_finish)
+PLCAIRO_PRED_IMPL(plcairo_device_finish)
 {
   term_t t_device = FA0;
 
@@ -233,7 +233,7 @@ PLGI_PRED_IMPL(plcairo_device_finish)
 }
 
 
-PLGI_PRED_IMPL(plcairo_device_flush)
+PLCAIRO_PRED_IMPL(plcairo_device_flush)
 {
   term_t t_device = FA0;
 
@@ -248,7 +248,7 @@ PLGI_PRED_IMPL(plcairo_device_flush)
 }
 
 
-PLGI_PRED_IMPL(plcairo_device_get_type)
+PLCAIRO_PRED_IMPL(plcairo_device_get_type)
 {
   term_t t_device = FA0;
   term_t t_device_type = FA1;
@@ -267,7 +267,7 @@ PLGI_PRED_IMPL(plcairo_device_get_type)
 }
 
 
-PLGI_PRED_IMPL(plcairo_device_observer_elapsed)
+PLCAIRO_PRED_IMPL(plcairo_device_observer_elapsed)
 {
   term_t t_device = FA0;
   term_t t_elapsed = FA1;
@@ -286,7 +286,7 @@ PLGI_PRED_IMPL(plcairo_device_observer_elapsed)
 }
 
 
-PLGI_PRED_IMPL(plcairo_device_observer_fill_elapsed)
+PLCAIRO_PRED_IMPL(plcairo_device_observer_fill_elapsed)
 {
   term_t t_device = FA0;
   term_t t_fill_elapsed = FA1;
@@ -305,7 +305,7 @@ PLGI_PRED_IMPL(plcairo_device_observer_fill_elapsed)
 }
 
 
-PLGI_PRED_IMPL(plcairo_device_observer_glyphs_elapsed)
+PLCAIRO_PRED_IMPL(plcairo_device_observer_glyphs_elapsed)
 {
   term_t t_device = FA0;
   term_t t_glyphs_elapsed = FA1;
@@ -324,7 +324,7 @@ PLGI_PRED_IMPL(plcairo_device_observer_glyphs_elapsed)
 }
 
 
-PLGI_PRED_IMPL(plcairo_device_observer_mask_elapsed)
+PLCAIRO_PRED_IMPL(plcairo_device_observer_mask_elapsed)
 {
   term_t t_device = FA0;
   term_t t_mask_elapsed = FA1;
@@ -343,7 +343,7 @@ PLGI_PRED_IMPL(plcairo_device_observer_mask_elapsed)
 }
 
 
-PLGI_PRED_IMPL(plcairo_device_observer_paint_elapsed)
+PLCAIRO_PRED_IMPL(plcairo_device_observer_paint_elapsed)
 {
   term_t t_device = FA0;
   term_t t_paint_elapsed = FA1;
@@ -362,7 +362,7 @@ PLGI_PRED_IMPL(plcairo_device_observer_paint_elapsed)
 }
 
 
-PLGI_PRED_IMPL(plcairo_device_observer_print)
+PLCAIRO_PRED_IMPL(plcairo_device_observer_print)
 {
   term_t t_device = FA0;
   term_t t_stream = FA1;
@@ -380,7 +380,7 @@ PLGI_PRED_IMPL(plcairo_device_observer_print)
 }
 
 
-PLGI_PRED_IMPL(plcairo_device_observer_stroke_elapsed)
+PLCAIRO_PRED_IMPL(plcairo_device_observer_stroke_elapsed)
 {
   term_t t_device = FA0;
   term_t t_stroke_elapsed = FA1;
@@ -399,7 +399,7 @@ PLGI_PRED_IMPL(plcairo_device_observer_stroke_elapsed)
 }
 
 
-PLGI_PRED_IMPL(plcairo_device_release)
+PLCAIRO_PRED_IMPL(plcairo_device_release)
 {
   term_t t_device = FA0;
 

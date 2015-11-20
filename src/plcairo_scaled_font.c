@@ -230,7 +230,7 @@ plcairo_text_extents_to_term(cairo_text_extents_t *extents,
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_scaled_font_create)
+PLCAIRO_PRED_IMPL(plcairo_scaled_font_create)
 {
   term_t t_font_face = FA0;
   term_t t_font_matrix = FA1;
@@ -258,7 +258,7 @@ PLGI_PRED_IMPL(plcairo_scaled_font_create)
 }
 
 
-PLGI_PRED_IMPL(plcairo_scaled_font_extents)
+PLCAIRO_PRED_IMPL(plcairo_scaled_font_extents)
 {
   term_t t_scaled_font = FA0;
   term_t t_extents = FA1;
@@ -277,7 +277,7 @@ PLGI_PRED_IMPL(plcairo_scaled_font_extents)
 }
 
 
-PLGI_PRED_IMPL(plcairo_scaled_font_get_ctm)
+PLCAIRO_PRED_IMPL(plcairo_scaled_font_get_ctm)
 {
   term_t t_scaled_font = FA0;
   term_t t_ctm = FA1;
@@ -296,7 +296,7 @@ PLGI_PRED_IMPL(plcairo_scaled_font_get_ctm)
 }
 
 
-PLGI_PRED_IMPL(plcairo_scaled_font_get_font_face)
+PLCAIRO_PRED_IMPL(plcairo_scaled_font_get_font_face)
 {
   term_t t_scaled_font = FA0;
   term_t t_font_face = FA1;
@@ -315,7 +315,7 @@ PLGI_PRED_IMPL(plcairo_scaled_font_get_font_face)
 }
 
 
-PLGI_PRED_IMPL(plcairo_scaled_font_get_font_matrix)
+PLCAIRO_PRED_IMPL(plcairo_scaled_font_get_font_matrix)
 {
   term_t t_scaled_font = FA0;
   term_t t_font_matrix = FA1;
@@ -334,7 +334,7 @@ PLGI_PRED_IMPL(plcairo_scaled_font_get_font_matrix)
 }
 
 
-PLGI_PRED_IMPL(plcairo_scaled_font_get_font_options)
+PLCAIRO_PRED_IMPL(plcairo_scaled_font_get_font_options)
 {
   term_t t_scaled_font = FA0;
   term_t t_font_options = FA1;
@@ -354,7 +354,7 @@ PLGI_PRED_IMPL(plcairo_scaled_font_get_font_options)
 }
 
 
-PLGI_PRED_IMPL(plcairo_scaled_font_get_scale_matrix)
+PLCAIRO_PRED_IMPL(plcairo_scaled_font_get_scale_matrix)
 {
   term_t t_scaled_font = FA0;
   term_t t_scale_matrix = FA1;
@@ -373,7 +373,7 @@ PLGI_PRED_IMPL(plcairo_scaled_font_get_scale_matrix)
 }
 
 
-PLGI_PRED_IMPL(plcairo_scaled_font_get_type)
+PLCAIRO_PRED_IMPL(plcairo_scaled_font_get_type)
 {
   term_t t_scaled_font = FA0;
   term_t t_font_type = FA1;
@@ -392,7 +392,7 @@ PLGI_PRED_IMPL(plcairo_scaled_font_get_type)
 }
 
 
-PLGI_PRED_IMPL(plcairo_scaled_font_glyph_extents)
+PLCAIRO_PRED_IMPL(plcairo_scaled_font_glyph_extents)
 {
   term_t t_scaled_font = FA0;
   term_t t_glyphs = FA1;
@@ -434,7 +434,7 @@ PLGI_PRED_IMPL(plcairo_scaled_font_glyph_extents)
 }
 
 
-PLGI_PRED_IMPL(plcairo_scaled_font_text_extents)
+PLCAIRO_PRED_IMPL(plcairo_scaled_font_text_extents)
 {
   term_t t_scaled_font = FA0;
   term_t t_text = FA1;
@@ -456,7 +456,7 @@ PLGI_PRED_IMPL(plcairo_scaled_font_text_extents)
 }
 
 
-PLGI_PRED_IMPL(plcairo_scaled_font_text_to_glyphs)
+PLCAIRO_PRED_IMPL(plcairo_scaled_font_text_to_glyphs)
 {
   term_t t_scaled_font = FA0;
   term_t t_x = FA1;

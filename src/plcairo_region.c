@@ -223,7 +223,7 @@ plcairo_rectangle_int_to_term(cairo_rectangle_int_t *rectangle,
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_region_contains_point)
+PLCAIRO_PRED_IMPL(plcairo_region_contains_point)
 {
   term_t t_region = FA0;
   term_t t_x = FA1;
@@ -244,7 +244,7 @@ PLGI_PRED_IMPL(plcairo_region_contains_point)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_contains_rectangle)
+PLCAIRO_PRED_IMPL(plcairo_region_contains_rectangle)
 {
   term_t t_region = FA0;
   term_t t_rectangle = FA1;
@@ -266,7 +266,7 @@ PLGI_PRED_IMPL(plcairo_region_contains_rectangle)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_create)
+PLCAIRO_PRED_IMPL(plcairo_region_create)
 {
   term_t t_region = FA0;
 
@@ -281,7 +281,7 @@ PLGI_PRED_IMPL(plcairo_region_create)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_create_rectangle)
+PLCAIRO_PRED_IMPL(plcairo_region_create_rectangle)
 {
   term_t t_rectangle = FA0;
   term_t t_region = FA1;
@@ -300,7 +300,7 @@ PLGI_PRED_IMPL(plcairo_region_create_rectangle)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_create_rectangles)
+PLCAIRO_PRED_IMPL(plcairo_region_create_rectangles)
 {
   term_t t_rectangles = FA0;
   term_t t_region = FA1;
@@ -339,7 +339,7 @@ PLGI_PRED_IMPL(plcairo_region_create_rectangles)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_equal)
+PLCAIRO_PRED_IMPL(plcairo_region_equal)
 {
   term_t t_a = FA0;
   term_t t_b = FA1;
@@ -358,7 +358,7 @@ PLGI_PRED_IMPL(plcairo_region_equal)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_get_extents)
+PLCAIRO_PRED_IMPL(plcairo_region_get_extents)
 {
   term_t t_region = FA0;
   term_t t_extents = FA1;
@@ -377,7 +377,7 @@ PLGI_PRED_IMPL(plcairo_region_get_extents)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_get_rectangle)
+PLCAIRO_PRED_IMPL(plcairo_region_get_rectangle)
 {
   term_t t_region = FA0;
   term_t t_nth = FA1;
@@ -399,7 +399,7 @@ PLGI_PRED_IMPL(plcairo_region_get_rectangle)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_intersect)
+PLCAIRO_PRED_IMPL(plcairo_region_intersect)
 {
   term_t t_dst = FA0;
   term_t t_other = FA2;
@@ -420,7 +420,7 @@ PLGI_PRED_IMPL(plcairo_region_intersect)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_intersect_rectangle)
+PLCAIRO_PRED_IMPL(plcairo_region_intersect_rectangle)
 {
   term_t t_dst = FA0;
   term_t t_rectangle = FA2;
@@ -442,7 +442,7 @@ PLGI_PRED_IMPL(plcairo_region_intersect_rectangle)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_is_empty)
+PLCAIRO_PRED_IMPL(plcairo_region_is_empty)
 {
   term_t t_region = FA0;
 
@@ -458,7 +458,7 @@ PLGI_PRED_IMPL(plcairo_region_is_empty)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_num_rectangles)
+PLCAIRO_PRED_IMPL(plcairo_region_num_rectangles)
 {
   term_t t_region = FA0;
   term_t t_num_rectangles = FA1;
@@ -477,7 +477,7 @@ PLGI_PRED_IMPL(plcairo_region_num_rectangles)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_subtract)
+PLCAIRO_PRED_IMPL(plcairo_region_subtract)
 {
   term_t t_dst = FA0;
   term_t t_other = FA2;
@@ -498,7 +498,7 @@ PLGI_PRED_IMPL(plcairo_region_subtract)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_subtract_rectangle)
+PLCAIRO_PRED_IMPL(plcairo_region_subtract_rectangle)
 {
   term_t t_dst = FA0;
   term_t t_rectangle = FA2;
@@ -520,7 +520,7 @@ PLGI_PRED_IMPL(plcairo_region_subtract_rectangle)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_translate)
+PLCAIRO_PRED_IMPL(plcairo_region_translate)
 {
   term_t t_region = FA0;
   term_t t_dx = FA1;
@@ -540,7 +540,7 @@ PLGI_PRED_IMPL(plcairo_region_translate)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_union)
+PLCAIRO_PRED_IMPL(plcairo_region_union)
 {
   term_t t_dst = FA0;
   term_t t_other = FA2;
@@ -561,7 +561,7 @@ PLGI_PRED_IMPL(plcairo_region_union)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_union_rectangle)
+PLCAIRO_PRED_IMPL(plcairo_region_union_rectangle)
 {
   term_t t_dst = FA0;
   term_t t_rectangle = FA2;
@@ -583,7 +583,7 @@ PLGI_PRED_IMPL(plcairo_region_union_rectangle)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_xor)
+PLCAIRO_PRED_IMPL(plcairo_region_xor)
 {
   term_t t_dst = FA0;
   term_t t_other = FA2;
@@ -604,7 +604,7 @@ PLGI_PRED_IMPL(plcairo_region_xor)
 }
 
 
-PLGI_PRED_IMPL(plcairo_region_xor_rectangle)
+PLCAIRO_PRED_IMPL(plcairo_region_xor_rectangle)
 {
   term_t t_dst = FA0;
   term_t t_rectangle = FA2;

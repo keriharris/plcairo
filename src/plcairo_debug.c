@@ -40,7 +40,7 @@ int plgi_exit_debug(int status, void *arg)
                  *      Foreign Predicates      *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_debug)
+PLCAIRO_PRED_IMPL(plcairo_debug)
 {
   term_t t = FA0;
 

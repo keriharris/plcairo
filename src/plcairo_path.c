@@ -32,7 +32,7 @@ cairo_term_to_path_data_point(term_t t_point, cairo_path_data_t *data)
   term_t t_y = PL_new_term_ref();
   double x, y;
   atom_t a;
-  int arity;
+  size_t arity;
 
   atom_t ATOM_comma = PL_new_atom(",");
 
@@ -346,7 +346,7 @@ plcairo_path_data_type_to_term(cairo_path_data_type_t type,
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_append_path)
+PLCAIRO_PRED_IMPL(plcairo_append_path)
 {
   term_t t_cr = FA0;
   term_t t_path = FA1;
@@ -363,7 +363,7 @@ PLGI_PRED_IMPL(plcairo_append_path)
   return TRUE;
 }
 
-PLGI_PRED_IMPL(plcairo_arc)
+PLCAIRO_PRED_IMPL(plcairo_arc)
 {
   term_t t_cr = FA0;
   term_t t_xc = FA1;
@@ -389,7 +389,7 @@ PLGI_PRED_IMPL(plcairo_arc)
 }
 
 
-PLGI_PRED_IMPL(plcairo_arc_negative)
+PLCAIRO_PRED_IMPL(plcairo_arc_negative)
 {
   term_t t_cr = FA0;
   term_t t_xc = FA1;
@@ -415,7 +415,7 @@ PLGI_PRED_IMPL(plcairo_arc_negative)
 }
 
 
-PLGI_PRED_IMPL(plcairo_close_path)
+PLCAIRO_PRED_IMPL(plcairo_close_path)
 {
   term_t t_cr = FA0;
 
@@ -430,7 +430,7 @@ PLGI_PRED_IMPL(plcairo_close_path)
 }
 
 
-PLGI_PRED_IMPL(plcairo_copy_path)
+PLCAIRO_PRED_IMPL(plcairo_copy_path)
 {
   term_t t_cr = FA0;
   term_t t_path = FA1;
@@ -449,7 +449,7 @@ PLGI_PRED_IMPL(plcairo_copy_path)
 }
 
 
-PLGI_PRED_IMPL(plcairo_copy_path_flat)
+PLCAIRO_PRED_IMPL(plcairo_copy_path_flat)
 {
   term_t t_cr = FA0;
   term_t t_path = FA1;
@@ -468,7 +468,7 @@ PLGI_PRED_IMPL(plcairo_copy_path_flat)
 }
 
 
-PLGI_PRED_IMPL(plcairo_curve_to)
+PLCAIRO_PRED_IMPL(plcairo_curve_to)
 {
   term_t t_cr = FA0;
   term_t t_x1 = FA1;
@@ -496,7 +496,7 @@ PLGI_PRED_IMPL(plcairo_curve_to)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_current_point)
+PLCAIRO_PRED_IMPL(plcairo_get_current_point)
 {
   term_t t_cr = FA0;
   term_t t_x = FA1;
@@ -517,7 +517,7 @@ PLGI_PRED_IMPL(plcairo_get_current_point)
 }
 
 
-PLGI_PRED_IMPL(plcairo_glyph_path)
+PLCAIRO_PRED_IMPL(plcairo_glyph_path)
 {
   term_t t_cr = FA0;
   term_t t_glyphs = FA1;
@@ -554,7 +554,7 @@ PLGI_PRED_IMPL(plcairo_glyph_path)
 }
 
 
-PLGI_PRED_IMPL(plcairo_has_current_point)
+PLCAIRO_PRED_IMPL(plcairo_has_current_point)
 {
   term_t t_cr = FA0;
 
@@ -570,7 +570,7 @@ PLGI_PRED_IMPL(plcairo_has_current_point)
 }
 
 
-PLGI_PRED_IMPL(plcairo_line_to)
+PLCAIRO_PRED_IMPL(plcairo_line_to)
 {
   term_t t_cr = FA0;
   term_t t_x = FA1;
@@ -590,7 +590,7 @@ PLGI_PRED_IMPL(plcairo_line_to)
 }
 
 
-PLGI_PRED_IMPL(plcairo_move_to)
+PLCAIRO_PRED_IMPL(plcairo_move_to)
 {
   term_t t_cr = FA0;
   term_t t_x = FA1;
@@ -610,7 +610,7 @@ PLGI_PRED_IMPL(plcairo_move_to)
 }
 
 
-PLGI_PRED_IMPL(plcairo_new_path)
+PLCAIRO_PRED_IMPL(plcairo_new_path)
 {
   term_t t_cr = FA0;
 
@@ -625,7 +625,7 @@ PLGI_PRED_IMPL(plcairo_new_path)
 }
 
 
-PLGI_PRED_IMPL(plcairo_new_sub_path)
+PLCAIRO_PRED_IMPL(plcairo_new_sub_path)
 {
   term_t t_cr = FA0;
 
@@ -640,7 +640,7 @@ PLGI_PRED_IMPL(plcairo_new_sub_path)
 }
 
 
-PLGI_PRED_IMPL(plcairo_path_extents)
+PLCAIRO_PRED_IMPL(plcairo_path_extents)
 {
   term_t t_cr = FA0;
   term_t t_x1 = FA1;
@@ -665,7 +665,7 @@ PLGI_PRED_IMPL(plcairo_path_extents)
 }
 
 
-PLGI_PRED_IMPL(plcairo_rectangle)
+PLCAIRO_PRED_IMPL(plcairo_rectangle)
 {
   term_t t_cr = FA0;
   term_t t_x = FA1;
@@ -689,7 +689,7 @@ PLGI_PRED_IMPL(plcairo_rectangle)
 }
 
 
-PLGI_PRED_IMPL(plcairo_rel_curve_to)
+PLCAIRO_PRED_IMPL(plcairo_rel_curve_to)
 {
   term_t t_cr = FA0;
   term_t t_dx1 = FA1;
@@ -717,7 +717,7 @@ PLGI_PRED_IMPL(plcairo_rel_curve_to)
 }
 
 
-PLGI_PRED_IMPL(plcairo_rel_line_to)
+PLCAIRO_PRED_IMPL(plcairo_rel_line_to)
 {
   term_t t_cr = FA0;
   term_t t_dx = FA1;
@@ -737,7 +737,7 @@ PLGI_PRED_IMPL(plcairo_rel_line_to)
 }
 
 
-PLGI_PRED_IMPL(plcairo_rel_move_to)
+PLCAIRO_PRED_IMPL(plcairo_rel_move_to)
 {
   term_t t_cr = FA0;
   term_t t_dx = FA1;
@@ -757,7 +757,7 @@ PLGI_PRED_IMPL(plcairo_rel_move_to)
 }
 
 
-PLGI_PRED_IMPL(plcairo_text_path)
+PLCAIRO_PRED_IMPL(plcairo_text_path)
 {
   term_t t_cr = FA0;
   term_t t_text = FA1;

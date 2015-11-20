@@ -844,7 +844,7 @@ plcairo_rectangle_list_to_term(cairo_rectangle_list_t *rectangle_list,
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_clip)
+PLCAIRO_PRED_IMPL(plcairo_clip)
 {
   term_t t_cr = FA0;
 
@@ -859,7 +859,7 @@ PLGI_PRED_IMPL(plcairo_clip)
 }
 
 
-PLGI_PRED_IMPL(plcairo_clip_extents)
+PLCAIRO_PRED_IMPL(plcairo_clip_extents)
 {
   term_t t_cr = FA0;
   term_t t_x1 = FA1;
@@ -884,7 +884,7 @@ PLGI_PRED_IMPL(plcairo_clip_extents)
 }
 
 
-PLGI_PRED_IMPL(plcairo_clip_preserve)
+PLCAIRO_PRED_IMPL(plcairo_clip_preserve)
 {
   term_t t_cr = FA0;
 
@@ -899,7 +899,7 @@ PLGI_PRED_IMPL(plcairo_clip_preserve)
 }
 
 
-PLGI_PRED_IMPL(plcairo_copy_clip_rectangle_list)
+PLCAIRO_PRED_IMPL(plcairo_copy_clip_rectangle_list)
 {
   term_t t_cr = FA0;
   term_t t_rectangle_list = FA1;
@@ -918,7 +918,7 @@ PLGI_PRED_IMPL(plcairo_copy_clip_rectangle_list)
 }
 
 
-PLGI_PRED_IMPL(plcairo_copy_page)
+PLCAIRO_PRED_IMPL(plcairo_copy_page)
 {
   term_t t_cr = FA0;
 
@@ -933,7 +933,7 @@ PLGI_PRED_IMPL(plcairo_copy_page)
 }
 
 
-PLGI_PRED_IMPL(plcairo_create)
+PLCAIRO_PRED_IMPL(plcairo_create)
 {
   term_t t_target = FA0;
   term_t t_cr = FA1;
@@ -952,7 +952,7 @@ PLGI_PRED_IMPL(plcairo_create)
 }
 
 
-PLGI_PRED_IMPL(plcairo_fill)
+PLCAIRO_PRED_IMPL(plcairo_fill)
 {
   term_t t_cr = FA0;
 
@@ -967,7 +967,7 @@ PLGI_PRED_IMPL(plcairo_fill)
 }
 
 
-PLGI_PRED_IMPL(plcairo_fill_extents)
+PLCAIRO_PRED_IMPL(plcairo_fill_extents)
 {
   term_t t_cr = FA0;
   term_t t_x1 = FA1;
@@ -992,7 +992,7 @@ PLGI_PRED_IMPL(plcairo_fill_extents)
 }
 
 
-PLGI_PRED_IMPL(plcairo_fill_preserve)
+PLCAIRO_PRED_IMPL(plcairo_fill_preserve)
 {
   term_t t_cr = FA0;
 
@@ -1007,7 +1007,7 @@ PLGI_PRED_IMPL(plcairo_fill_preserve)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_antialias)
+PLCAIRO_PRED_IMPL(plcairo_get_antialias)
 {
   term_t t_cr = FA0;
   term_t t_antialias = FA1;
@@ -1026,7 +1026,7 @@ PLGI_PRED_IMPL(plcairo_get_antialias)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_dash)
+PLCAIRO_PRED_IMPL(plcairo_get_dash)
 {
   term_t t_cr = FA0;
   term_t t_dashes = FA1;
@@ -1070,7 +1070,7 @@ PLGI_PRED_IMPL(plcairo_get_dash)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_dash_count)
+PLCAIRO_PRED_IMPL(plcairo_get_dash_count)
 {
   term_t t_cr = FA0;
   term_t t_dash_count = FA1;
@@ -1089,7 +1089,7 @@ PLGI_PRED_IMPL(plcairo_get_dash_count)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_fill_rule)
+PLCAIRO_PRED_IMPL(plcairo_get_fill_rule)
 {
   term_t t_cr = FA0;
   term_t t_fill_rule = FA1;
@@ -1108,7 +1108,7 @@ PLGI_PRED_IMPL(plcairo_get_fill_rule)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_group_target)
+PLCAIRO_PRED_IMPL(plcairo_get_group_target)
 {
   term_t t_cr = FA0;
   term_t t_surface = FA1;
@@ -1127,7 +1127,7 @@ PLGI_PRED_IMPL(plcairo_get_group_target)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_line_cap)
+PLCAIRO_PRED_IMPL(plcairo_get_line_cap)
 {
   term_t t_cr = FA0;
   term_t t_line_cap = FA1;
@@ -1146,7 +1146,7 @@ PLGI_PRED_IMPL(plcairo_get_line_cap)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_line_join)
+PLCAIRO_PRED_IMPL(plcairo_get_line_join)
 {
   term_t t_cr = FA0;
   term_t t_line_join = FA1;
@@ -1165,7 +1165,7 @@ PLGI_PRED_IMPL(plcairo_get_line_join)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_line_width)
+PLCAIRO_PRED_IMPL(plcairo_get_line_width)
 {
   term_t t_cr = FA0;
   term_t t_width = FA1;
@@ -1184,7 +1184,7 @@ PLGI_PRED_IMPL(plcairo_get_line_width)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_miter_limit)
+PLCAIRO_PRED_IMPL(plcairo_get_miter_limit)
 {
   term_t t_cr = FA0;
   term_t t_limit = FA1;
@@ -1203,7 +1203,7 @@ PLGI_PRED_IMPL(plcairo_get_miter_limit)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_operator)
+PLCAIRO_PRED_IMPL(plcairo_get_operator)
 {
   term_t t_cr = FA0;
   term_t t_op = FA1;
@@ -1222,7 +1222,7 @@ PLGI_PRED_IMPL(plcairo_get_operator)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_source)
+PLCAIRO_PRED_IMPL(plcairo_get_source)
 {
   term_t t_cr = FA0;
   term_t t_pattern = FA1;
@@ -1241,7 +1241,7 @@ PLGI_PRED_IMPL(plcairo_get_source)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_target)
+PLCAIRO_PRED_IMPL(plcairo_get_target)
 {
   term_t t_cr = FA0;
   term_t t_surface = FA1;
@@ -1260,7 +1260,7 @@ PLGI_PRED_IMPL(plcairo_get_target)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_tolerance)
+PLCAIRO_PRED_IMPL(plcairo_get_tolerance)
 {
   term_t t_cr = FA0;
   term_t t_tolerance = FA1;
@@ -1279,7 +1279,7 @@ PLGI_PRED_IMPL(plcairo_get_tolerance)
 }
 
 
-PLGI_PRED_IMPL(plcairo_in_clip)
+PLCAIRO_PRED_IMPL(plcairo_in_clip)
 {
   term_t t_cr = FA0;
   term_t t_x = FA1;
@@ -1300,7 +1300,7 @@ PLGI_PRED_IMPL(plcairo_in_clip)
 }
 
 
-PLGI_PRED_IMPL(plcairo_in_fill)
+PLCAIRO_PRED_IMPL(plcairo_in_fill)
 {
   term_t t_cr = FA0;
   term_t t_x = FA1;
@@ -1321,7 +1321,7 @@ PLGI_PRED_IMPL(plcairo_in_fill)
 }
 
 
-PLGI_PRED_IMPL(plcairo_in_stroke)
+PLCAIRO_PRED_IMPL(plcairo_in_stroke)
 {
   term_t t_cr = FA0;
   term_t t_x = FA1;
@@ -1342,7 +1342,7 @@ PLGI_PRED_IMPL(plcairo_in_stroke)
 }
 
 
-PLGI_PRED_IMPL(plcairo_mask)
+PLCAIRO_PRED_IMPL(plcairo_mask)
 {
   term_t t_cr = FA0;
   term_t t_pattern = FA1;
@@ -1360,7 +1360,7 @@ PLGI_PRED_IMPL(plcairo_mask)
 }
 
 
-PLGI_PRED_IMPL(plcairo_mask_surface)
+PLCAIRO_PRED_IMPL(plcairo_mask_surface)
 {
   term_t t_cr = FA0;
   term_t t_surface = FA1;
@@ -1383,7 +1383,7 @@ PLGI_PRED_IMPL(plcairo_mask_surface)
 }
 
 
-PLGI_PRED_IMPL(plcairo_paint)
+PLCAIRO_PRED_IMPL(plcairo_paint)
 {
   term_t t_cr = FA0;
 
@@ -1398,7 +1398,7 @@ PLGI_PRED_IMPL(plcairo_paint)
 }
 
 
-PLGI_PRED_IMPL(plcairo_paint_with_alpha)
+PLCAIRO_PRED_IMPL(plcairo_paint_with_alpha)
 {
   term_t t_cr = FA0;
   term_t t_alpha = FA1;
@@ -1416,7 +1416,7 @@ PLGI_PRED_IMPL(plcairo_paint_with_alpha)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pop_group)
+PLCAIRO_PRED_IMPL(plcairo_pop_group)
 {
   term_t t_cr = FA0;
   term_t t_pattern = FA1;
@@ -1435,7 +1435,7 @@ PLGI_PRED_IMPL(plcairo_pop_group)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pop_group_to_source)
+PLCAIRO_PRED_IMPL(plcairo_pop_group_to_source)
 {
   term_t t_cr = FA0;
 
@@ -1450,7 +1450,7 @@ PLGI_PRED_IMPL(plcairo_pop_group_to_source)
 }
 
 
-PLGI_PRED_IMPL(plcairo_push_group)
+PLCAIRO_PRED_IMPL(plcairo_push_group)
 {
   term_t t_cr = FA0;
 
@@ -1465,7 +1465,7 @@ PLGI_PRED_IMPL(plcairo_push_group)
 }
 
 
-PLGI_PRED_IMPL(plcairo_push_group_with_content)
+PLCAIRO_PRED_IMPL(plcairo_push_group_with_content)
 {
   term_t t_cr = FA0;
   term_t t_content = FA1;
@@ -1483,7 +1483,7 @@ PLGI_PRED_IMPL(plcairo_push_group_with_content)
 }
 
 
-PLGI_PRED_IMPL(plcairo_reset_clip)
+PLCAIRO_PRED_IMPL(plcairo_reset_clip)
 {
   term_t t_cr = FA0;
 
@@ -1498,7 +1498,7 @@ PLGI_PRED_IMPL(plcairo_reset_clip)
 }
 
 
-PLGI_PRED_IMPL(plcairo_restore)
+PLCAIRO_PRED_IMPL(plcairo_restore)
 {
   term_t t_cr = FA0;
 
@@ -1513,7 +1513,7 @@ PLGI_PRED_IMPL(plcairo_restore)
 }
 
 
-PLGI_PRED_IMPL(plcairo_save)
+PLCAIRO_PRED_IMPL(plcairo_save)
 {
   term_t t_cr = FA0;
 
@@ -1528,7 +1528,7 @@ PLGI_PRED_IMPL(plcairo_save)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_antialias)
+PLCAIRO_PRED_IMPL(plcairo_set_antialias)
 {
   term_t t_cr = FA0;
   term_t t_antialias = FA1;
@@ -1546,7 +1546,7 @@ PLGI_PRED_IMPL(plcairo_set_antialias)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_dash)
+PLCAIRO_PRED_IMPL(plcairo_set_dash)
 {
   term_t t_cr = FA0;
   term_t t_dashes = FA1;
@@ -1586,7 +1586,7 @@ PLGI_PRED_IMPL(plcairo_set_dash)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_fill_rule)
+PLCAIRO_PRED_IMPL(plcairo_set_fill_rule)
 {
   term_t t_cr = FA0;
   term_t t_fill_rule = FA1;
@@ -1604,7 +1604,7 @@ PLGI_PRED_IMPL(plcairo_set_fill_rule)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_line_cap)
+PLCAIRO_PRED_IMPL(plcairo_set_line_cap)
 {
   term_t t_cr = FA0;
   term_t t_line_cap = FA1;
@@ -1622,7 +1622,7 @@ PLGI_PRED_IMPL(plcairo_set_line_cap)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_line_join)
+PLCAIRO_PRED_IMPL(plcairo_set_line_join)
 {
   term_t t_cr = FA0;
   term_t t_line_join = FA1;
@@ -1640,7 +1640,7 @@ PLGI_PRED_IMPL(plcairo_set_line_join)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_line_width)
+PLCAIRO_PRED_IMPL(plcairo_set_line_width)
 {
   term_t t_cr = FA0;
   term_t t_width = FA1;
@@ -1658,7 +1658,7 @@ PLGI_PRED_IMPL(plcairo_set_line_width)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_miter_limit)
+PLCAIRO_PRED_IMPL(plcairo_set_miter_limit)
 {
   term_t t_cr = FA0;
   term_t t_limit = FA1;
@@ -1676,7 +1676,7 @@ PLGI_PRED_IMPL(plcairo_set_miter_limit)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_operator)
+PLCAIRO_PRED_IMPL(plcairo_set_operator)
 {
   term_t t_cr = FA0;
   term_t t_op = FA1;
@@ -1694,7 +1694,7 @@ PLGI_PRED_IMPL(plcairo_set_operator)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_source)
+PLCAIRO_PRED_IMPL(plcairo_set_source)
 {
   term_t t_cr = FA0;
   term_t t_pattern = FA1;
@@ -1712,7 +1712,7 @@ PLGI_PRED_IMPL(plcairo_set_source)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_source_rgb)
+PLCAIRO_PRED_IMPL(plcairo_set_source_rgb)
 {
   term_t t_cr = FA0;
   term_t t_red = FA1;
@@ -1734,7 +1734,7 @@ PLGI_PRED_IMPL(plcairo_set_source_rgb)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_source_rgba)
+PLCAIRO_PRED_IMPL(plcairo_set_source_rgba)
 {
   term_t t_cr = FA0;
   term_t t_red = FA1;
@@ -1758,7 +1758,7 @@ PLGI_PRED_IMPL(plcairo_set_source_rgba)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_source_surface)
+PLCAIRO_PRED_IMPL(plcairo_set_source_surface)
 {
   term_t t_cr = FA0;
   term_t t_surface = FA1;
@@ -1781,7 +1781,7 @@ PLGI_PRED_IMPL(plcairo_set_source_surface)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_tolerance)
+PLCAIRO_PRED_IMPL(plcairo_set_tolerance)
 {
   term_t t_cr = FA0;
   term_t t_tolerance = FA1;
@@ -1799,7 +1799,7 @@ PLGI_PRED_IMPL(plcairo_set_tolerance)
 }
 
 
-PLGI_PRED_IMPL(plcairo_show_page)
+PLCAIRO_PRED_IMPL(plcairo_show_page)
 {
   term_t t_cr = FA0;
 
@@ -1814,7 +1814,7 @@ PLGI_PRED_IMPL(plcairo_show_page)
 }
 
 
-PLGI_PRED_IMPL(plcairo_stroke)
+PLCAIRO_PRED_IMPL(plcairo_stroke)
 {
   term_t t_cr = FA0;
 
@@ -1829,7 +1829,7 @@ PLGI_PRED_IMPL(plcairo_stroke)
 }
 
 
-PLGI_PRED_IMPL(plcairo_stroke_extents)
+PLCAIRO_PRED_IMPL(plcairo_stroke_extents)
 {
   term_t t_cr = FA0;
   term_t t_x1 = FA1;
@@ -1854,7 +1854,7 @@ PLGI_PRED_IMPL(plcairo_stroke_extents)
 }
 
 
-PLGI_PRED_IMPL(plcairo_stroke_preserve)
+PLCAIRO_PRED_IMPL(plcairo_stroke_preserve)
 {
   term_t t_cr = FA0;
 

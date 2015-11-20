@@ -25,7 +25,7 @@
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_recording_surface_create)
+PLCAIRO_PRED_IMPL(plcairo_recording_surface_create)
 {
   term_t t_content = FA0;
   term_t t_extents = FA1;
@@ -47,7 +47,7 @@ PLGI_PRED_IMPL(plcairo_recording_surface_create)
 }
 
 
-PLGI_PRED_IMPL(plcairo_recording_surface_get_extents)
+PLCAIRO_PRED_IMPL(plcairo_recording_surface_get_extents)
 {
   term_t t_surface = FA0;
   term_t t_extents = FA1;
@@ -67,7 +67,7 @@ PLGI_PRED_IMPL(plcairo_recording_surface_get_extents)
 }
 
 
-PLGI_PRED_IMPL(plcairo_recording_surface_ink_extents)
+PLCAIRO_PRED_IMPL(plcairo_recording_surface_ink_extents)
 {
   term_t t_surface = FA0;
   term_t t_x0 = FA1;
@@ -92,15 +92,15 @@ PLGI_PRED_IMPL(plcairo_recording_surface_ink_extents)
 
 #else
 
-PLGI_PRED_IMPL(plcairo_recording_surface_create)
+PLCAIRO_PRED_IMPL(plcairo_recording_surface_create)
 { return plgi_raise_error("cairo_recording_surface_create/3 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_recording_surface_get_extents)
+PLCAIRO_PRED_IMPL(plcairo_recording_surface_get_extents)
 { return plgi_raise_error("cairo_recording_surface_get_extents/2 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_recording_surface_ink_extents)
+PLCAIRO_PRED_IMPL(plcairo_recording_surface_ink_extents)
 { return plgi_raise_error("cairo_recording_surface_ink_extents/5 not supported");
 }
 

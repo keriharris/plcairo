@@ -90,7 +90,7 @@ plcairo_script_mode_to_term(cairo_script_mode_t mode,
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_script_create)
+PLCAIRO_PRED_IMPL(plcairo_script_create)
 {
   term_t t_filename = FA0;
   term_t t_device = FA1;
@@ -109,7 +109,7 @@ PLGI_PRED_IMPL(plcairo_script_create)
 }
 
 
-PLGI_PRED_IMPL(plcairo_script_create_for_stream)
+PLCAIRO_PRED_IMPL(plcairo_script_create_for_stream)
 {
   term_t t_stream = FA0;
   term_t t_device = FA1;
@@ -128,7 +128,7 @@ PLGI_PRED_IMPL(plcairo_script_create_for_stream)
 }
 
 
-PLGI_PRED_IMPL(plcairo_script_from_recording_surface)
+PLCAIRO_PRED_IMPL(plcairo_script_from_recording_surface)
 {
   term_t t_script = FA0;
   term_t t_recording_surface = FA1;
@@ -151,7 +151,7 @@ PLGI_PRED_IMPL(plcairo_script_from_recording_surface)
 }
 
 
-PLGI_PRED_IMPL(plcairo_script_get_mode)
+PLCAIRO_PRED_IMPL(plcairo_script_get_mode)
 {
   term_t t_script = FA0;
   term_t t_mode = FA1;
@@ -170,7 +170,7 @@ PLGI_PRED_IMPL(plcairo_script_get_mode)
 }
 
 
-PLGI_PRED_IMPL(plcairo_script_set_mode)
+PLCAIRO_PRED_IMPL(plcairo_script_set_mode)
 {
   term_t t_script = FA0;
   term_t t_mode = FA1;
@@ -188,7 +188,7 @@ PLGI_PRED_IMPL(plcairo_script_set_mode)
 }
 
 
-PLGI_PRED_IMPL(plcairo_script_surface_create)
+PLCAIRO_PRED_IMPL(plcairo_script_surface_create)
 {
   term_t t_script = FA0;
   term_t t_content = FA1;
@@ -215,7 +215,7 @@ PLGI_PRED_IMPL(plcairo_script_surface_create)
 }
 
 
-PLGI_PRED_IMPL(plcairo_script_surface_create_for_target)
+PLCAIRO_PRED_IMPL(plcairo_script_surface_create_for_target)
 {
   term_t t_script = FA0;
   term_t t_target = FA1;
@@ -237,7 +237,7 @@ PLGI_PRED_IMPL(plcairo_script_surface_create_for_target)
 }
 
 
-PLGI_PRED_IMPL(plcairo_script_write_comment)
+PLCAIRO_PRED_IMPL(plcairo_script_write_comment)
 {
   term_t t_script = FA0;
   term_t t_comment = FA1;
@@ -256,35 +256,35 @@ PLGI_PRED_IMPL(plcairo_script_write_comment)
 
 #else
 
-PLGI_PRED_IMPL(plcairo_script_create)
+PLCAIRO_PRED_IMPL(plcairo_script_create)
 { return plgi_raise_error("cairo_script_create/2 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_script_create_for_stream)
+PLCAIRO_PRED_IMPL(plcairo_script_create_for_stream)
 { return plgi_raise_error("cairo_script_create_for_stream/2 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_script_from_recording_surface)
+PLCAIRO_PRED_IMPL(plcairo_script_from_recording_surface)
 { return plgi_raise_error("cairo_script_from_recording_surface/2 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_script_get_mode)
+PLCAIRO_PRED_IMPL(plcairo_script_get_mode)
 { return plgi_raise_error("cairo_script_get_mode/2 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_script_set_mode)
+PLCAIRO_PRED_IMPL(plcairo_script_set_mode)
 { return plgi_raise_error("cairo_script_set_mode/2 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_script_surface_create)
+PLCAIRO_PRED_IMPL(plcairo_script_surface_create)
 { return plgi_raise_error("cairo_script_surface_create/5 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_script_surface_create_for_target)
+PLCAIRO_PRED_IMPL(plcairo_script_surface_create_for_target)
 { return plgi_raise_error("cairo_script_surface_create_for_target/3 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_script_write_comment)
+PLCAIRO_PRED_IMPL(plcairo_script_write_comment)
 { return plgi_raise_error("cairo_script_write_comment/2 not supported");
 }
 

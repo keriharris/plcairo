@@ -25,7 +25,7 @@
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_image_surface_create_from_png)
+PLCAIRO_PRED_IMPL(plcairo_image_surface_create_from_png)
 {
   term_t t_filename = FA0;
   term_t t_surface = FA1;
@@ -44,7 +44,7 @@ PLGI_PRED_IMPL(plcairo_image_surface_create_from_png)
 }
 
 
-PLGI_PRED_IMPL(plcairo_image_surface_create_from_png_stream)
+PLCAIRO_PRED_IMPL(plcairo_image_surface_create_from_png_stream)
 {
   term_t t_stream = FA0;
   term_t t_surface = FA1;
@@ -63,7 +63,7 @@ PLGI_PRED_IMPL(plcairo_image_surface_create_from_png_stream)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_write_to_png)
+PLCAIRO_PRED_IMPL(plcairo_surface_write_to_png)
 {
   term_t t_surface = FA0;
   term_t t_filename = FA1;
@@ -86,7 +86,7 @@ PLGI_PRED_IMPL(plcairo_surface_write_to_png)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_write_to_png_stream)
+PLCAIRO_PRED_IMPL(plcairo_surface_write_to_png_stream)
 {
   term_t t_surface = FA0;
   term_t t_stream = FA1;
@@ -110,19 +110,19 @@ PLGI_PRED_IMPL(plcairo_surface_write_to_png_stream)
 
 #else
 
-PLGI_PRED_IMPL(plcairo_image_surface_create_from_png)
+PLCAIRO_PRED_IMPL(plcairo_image_surface_create_from_png)
 { return plgi_raise_error("cairo_image_surface_create_from_png/2 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_image_surface_create_from_png_stream)
+PLCAIRO_PRED_IMPL(plcairo_image_surface_create_from_png_stream)
 { return plgi_raise_error("cairo_image_surface_create_from_png_stream/2 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_surface_write_to_png)
+PLCAIRO_PRED_IMPL(plcairo_surface_write_to_png)
 { return plgi_raise_error("cairo_surface_write_to_png/2 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_surface_write_to_png_stream)
+PLCAIRO_PRED_IMPL(plcairo_surface_write_to_png_stream)
 { return plgi_raise_error("cairo_surface_write_to_png_stream/2 not supported");
 }
 

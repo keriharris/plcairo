@@ -23,7 +23,7 @@
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_device_to_user)
+PLCAIRO_PRED_IMPL(plcairo_device_to_user)
 {
   term_t t_cr = FA0;
   term_t t_x_in = FA1;
@@ -47,7 +47,7 @@ PLGI_PRED_IMPL(plcairo_device_to_user)
   return TRUE;
 }
 
-PLGI_PRED_IMPL(plcairo_device_to_user_distance)
+PLCAIRO_PRED_IMPL(plcairo_device_to_user_distance)
 {
   term_t t_cr = FA0;
   term_t t_dx_in = FA1;
@@ -71,7 +71,7 @@ PLGI_PRED_IMPL(plcairo_device_to_user_distance)
   return TRUE;
 }
 
-PLGI_PRED_IMPL(plcairo_get_matrix)
+PLCAIRO_PRED_IMPL(plcairo_get_matrix)
 {
   term_t t_cr = FA0;
   term_t t_matrix = FA1;
@@ -89,7 +89,7 @@ PLGI_PRED_IMPL(plcairo_get_matrix)
   return TRUE;
 }
 
-PLGI_PRED_IMPL(plcairo_identity_matrix)
+PLCAIRO_PRED_IMPL(plcairo_identity_matrix)
 {
   term_t t_cr = FA0;
 
@@ -103,7 +103,7 @@ PLGI_PRED_IMPL(plcairo_identity_matrix)
   return TRUE;
 }
 
-PLGI_PRED_IMPL(plcairo_rotate)
+PLCAIRO_PRED_IMPL(plcairo_rotate)
 {
   term_t t_cr = FA0;
   term_t t_angle = FA1;
@@ -121,7 +121,7 @@ PLGI_PRED_IMPL(plcairo_rotate)
 }
 
 
-PLGI_PRED_IMPL(plcairo_scale)
+PLCAIRO_PRED_IMPL(plcairo_scale)
 {
   term_t t_cr = FA0;
   term_t t_sx = FA1;
@@ -141,7 +141,7 @@ PLGI_PRED_IMPL(plcairo_scale)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_matrix)
+PLCAIRO_PRED_IMPL(plcairo_set_matrix)
 {
   term_t t_cr = FA0;
   term_t t_matrix = FA1;
@@ -159,7 +159,7 @@ PLGI_PRED_IMPL(plcairo_set_matrix)
 }
 
 
-PLGI_PRED_IMPL(plcairo_transform)
+PLCAIRO_PRED_IMPL(plcairo_transform)
 {
   term_t t_cr = FA0;
   term_t t_matrix = FA1;
@@ -177,7 +177,7 @@ PLGI_PRED_IMPL(plcairo_transform)
 }
 
 
-PLGI_PRED_IMPL(plcairo_translate)
+PLCAIRO_PRED_IMPL(plcairo_translate)
 {
   term_t t_cr = FA0;
   term_t t_tx = FA1;
@@ -196,7 +196,7 @@ PLGI_PRED_IMPL(plcairo_translate)
   return TRUE;
 }
 
-PLGI_PRED_IMPL(plcairo_user_to_device)
+PLCAIRO_PRED_IMPL(plcairo_user_to_device)
 {
   term_t t_cr = FA0;
   term_t t_x_in = FA1;
@@ -220,7 +220,7 @@ PLGI_PRED_IMPL(plcairo_user_to_device)
   return TRUE;
 }
 
-PLGI_PRED_IMPL(plcairo_user_to_device_distance)
+PLCAIRO_PRED_IMPL(plcairo_user_to_device_distance)
 {
   term_t t_cr = FA0;
   term_t t_dx_in = FA1;

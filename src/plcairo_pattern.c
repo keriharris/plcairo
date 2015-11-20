@@ -352,7 +352,7 @@ plcairo_pattern_type_to_term(cairo_pattern_type_t pattern_type,
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_pattern_add_color_stop_rgb)
+PLCAIRO_PRED_IMPL(plcairo_pattern_add_color_stop_rgb)
 {
   term_t t_pattern = FA0;
   term_t t_offset = FA1;
@@ -376,7 +376,7 @@ PLGI_PRED_IMPL(plcairo_pattern_add_color_stop_rgb)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_add_color_stop_rgba)
+PLCAIRO_PRED_IMPL(plcairo_pattern_add_color_stop_rgba)
 {
   term_t t_pattern = FA0;
   term_t t_offset = FA1;
@@ -402,7 +402,7 @@ PLGI_PRED_IMPL(plcairo_pattern_add_color_stop_rgba)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_create_for_surface)
+PLCAIRO_PRED_IMPL(plcairo_pattern_create_for_surface)
 {
   term_t t_surface = FA0;
   term_t t_pattern = FA1;
@@ -421,7 +421,7 @@ PLGI_PRED_IMPL(plcairo_pattern_create_for_surface)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_create_linear)
+PLCAIRO_PRED_IMPL(plcairo_pattern_create_linear)
 {
   term_t t_x0 = FA0;
   term_t t_y0 = FA1;
@@ -446,7 +446,7 @@ PLGI_PRED_IMPL(plcairo_pattern_create_linear)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_create_mesh)
+PLCAIRO_PRED_IMPL(plcairo_pattern_create_mesh)
 {
   term_t t_pattern = FA0;
 
@@ -461,7 +461,7 @@ PLGI_PRED_IMPL(plcairo_pattern_create_mesh)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_create_radial)
+PLCAIRO_PRED_IMPL(plcairo_pattern_create_radial)
 {
   term_t t_cx0 = FA0;
   term_t t_cy0 = FA1;
@@ -490,7 +490,7 @@ PLGI_PRED_IMPL(plcairo_pattern_create_radial)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_create_rgb)
+PLCAIRO_PRED_IMPL(plcairo_pattern_create_rgb)
 {
   term_t t_red = FA0;
   term_t t_green = FA1;
@@ -513,7 +513,7 @@ PLGI_PRED_IMPL(plcairo_pattern_create_rgb)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_create_rgba)
+PLCAIRO_PRED_IMPL(plcairo_pattern_create_rgba)
 {
   term_t t_red = FA0;
   term_t t_green = FA1;
@@ -538,7 +538,7 @@ PLGI_PRED_IMPL(plcairo_pattern_create_rgba)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_get_color_stop_count)
+PLCAIRO_PRED_IMPL(plcairo_pattern_get_color_stop_count)
 {
   term_t t_pattern = FA0;
   term_t t_count = FA1;
@@ -561,7 +561,7 @@ PLGI_PRED_IMPL(plcairo_pattern_get_color_stop_count)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_get_color_stop_rgba)
+PLCAIRO_PRED_IMPL(plcairo_pattern_get_color_stop_rgba)
 {
   term_t t_pattern = FA0;
   term_t t_index = FA1;
@@ -595,7 +595,7 @@ PLGI_PRED_IMPL(plcairo_pattern_get_color_stop_rgba)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_get_extend)
+PLCAIRO_PRED_IMPL(plcairo_pattern_get_extend)
 {
   term_t t_pattern = FA0;
   term_t t_extend = FA1;
@@ -614,7 +614,7 @@ PLGI_PRED_IMPL(plcairo_pattern_get_extend)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_get_filter)
+PLCAIRO_PRED_IMPL(plcairo_pattern_get_filter)
 {
   term_t t_pattern = FA0;
   term_t t_filter = FA1;
@@ -633,7 +633,7 @@ PLGI_PRED_IMPL(plcairo_pattern_get_filter)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_get_linear_points)
+PLCAIRO_PRED_IMPL(plcairo_pattern_get_linear_points)
 {
   term_t t_pattern = FA0;
   term_t t_x0 = FA1;
@@ -662,7 +662,7 @@ PLGI_PRED_IMPL(plcairo_pattern_get_linear_points)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_get_matrix)
+PLCAIRO_PRED_IMPL(plcairo_pattern_get_matrix)
 {
   term_t t_pattern = FA0;
   term_t t_matrix = FA1;
@@ -681,7 +681,7 @@ PLGI_PRED_IMPL(plcairo_pattern_get_matrix)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_get_radial_circles)
+PLCAIRO_PRED_IMPL(plcairo_pattern_get_radial_circles)
 {
   term_t t_pattern = FA0;
   term_t t_x0 = FA1;
@@ -714,7 +714,7 @@ PLGI_PRED_IMPL(plcairo_pattern_get_radial_circles)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_get_rgba)
+PLCAIRO_PRED_IMPL(plcairo_pattern_get_rgba)
 {
   term_t t_pattern = FA0;
   term_t t_red = FA1;
@@ -743,7 +743,7 @@ PLGI_PRED_IMPL(plcairo_pattern_get_rgba)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_get_surface)
+PLCAIRO_PRED_IMPL(plcairo_pattern_get_surface)
 {
   term_t t_pattern = FA0;
   term_t t_surface = FA1;
@@ -766,7 +766,7 @@ PLGI_PRED_IMPL(plcairo_pattern_get_surface)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_get_type)
+PLCAIRO_PRED_IMPL(plcairo_pattern_get_type)
 {
   term_t t_pattern = FA0;
   term_t t_type = FA1;
@@ -785,7 +785,7 @@ PLGI_PRED_IMPL(plcairo_pattern_get_type)
 }
 
 
-PLGI_PRED_IMPL(plcairo_mesh_pattern_begin_patch)
+PLCAIRO_PRED_IMPL(plcairo_mesh_pattern_begin_patch)
 {
   term_t t_pattern = FA0;
 
@@ -800,7 +800,7 @@ PLGI_PRED_IMPL(plcairo_mesh_pattern_begin_patch)
 }
 
 
-PLGI_PRED_IMPL(plcairo_mesh_pattern_curve_to)
+PLCAIRO_PRED_IMPL(plcairo_mesh_pattern_curve_to)
 {
   term_t t_pattern = FA0;
   term_t t_x1 = FA1;
@@ -828,7 +828,7 @@ PLGI_PRED_IMPL(plcairo_mesh_pattern_curve_to)
 }
 
 
-PLGI_PRED_IMPL(plcairo_mesh_pattern_end_patch)
+PLCAIRO_PRED_IMPL(plcairo_mesh_pattern_end_patch)
 {
   term_t t_pattern = FA0;
 
@@ -843,7 +843,7 @@ PLGI_PRED_IMPL(plcairo_mesh_pattern_end_patch)
 }
 
 
-PLGI_PRED_IMPL(plcairo_mesh_pattern_get_control_point)
+PLCAIRO_PRED_IMPL(plcairo_mesh_pattern_get_control_point)
 {
   term_t t_pattern = FA0;
   term_t t_patch_num = FA1;
@@ -873,7 +873,7 @@ PLGI_PRED_IMPL(plcairo_mesh_pattern_get_control_point)
 }
 
 
-PLGI_PRED_IMPL(plcairo_mesh_pattern_get_corner_color_rgba)
+PLCAIRO_PRED_IMPL(plcairo_mesh_pattern_get_corner_color_rgba)
 {
   term_t t_pattern = FA0;
   term_t t_patch_num = FA1;
@@ -907,7 +907,7 @@ PLGI_PRED_IMPL(plcairo_mesh_pattern_get_corner_color_rgba)
 }
 
 
-PLGI_PRED_IMPL(plcairo_mesh_pattern_get_patch_count)
+PLCAIRO_PRED_IMPL(plcairo_mesh_pattern_get_patch_count)
 {
   term_t t_pattern = FA0;
   term_t t_count = FA1;
@@ -930,7 +930,7 @@ PLGI_PRED_IMPL(plcairo_mesh_pattern_get_patch_count)
 }
 
 
-PLGI_PRED_IMPL(plcairo_mesh_pattern_get_path)
+PLCAIRO_PRED_IMPL(plcairo_mesh_pattern_get_path)
 {
   term_t t_pattern = FA0;
   term_t t_patch_num = FA1;
@@ -952,7 +952,7 @@ PLGI_PRED_IMPL(plcairo_mesh_pattern_get_path)
 }
 
 
-PLGI_PRED_IMPL(plcairo_mesh_pattern_line_to)
+PLCAIRO_PRED_IMPL(plcairo_mesh_pattern_line_to)
 {
   term_t t_pattern = FA0;
   term_t t_x = FA1;
@@ -972,7 +972,7 @@ PLGI_PRED_IMPL(plcairo_mesh_pattern_line_to)
 }
 
 
-PLGI_PRED_IMPL(plcairo_mesh_pattern_move_to)
+PLCAIRO_PRED_IMPL(plcairo_mesh_pattern_move_to)
 {
   term_t t_pattern = FA0;
   term_t t_x = FA1;
@@ -992,7 +992,7 @@ PLGI_PRED_IMPL(plcairo_mesh_pattern_move_to)
 }
 
 
-PLGI_PRED_IMPL(plcairo_mesh_pattern_set_control_point)
+PLCAIRO_PRED_IMPL(plcairo_mesh_pattern_set_control_point)
 {
   term_t t_pattern = FA0;
   term_t t_point_num = FA1;
@@ -1015,7 +1015,7 @@ PLGI_PRED_IMPL(plcairo_mesh_pattern_set_control_point)
 }
 
 
-PLGI_PRED_IMPL(plcairo_mesh_pattern_set_corner_color_rgb)
+PLCAIRO_PRED_IMPL(plcairo_mesh_pattern_set_corner_color_rgb)
 {
   term_t t_pattern = FA0;
   term_t t_corner_num = FA1;
@@ -1040,7 +1040,7 @@ PLGI_PRED_IMPL(plcairo_mesh_pattern_set_corner_color_rgb)
 }
 
 
-PLGI_PRED_IMPL(plcairo_mesh_pattern_set_corner_color_rgba)
+PLCAIRO_PRED_IMPL(plcairo_mesh_pattern_set_corner_color_rgba)
 {
   term_t t_pattern = FA0;
   term_t t_corner_num = FA1;
@@ -1067,7 +1067,7 @@ PLGI_PRED_IMPL(plcairo_mesh_pattern_set_corner_color_rgba)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_set_extend)
+PLCAIRO_PRED_IMPL(plcairo_pattern_set_extend)
 {
   term_t t_pattern = FA0;
   term_t t_extend = FA1;
@@ -1085,7 +1085,7 @@ PLGI_PRED_IMPL(plcairo_pattern_set_extend)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_set_filter)
+PLCAIRO_PRED_IMPL(plcairo_pattern_set_filter)
 {
   term_t t_pattern = FA0;
   term_t t_filter = FA1;
@@ -1103,7 +1103,7 @@ PLGI_PRED_IMPL(plcairo_pattern_set_filter)
 }
 
 
-PLGI_PRED_IMPL(plcairo_pattern_set_matrix)
+PLCAIRO_PRED_IMPL(plcairo_pattern_set_matrix)
 {
   term_t t_pattern = FA0;
   term_t t_matrix = FA1;

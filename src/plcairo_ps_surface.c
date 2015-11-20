@@ -90,7 +90,7 @@ plcairo_ps_level_to_term(cairo_ps_level_t level,
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_ps_get_levels)
+PLCAIRO_PRED_IMPL(plcairo_ps_get_levels)
 {
   term_t t_levels = FA0;
 
@@ -122,7 +122,7 @@ PLGI_PRED_IMPL(plcairo_ps_get_levels)
 }
 
 
-PLGI_PRED_IMPL(plcairo_ps_level_to_string)
+PLCAIRO_PRED_IMPL(plcairo_ps_level_to_string)
 {
   term_t t_level = FA0;
   term_t t_string = FA1;
@@ -140,7 +140,7 @@ PLGI_PRED_IMPL(plcairo_ps_level_to_string)
 }
 
 
-PLGI_PRED_IMPL(plcairo_ps_surface_create)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_create)
 {
   term_t t_filename = FA0;
   term_t t_width_in_points = FA1;
@@ -164,7 +164,7 @@ PLGI_PRED_IMPL(plcairo_ps_surface_create)
 }
 
 
-PLGI_PRED_IMPL(plcairo_ps_surface_create_for_stream)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_create_for_stream)
 {
   term_t t_stream = FA0;
   term_t t_width_in_points = FA1;
@@ -188,7 +188,7 @@ PLGI_PRED_IMPL(plcairo_ps_surface_create_for_stream)
 }
 
 
-PLGI_PRED_IMPL(plcairo_ps_surface_dsc_begin_page_setup)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_dsc_begin_page_setup)
 {
   term_t t_surface = FA0;
 
@@ -203,7 +203,7 @@ PLGI_PRED_IMPL(plcairo_ps_surface_dsc_begin_page_setup)
 }
 
 
-PLGI_PRED_IMPL(plcairo_ps_surface_dsc_begin_setup)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_dsc_begin_setup)
 {
   term_t t_surface = FA0;
 
@@ -218,7 +218,7 @@ PLGI_PRED_IMPL(plcairo_ps_surface_dsc_begin_setup)
 }
 
 
-PLGI_PRED_IMPL(plcairo_ps_surface_dsc_comment)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_dsc_comment)
 {
   term_t t_surface = FA0;
   term_t t_comment = FA1;
@@ -236,7 +236,7 @@ PLGI_PRED_IMPL(plcairo_ps_surface_dsc_comment)
 }
 
 
-PLGI_PRED_IMPL(plcairo_ps_surface_get_eps)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_get_eps)
 {
   term_t t_surface = FA0;
   term_t t_eps = FA1;
@@ -255,7 +255,7 @@ PLGI_PRED_IMPL(plcairo_ps_surface_get_eps)
 }
 
 
-PLGI_PRED_IMPL(plcairo_ps_surface_restrict_to_level)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_restrict_to_level)
 {
   term_t t_surface = FA0;
   term_t t_version = FA1;
@@ -273,7 +273,7 @@ PLGI_PRED_IMPL(plcairo_ps_surface_restrict_to_level)
 }
 
 
-PLGI_PRED_IMPL(plcairo_ps_surface_set_eps)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_set_eps)
 {
   term_t t_surface = FA0;
   term_t t_eps = FA1;
@@ -291,7 +291,7 @@ PLGI_PRED_IMPL(plcairo_ps_surface_set_eps)
 }
 
 
-PLGI_PRED_IMPL(plcairo_ps_surface_set_size)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_set_size)
 {
   term_t t_surface = FA0;
   term_t t_width_in_points = FA1;
@@ -312,47 +312,47 @@ PLGI_PRED_IMPL(plcairo_ps_surface_set_size)
 
 #else
 
-PLGI_PRED_IMPL(plcairo_ps_get_levels)
+PLCAIRO_PRED_IMPL(plcairo_ps_get_levels)
 { return plgi_raise_error("cairo_ps_get_levels/1 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_ps_level_to_string)
+PLCAIRO_PRED_IMPL(plcairo_ps_level_to_string)
 { return plgi_raise_error("cairo_ps_level_to_string/2 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_ps_surface_create)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_create)
 { return plgi_raise_error("cairo_ps_surface_create/4 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_ps_surface_create_for_stream)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_create_for_stream)
 { return plgi_raise_error("cairo_ps_surface_create_for_stream/4 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_ps_surface_dsc_begin_page_setup)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_dsc_begin_page_setup)
 { return plgi_raise_error("cairo_ps_surface_dsc_begin_page_setup/1 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_ps_surface_dsc_begin_setup)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_dsc_begin_setup)
 { return plgi_raise_error("cairo_ps_surface_dsc_begin_setup/1 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_ps_surface_dsc_comment)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_dsc_comment)
 { return plgi_raise_error("cairo_ps_surface_dsc_comment/2 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_ps_surface_get_eps)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_get_eps)
 { return plgi_raise_error("cairo_ps_surface_get_eps/2 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_ps_surface_restrict_to_level)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_restrict_to_level)
 { return plgi_raise_error("cairo_ps_surface_restrict_to_level/2 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_ps_surface_set_eps)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_set_eps)
 { return plgi_raise_error("cairo_ps_surface_set_eps/2 not supported");
 }
 
-PLGI_PRED_IMPL(plcairo_ps_surface_set_size)
+PLCAIRO_PRED_IMPL(plcairo_ps_surface_set_size)
 { return plgi_raise_error("cairo_ps_surface_set_size/3 not supported");
 }
 

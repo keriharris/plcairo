@@ -164,7 +164,7 @@ plcairo_font_type_to_term(cairo_font_type_t type,
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_font_face_get_type)
+PLCAIRO_PRED_IMPL(plcairo_font_face_get_type)
 {
   term_t t_font_face = FA0;
   term_t t_font_type = FA1;

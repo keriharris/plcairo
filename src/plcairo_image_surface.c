@@ -132,7 +132,7 @@ plcairo_format_to_term(cairo_format_t format,
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_image_surface_create)
+PLCAIRO_PRED_IMPL(plcairo_image_surface_create)
 {
   term_t t_format = FA0;
   term_t t_width = FA1;
@@ -159,7 +159,7 @@ PLGI_PRED_IMPL(plcairo_image_surface_create)
 }
 
 
-PLGI_PRED_IMPL(plcairo_image_surface_get_format)
+PLCAIRO_PRED_IMPL(plcairo_image_surface_get_format)
 {
   term_t t_surface = FA0;
   term_t t_format = FA1;
@@ -178,7 +178,7 @@ PLGI_PRED_IMPL(plcairo_image_surface_get_format)
 }
 
 
-PLGI_PRED_IMPL(plcairo_image_surface_get_height)
+PLCAIRO_PRED_IMPL(plcairo_image_surface_get_height)
 {
   term_t t_surface = FA0;
   term_t t_height = FA1;
@@ -197,7 +197,7 @@ PLGI_PRED_IMPL(plcairo_image_surface_get_height)
 }
 
 
-PLGI_PRED_IMPL(plcairo_image_surface_get_stride)
+PLCAIRO_PRED_IMPL(plcairo_image_surface_get_stride)
 {
   term_t t_surface = FA0;
   term_t t_stride = FA1;
@@ -216,7 +216,7 @@ PLGI_PRED_IMPL(plcairo_image_surface_get_stride)
 }
 
 
-PLGI_PRED_IMPL(plcairo_image_surface_get_width)
+PLCAIRO_PRED_IMPL(plcairo_image_surface_get_width)
 {
   term_t t_surface = FA0;
   term_t t_width = FA1;

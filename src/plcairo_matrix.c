@@ -103,7 +103,7 @@ plcairo_matrix_to_term(cairo_matrix_t *matrix,
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_matrix_init)
+PLCAIRO_PRED_IMPL(plcairo_matrix_init)
 {
   term_t t_matrix = FA0;
   term_t t_xx = FA1;
@@ -130,7 +130,7 @@ PLGI_PRED_IMPL(plcairo_matrix_init)
 }
 
 
-PLGI_PRED_IMPL(plcairo_matrix_init_identity)
+PLCAIRO_PRED_IMPL(plcairo_matrix_init_identity)
 {
   term_t t_matrix = FA0;
 
@@ -144,7 +144,7 @@ PLGI_PRED_IMPL(plcairo_matrix_init_identity)
 }
 
 
-PLGI_PRED_IMPL(plcairo_matrix_init_rotate)
+PLCAIRO_PRED_IMPL(plcairo_matrix_init_rotate)
 {
   term_t t_matrix = FA0;
   term_t t_radians = FA1;
@@ -161,7 +161,7 @@ PLGI_PRED_IMPL(plcairo_matrix_init_rotate)
 }
 
 
-PLGI_PRED_IMPL(plcairo_matrix_init_scale)
+PLCAIRO_PRED_IMPL(plcairo_matrix_init_scale)
 {
   term_t t_matrix = FA0;
   term_t t_sx = FA1;
@@ -180,7 +180,7 @@ PLGI_PRED_IMPL(plcairo_matrix_init_scale)
 }
 
 
-PLGI_PRED_IMPL(plcairo_matrix_init_translate)
+PLCAIRO_PRED_IMPL(plcairo_matrix_init_translate)
 {
   term_t t_matrix = FA0;
   term_t t_tx = FA1;
@@ -199,7 +199,7 @@ PLGI_PRED_IMPL(plcairo_matrix_init_translate)
 }
 
 
-PLGI_PRED_IMPL(plcairo_matrix_invert)
+PLCAIRO_PRED_IMPL(plcairo_matrix_invert)
 {
   term_t t_matrix = FA0;
 
@@ -218,7 +218,7 @@ PLGI_PRED_IMPL(plcairo_matrix_invert)
 }
 
 
-PLGI_PRED_IMPL(plcairo_matrix_multiply)
+PLCAIRO_PRED_IMPL(plcairo_matrix_multiply)
 {
   term_t t_matrix = FA0;
   term_t t_a = FA1;
@@ -236,7 +236,7 @@ PLGI_PRED_IMPL(plcairo_matrix_multiply)
 }
 
 
-PLGI_PRED_IMPL(plcairo_matrix_rotate)
+PLCAIRO_PRED_IMPL(plcairo_matrix_rotate)
 {
   term_t t_matrix = FA0;
   term_t t_radians = FA1;
@@ -253,7 +253,7 @@ PLGI_PRED_IMPL(plcairo_matrix_rotate)
 }
 
 
-PLGI_PRED_IMPL(plcairo_matrix_scale)
+PLCAIRO_PRED_IMPL(plcairo_matrix_scale)
 {
   term_t t_matrix = FA0;
   term_t t_sx = FA1;
@@ -272,7 +272,7 @@ PLGI_PRED_IMPL(plcairo_matrix_scale)
 }
 
 
-PLGI_PRED_IMPL(plcairo_matrix_transform_distance)
+PLCAIRO_PRED_IMPL(plcairo_matrix_transform_distance)
 {
   term_t t_matrix = FA0;
   term_t t_dx_in = FA1;
@@ -296,7 +296,7 @@ PLGI_PRED_IMPL(plcairo_matrix_transform_distance)
 }
 
 
-PLGI_PRED_IMPL(plcairo_matrix_transform_point)
+PLCAIRO_PRED_IMPL(plcairo_matrix_transform_point)
 {
   term_t t_matrix = FA0;
   term_t t_x_in = FA1;
@@ -320,7 +320,7 @@ PLGI_PRED_IMPL(plcairo_matrix_transform_point)
 }
 
 
-PLGI_PRED_IMPL(plcairo_matrix_translate)
+PLCAIRO_PRED_IMPL(plcairo_matrix_translate)
 {
   term_t t_matrix = FA0;
   term_t t_tx = FA1;

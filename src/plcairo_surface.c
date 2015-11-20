@@ -417,7 +417,7 @@ plcairo_surface_type_to_term(cairo_surface_type_t surface_type,
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_surface_copy_page)
+PLCAIRO_PRED_IMPL(plcairo_surface_copy_page)
 {
   term_t t_surface = FA0;
 
@@ -432,7 +432,7 @@ PLGI_PRED_IMPL(plcairo_surface_copy_page)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_create_for_rectangle)
+PLCAIRO_PRED_IMPL(plcairo_surface_create_for_rectangle)
 {
   term_t t_target = FA0;
   term_t t_x = FA1;
@@ -459,7 +459,7 @@ PLGI_PRED_IMPL(plcairo_surface_create_for_rectangle)
   return TRUE;
 }
 
-PLGI_PRED_IMPL(plcairo_surface_create_similar)
+PLCAIRO_PRED_IMPL(plcairo_surface_create_similar)
 {
   term_t t_other = FA0;
   term_t t_content = FA1;
@@ -485,7 +485,7 @@ PLGI_PRED_IMPL(plcairo_surface_create_similar)
   return TRUE;
 }
 
-PLGI_PRED_IMPL(plcairo_surface_create_similar_image)
+PLCAIRO_PRED_IMPL(plcairo_surface_create_similar_image)
 {
   term_t t_other = FA0;
   term_t t_format = FA1;
@@ -511,7 +511,7 @@ PLGI_PRED_IMPL(plcairo_surface_create_similar_image)
   return TRUE;
 }
 
-PLGI_PRED_IMPL(plcairo_surface_finish)
+PLCAIRO_PRED_IMPL(plcairo_surface_finish)
 {
   term_t t_surface = FA0;
 
@@ -526,7 +526,7 @@ PLGI_PRED_IMPL(plcairo_surface_finish)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_flush)
+PLCAIRO_PRED_IMPL(plcairo_surface_flush)
 {
   term_t t_surface = FA0;
 
@@ -541,7 +541,7 @@ PLGI_PRED_IMPL(plcairo_surface_flush)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_get_content)
+PLCAIRO_PRED_IMPL(plcairo_surface_get_content)
 {
   term_t t_surface = FA0;
   term_t t_content = FA1;
@@ -560,7 +560,7 @@ PLGI_PRED_IMPL(plcairo_surface_get_content)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_get_device)
+PLCAIRO_PRED_IMPL(plcairo_surface_get_device)
 {
   term_t t_surface = FA0;
   term_t t_device = FA1;
@@ -579,7 +579,7 @@ PLGI_PRED_IMPL(plcairo_surface_get_device)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_get_device_offset)
+PLCAIRO_PRED_IMPL(plcairo_surface_get_device_offset)
 {
   term_t t_surface = FA0;
   term_t t_x_offset = FA1;
@@ -600,7 +600,7 @@ PLGI_PRED_IMPL(plcairo_surface_get_device_offset)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_get_device_scale)
+PLCAIRO_PRED_IMPL(plcairo_surface_get_device_scale)
 {
 #if CAIRO_VERSION >= CAIRO_VERSION_ENCODE(1, 14, 0)
   term_t t_surface = FA0;
@@ -625,7 +625,7 @@ PLGI_PRED_IMPL(plcairo_surface_get_device_scale)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_get_fallback_resolution)
+PLCAIRO_PRED_IMPL(plcairo_surface_get_fallback_resolution)
 {
   term_t t_surface = FA0;
   term_t t_x_pixels_per_inch = FA1;
@@ -646,7 +646,7 @@ PLGI_PRED_IMPL(plcairo_surface_get_fallback_resolution)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_get_font_options)
+PLCAIRO_PRED_IMPL(plcairo_surface_get_font_options)
 {
   term_t t_surface = FA0;
   term_t t_options = FA1;
@@ -666,7 +666,7 @@ PLGI_PRED_IMPL(plcairo_surface_get_font_options)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_get_type)
+PLCAIRO_PRED_IMPL(plcairo_surface_get_type)
 {
   term_t t_surface = FA0;
   term_t t_surface_type = FA1;
@@ -685,7 +685,7 @@ PLGI_PRED_IMPL(plcairo_surface_get_type)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_has_show_text_glyphs)
+PLCAIRO_PRED_IMPL(plcairo_surface_has_show_text_glyphs)
 {
   term_t t_surface = FA0;
 
@@ -701,7 +701,7 @@ PLGI_PRED_IMPL(plcairo_surface_has_show_text_glyphs)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_map_to_image)
+PLCAIRO_PRED_IMPL(plcairo_surface_map_to_image)
 {
   term_t t_surface = FA0;
   term_t t_extents = FA1;
@@ -722,7 +722,7 @@ PLGI_PRED_IMPL(plcairo_surface_map_to_image)
   return TRUE;
 }
 
-PLGI_PRED_IMPL(plcairo_surface_mark_dirty)
+PLCAIRO_PRED_IMPL(plcairo_surface_mark_dirty)
 {
   term_t t_surface = FA0;
 
@@ -737,7 +737,7 @@ PLGI_PRED_IMPL(plcairo_surface_mark_dirty)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_mark_dirty_rectangle)
+PLCAIRO_PRED_IMPL(plcairo_surface_mark_dirty_rectangle)
 {
   term_t t_surface = FA0;
   term_t t_x = FA1;
@@ -761,7 +761,7 @@ PLGI_PRED_IMPL(plcairo_surface_mark_dirty_rectangle)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_set_device_offset)
+PLCAIRO_PRED_IMPL(plcairo_surface_set_device_offset)
 {
   term_t t_surface = FA0;
   term_t t_x_offset = FA1;
@@ -781,7 +781,7 @@ PLGI_PRED_IMPL(plcairo_surface_set_device_offset)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_set_device_scale)
+PLCAIRO_PRED_IMPL(plcairo_surface_set_device_scale)
 {
 #if CAIRO_VERSION >= CAIRO_VERSION_ENCODE(1, 14, 0)
   term_t t_surface = FA0;
@@ -805,7 +805,7 @@ PLGI_PRED_IMPL(plcairo_surface_set_device_scale)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_set_fallback_resolution)
+PLCAIRO_PRED_IMPL(plcairo_surface_set_fallback_resolution)
 {
   term_t t_surface = FA0;
   term_t t_x_pixels_per_inch = FA1;
@@ -825,7 +825,7 @@ PLGI_PRED_IMPL(plcairo_surface_set_fallback_resolution)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_show_page)
+PLCAIRO_PRED_IMPL(plcairo_surface_show_page)
 {
   term_t t_surface = FA0;
 
@@ -840,7 +840,7 @@ PLGI_PRED_IMPL(plcairo_surface_show_page)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_supports_mime_type)
+PLCAIRO_PRED_IMPL(plcairo_surface_supports_mime_type)
 {
   term_t t_surface = FA0;
   term_t t_mime_type = FA1;
@@ -859,7 +859,7 @@ PLGI_PRED_IMPL(plcairo_surface_supports_mime_type)
 }
 
 
-PLGI_PRED_IMPL(plcairo_surface_unmap_image)
+PLCAIRO_PRED_IMPL(plcairo_surface_unmap_image)
 {
   term_t t_surface = FA0;
   term_t t_image = FA1;

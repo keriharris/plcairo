@@ -379,7 +379,7 @@ plcairo_text_cluster_flags_to_term(cairo_text_cluster_flags_t flags,
                  *     Published Predicates     *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_font_extents)
+PLCAIRO_PRED_IMPL(plcairo_font_extents)
 {
   term_t t_cr = FA0;
   term_t t_extents = FA1;
@@ -398,7 +398,7 @@ PLGI_PRED_IMPL(plcairo_font_extents)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_font_face)
+PLCAIRO_PRED_IMPL(plcairo_get_font_face)
 {
   term_t t_cr = FA0;
   term_t t_font_face = FA1;
@@ -417,7 +417,7 @@ PLGI_PRED_IMPL(plcairo_get_font_face)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_font_matrix)
+PLCAIRO_PRED_IMPL(plcairo_get_font_matrix)
 {
   term_t t_cr = FA0;
   term_t t_matrix = FA1;
@@ -436,7 +436,7 @@ PLGI_PRED_IMPL(plcairo_get_font_matrix)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_font_options)
+PLCAIRO_PRED_IMPL(plcairo_get_font_options)
 {
   term_t t_cr = FA0;
   term_t t_options = FA1;
@@ -454,7 +454,7 @@ PLGI_PRED_IMPL(plcairo_get_font_options)
 }
 
 
-PLGI_PRED_IMPL(plcairo_get_scaled_font)
+PLCAIRO_PRED_IMPL(plcairo_get_scaled_font)
 {
   term_t t_cr = FA0;
   term_t t_scaled_font = FA1;
@@ -473,7 +473,7 @@ PLGI_PRED_IMPL(plcairo_get_scaled_font)
 }
 
 
-PLGI_PRED_IMPL(plcairo_glyph_extents)
+PLCAIRO_PRED_IMPL(plcairo_glyph_extents)
 {
   term_t t_cr = FA0;
   term_t t_glyphs = FA1;
@@ -516,7 +516,7 @@ PLGI_PRED_IMPL(plcairo_glyph_extents)
 }
 
 
-PLGI_PRED_IMPL(plcairo_select_font_face)
+PLCAIRO_PRED_IMPL(plcairo_select_font_face)
 {
   term_t t_cr = FA0;
   term_t t_family = FA1;
@@ -540,7 +540,7 @@ PLGI_PRED_IMPL(plcairo_select_font_face)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_font_face)
+PLCAIRO_PRED_IMPL(plcairo_set_font_face)
 {
   term_t t_cr = FA0;
   term_t t_font_face = FA1;
@@ -558,7 +558,7 @@ PLGI_PRED_IMPL(plcairo_set_font_face)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_font_matrix)
+PLCAIRO_PRED_IMPL(plcairo_set_font_matrix)
 {
   term_t t_cr = FA0;
   term_t t_matrix = FA1;
@@ -576,7 +576,7 @@ PLGI_PRED_IMPL(plcairo_set_font_matrix)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_font_options)
+PLCAIRO_PRED_IMPL(plcairo_set_font_options)
 {
   term_t t_cr = FA0;
   term_t t_options = FA1;
@@ -594,7 +594,7 @@ PLGI_PRED_IMPL(plcairo_set_font_options)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_font_size)
+PLCAIRO_PRED_IMPL(plcairo_set_font_size)
 {
   term_t t_cr = FA0;
   term_t t_size = FA1;
@@ -612,7 +612,7 @@ PLGI_PRED_IMPL(plcairo_set_font_size)
 }
 
 
-PLGI_PRED_IMPL(plcairo_set_scaled_font)
+PLCAIRO_PRED_IMPL(plcairo_set_scaled_font)
 {
   term_t t_cr = FA0;
   term_t t_scaled_font = FA1;
@@ -630,7 +630,7 @@ PLGI_PRED_IMPL(plcairo_set_scaled_font)
 }
 
 
-PLGI_PRED_IMPL(plcairo_show_glyphs)
+PLCAIRO_PRED_IMPL(plcairo_show_glyphs)
 {
   term_t t_cr = FA0;
   term_t t_glyphs = FA1;
@@ -669,7 +669,7 @@ PLGI_PRED_IMPL(plcairo_show_glyphs)
 }
 
 
-PLGI_PRED_IMPL(plcairo_show_text)
+PLCAIRO_PRED_IMPL(plcairo_show_text)
 {
   term_t t_cr = FA0;
   term_t t_text = FA1;
@@ -687,7 +687,7 @@ PLGI_PRED_IMPL(plcairo_show_text)
 }
 
 
-PLGI_PRED_IMPL(plcairo_show_text_glyphs)
+PLCAIRO_PRED_IMPL(plcairo_show_text_glyphs)
 {
   term_t t_cr = FA0;
   term_t t_text = FA1;
@@ -754,7 +754,7 @@ PLGI_PRED_IMPL(plcairo_show_text_glyphs)
 }
 
 
-PLGI_PRED_IMPL(plcairo_text_extents)
+PLCAIRO_PRED_IMPL(plcairo_text_extents)
 {
   term_t t_cr = FA0;
   term_t t_text = FA1;
@@ -776,7 +776,7 @@ PLGI_PRED_IMPL(plcairo_text_extents)
 }
 
 
-PLGI_PRED_IMPL(plcairo_toy_font_face_create)
+PLCAIRO_PRED_IMPL(plcairo_toy_font_face_create)
 {
   term_t t_family = FA0;
   term_t t_slant = FA1;
@@ -801,7 +801,7 @@ PLGI_PRED_IMPL(plcairo_toy_font_face_create)
 }
 
 
-PLGI_PRED_IMPL(plcairo_toy_font_face_get_family)
+PLCAIRO_PRED_IMPL(plcairo_toy_font_face_get_family)
 {
   term_t t_font_face = FA0;
   term_t t_family = FA1;
@@ -820,7 +820,7 @@ PLGI_PRED_IMPL(plcairo_toy_font_face_get_family)
 }
 
 
-PLGI_PRED_IMPL(plcairo_toy_font_face_get_slant)
+PLCAIRO_PRED_IMPL(plcairo_toy_font_face_get_slant)
 {
   term_t t_font_face = FA0;
   term_t t_slant = FA1;
@@ -839,7 +839,7 @@ PLGI_PRED_IMPL(plcairo_toy_font_face_get_slant)
 }
 
 
-PLGI_PRED_IMPL(plcairo_toy_font_face_get_weight)
+PLCAIRO_PRED_IMPL(plcairo_toy_font_face_get_weight)
 {
   term_t t_font_face = FA0;
   term_t t_weight = FA1;

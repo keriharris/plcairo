@@ -16,6 +16,7 @@
     along with PLcairo.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#define PL_ARITY_AS_SIZE 1
 #include <SWI-Stream.h>
 #include <SWI-Prolog.h>
 #include <cairo.h>
@@ -58,6 +59,47 @@ int plcairo_exit_debug(int status, void *arg);
                       plcairo_debug_n_dashes+2, plcairo_debug_dashes)
 
 #define PLGI_WARN_UNUSED G_GNUC_WARN_UNUSED_RESULT
+
+
+
+                /*******************************
+                 *  Foreign Predicate Wrapper  *
+                 *******************************/
+
+#define PLCAIRO_PRED_DEF(fname) \
+	foreign_t fname(term_t t0, int arity, void *context)
+
+#define PLCAIRO_PRED_IMPL(fname) \
+ \
+gboolean fname ## __impl(term_t t0, control_t fctxt); \
+ \
+foreign_t fname(term_t t0, int arity, void *fctxt) \
+{ \
+  gint ret; \
+  PLCAIRO_debug_header; \
+  ret = fname ## __impl(t0, (control_t)fctxt); \
+  PLCAIRO_debug("%s retval: %d", __func__, ret); \
+  PLCAIRO_debug_trailer; \
+  return ret; \
+} \
+ \
+gboolean fname ## __impl(term_t t0, control_t fctxt)
+
+#define PLCAIRO_PRED_REG(name, arity, fname) \
+	PL_register_foreign(name, arity, fname, PL_FA_VARARGS)
+
+#define FA0 t0
+#define FA1 t0+1
+#define FA2 t0+2
+#define FA3 t0+3
+#define FA4 t0+4
+#define FA5 t0+5
+#define FA6 t0+6
+#define FA7 t0+7
+#define FA8 t0+8
+#define FA9 t0+9
+
+//#define FCTXT (control_t)fctxt
 
 
 
@@ -208,60 +250,60 @@ cairo_bool_t plcairo_term_to_rectangle_list(term_t t,
 cairo_bool_t plcairo_rectangle_list_to_term(cairo_rectangle_list_t *rectangle_list,
                                             term_t t) PLGI_WARN_UNUSED;
 
-PLGI_PRED_DEF(plcairo_clip);
-PLGI_PRED_DEF(plcairo_clip_extents);
-PLGI_PRED_DEF(plcairo_clip_preserve);
-PLGI_PRED_DEF(plcairo_copy_clip_rectangle_list);
-PLGI_PRED_DEF(plcairo_copy_page);
-PLGI_PRED_DEF(plcairo_create);
-PLGI_PRED_DEF(plcairo_fill);
-PLGI_PRED_DEF(plcairo_fill_extents);
-PLGI_PRED_DEF(plcairo_fill_preserve);
-PLGI_PRED_DEF(plcairo_get_antialias);
-PLGI_PRED_DEF(plcairo_get_dash);
-PLGI_PRED_DEF(plcairo_get_dash_count);
-PLGI_PRED_DEF(plcairo_get_fill_rule);
-PLGI_PRED_DEF(plcairo_get_group_target);
-PLGI_PRED_DEF(plcairo_get_line_cap);
-PLGI_PRED_DEF(plcairo_get_line_join);
-PLGI_PRED_DEF(plcairo_get_line_width);
-PLGI_PRED_DEF(plcairo_get_miter_limit);
-PLGI_PRED_DEF(plcairo_get_operator);
-PLGI_PRED_DEF(plcairo_get_source);
-PLGI_PRED_DEF(plcairo_get_target);
-PLGI_PRED_DEF(plcairo_get_tolerance);
-PLGI_PRED_DEF(plcairo_in_clip);
-PLGI_PRED_DEF(plcairo_in_fill);
-PLGI_PRED_DEF(plcairo_in_stroke);
-PLGI_PRED_DEF(plcairo_mask);
-PLGI_PRED_DEF(plcairo_mask_surface);
-PLGI_PRED_DEF(plcairo_paint);
-PLGI_PRED_DEF(plcairo_paint_with_alpha);
-PLGI_PRED_DEF(plcairo_pop_group);
-PLGI_PRED_DEF(plcairo_pop_group_to_source);
-PLGI_PRED_DEF(plcairo_push_group);
-PLGI_PRED_DEF(plcairo_push_group_with_content);
-PLGI_PRED_DEF(plcairo_reset_clip);
-PLGI_PRED_DEF(plcairo_restore);
-PLGI_PRED_DEF(plcairo_save);
-PLGI_PRED_DEF(plcairo_set_antialias);
-PLGI_PRED_DEF(plcairo_set_dash);
-PLGI_PRED_DEF(plcairo_set_fill_rule);
-PLGI_PRED_DEF(plcairo_set_line_cap);
-PLGI_PRED_DEF(plcairo_set_line_join);
-PLGI_PRED_DEF(plcairo_set_line_width);
-PLGI_PRED_DEF(plcairo_set_miter_limit);
-PLGI_PRED_DEF(plcairo_set_operator);
-PLGI_PRED_DEF(plcairo_set_source);
-PLGI_PRED_DEF(plcairo_set_source_rgb);
-PLGI_PRED_DEF(plcairo_set_source_rgba);
-PLGI_PRED_DEF(plcairo_set_source_surface);
-PLGI_PRED_DEF(plcairo_set_tolerance);
-PLGI_PRED_DEF(plcairo_show_page);
-PLGI_PRED_DEF(plcairo_stroke);
-PLGI_PRED_DEF(plcairo_stroke_extents);
-PLGI_PRED_DEF(plcairo_stroke_preserve);
-PLGI_PRED_DEF(plcairo_set_source_surface);
+PLCAIRO_PRED_DEF(plcairo_clip);
+PLCAIRO_PRED_DEF(plcairo_clip_extents);
+PLCAIRO_PRED_DEF(plcairo_clip_preserve);
+PLCAIRO_PRED_DEF(plcairo_copy_clip_rectangle_list);
+PLCAIRO_PRED_DEF(plcairo_copy_page);
+PLCAIRO_PRED_DEF(plcairo_create);
+PLCAIRO_PRED_DEF(plcairo_fill);
+PLCAIRO_PRED_DEF(plcairo_fill_extents);
+PLCAIRO_PRED_DEF(plcairo_fill_preserve);
+PLCAIRO_PRED_DEF(plcairo_get_antialias);
+PLCAIRO_PRED_DEF(plcairo_get_dash);
+PLCAIRO_PRED_DEF(plcairo_get_dash_count);
+PLCAIRO_PRED_DEF(plcairo_get_fill_rule);
+PLCAIRO_PRED_DEF(plcairo_get_group_target);
+PLCAIRO_PRED_DEF(plcairo_get_line_cap);
+PLCAIRO_PRED_DEF(plcairo_get_line_join);
+PLCAIRO_PRED_DEF(plcairo_get_line_width);
+PLCAIRO_PRED_DEF(plcairo_get_miter_limit);
+PLCAIRO_PRED_DEF(plcairo_get_operator);
+PLCAIRO_PRED_DEF(plcairo_get_source);
+PLCAIRO_PRED_DEF(plcairo_get_target);
+PLCAIRO_PRED_DEF(plcairo_get_tolerance);
+PLCAIRO_PRED_DEF(plcairo_in_clip);
+PLCAIRO_PRED_DEF(plcairo_in_fill);
+PLCAIRO_PRED_DEF(plcairo_in_stroke);
+PLCAIRO_PRED_DEF(plcairo_mask);
+PLCAIRO_PRED_DEF(plcairo_mask_surface);
+PLCAIRO_PRED_DEF(plcairo_paint);
+PLCAIRO_PRED_DEF(plcairo_paint_with_alpha);
+PLCAIRO_PRED_DEF(plcairo_pop_group);
+PLCAIRO_PRED_DEF(plcairo_pop_group_to_source);
+PLCAIRO_PRED_DEF(plcairo_push_group);
+PLCAIRO_PRED_DEF(plcairo_push_group_with_content);
+PLCAIRO_PRED_DEF(plcairo_reset_clip);
+PLCAIRO_PRED_DEF(plcairo_restore);
+PLCAIRO_PRED_DEF(plcairo_save);
+PLCAIRO_PRED_DEF(plcairo_set_antialias);
+PLCAIRO_PRED_DEF(plcairo_set_dash);
+PLCAIRO_PRED_DEF(plcairo_set_fill_rule);
+PLCAIRO_PRED_DEF(plcairo_set_line_cap);
+PLCAIRO_PRED_DEF(plcairo_set_line_join);
+PLCAIRO_PRED_DEF(plcairo_set_line_width);
+PLCAIRO_PRED_DEF(plcairo_set_miter_limit);
+PLCAIRO_PRED_DEF(plcairo_set_operator);
+PLCAIRO_PRED_DEF(plcairo_set_source);
+PLCAIRO_PRED_DEF(plcairo_set_source_rgb);
+PLCAIRO_PRED_DEF(plcairo_set_source_rgba);
+PLCAIRO_PRED_DEF(plcairo_set_source_surface);
+PLCAIRO_PRED_DEF(plcairo_set_tolerance);
+PLCAIRO_PRED_DEF(plcairo_show_page);
+PLCAIRO_PRED_DEF(plcairo_stroke);
+PLCAIRO_PRED_DEF(plcairo_stroke_extents);
+PLCAIRO_PRED_DEF(plcairo_stroke_preserve);
+PLCAIRO_PRED_DEF(plcairo_set_source_surface);
 
 
 
@@ -281,26 +323,26 @@ cairo_bool_t plcairo_term_to_path_data_type(term_t t,
 cairo_bool_t plcairo_path_data_type_to_term(cairo_path_data_type_t type,
                                             term_t t) PLGI_WARN_UNUSED;
 
-PLGI_PRED_DEF(plcairo_append_path);
-PLGI_PRED_DEF(plcairo_arc);
-PLGI_PRED_DEF(plcairo_arc_negative);
-PLGI_PRED_DEF(plcairo_close_path);
-PLGI_PRED_DEF(plcairo_copy_path);
-PLGI_PRED_DEF(plcairo_copy_path_flat);
-PLGI_PRED_DEF(plcairo_curve_to);
-PLGI_PRED_DEF(plcairo_get_current_point);
-PLGI_PRED_DEF(plcairo_glyph_path);
-PLGI_PRED_DEF(plcairo_has_current_point);
-PLGI_PRED_DEF(plcairo_line_to);
-PLGI_PRED_DEF(plcairo_move_to);
-PLGI_PRED_DEF(plcairo_new_path);
-PLGI_PRED_DEF(plcairo_new_sub_path);
-PLGI_PRED_DEF(plcairo_path_extents);
-PLGI_PRED_DEF(plcairo_rectangle);
-PLGI_PRED_DEF(plcairo_rel_curve_to);
-PLGI_PRED_DEF(plcairo_rel_line_to);
-PLGI_PRED_DEF(plcairo_rel_move_to);
-PLGI_PRED_DEF(plcairo_text_path);
+PLCAIRO_PRED_DEF(plcairo_append_path);
+PLCAIRO_PRED_DEF(plcairo_arc);
+PLCAIRO_PRED_DEF(plcairo_arc_negative);
+PLCAIRO_PRED_DEF(plcairo_close_path);
+PLCAIRO_PRED_DEF(plcairo_copy_path);
+PLCAIRO_PRED_DEF(plcairo_copy_path_flat);
+PLCAIRO_PRED_DEF(plcairo_curve_to);
+PLCAIRO_PRED_DEF(plcairo_get_current_point);
+PLCAIRO_PRED_DEF(plcairo_glyph_path);
+PLCAIRO_PRED_DEF(plcairo_has_current_point);
+PLCAIRO_PRED_DEF(plcairo_line_to);
+PLCAIRO_PRED_DEF(plcairo_move_to);
+PLCAIRO_PRED_DEF(plcairo_new_path);
+PLCAIRO_PRED_DEF(plcairo_new_sub_path);
+PLCAIRO_PRED_DEF(plcairo_path_extents);
+PLCAIRO_PRED_DEF(plcairo_rectangle);
+PLCAIRO_PRED_DEF(plcairo_rel_curve_to);
+PLCAIRO_PRED_DEF(plcairo_rel_line_to);
+PLCAIRO_PRED_DEF(plcairo_rel_move_to);
+PLCAIRO_PRED_DEF(plcairo_text_path);
 
 
 
@@ -339,39 +381,39 @@ cairo_bool_t plcairo_term_to_pattern_type(term_t t,
 cairo_bool_t plcairo_pattern_type_to_term(cairo_pattern_type_t type,
                                           term_t t) PLGI_WARN_UNUSED;
 
-PLGI_PRED_DEF(plcairo_pattern_add_color_stop_rgb);
-PLGI_PRED_DEF(plcairo_pattern_add_color_stop_rgba);
-PLGI_PRED_DEF(plcairo_pattern_create_for_surface);
-PLGI_PRED_DEF(plcairo_pattern_create_linear);
-PLGI_PRED_DEF(plcairo_pattern_create_mesh);
-PLGI_PRED_DEF(plcairo_pattern_create_radial);
-PLGI_PRED_DEF(plcairo_pattern_create_rgb);
-PLGI_PRED_DEF(plcairo_pattern_create_rgba);
-PLGI_PRED_DEF(plcairo_pattern_get_color_stop_count);
-PLGI_PRED_DEF(plcairo_pattern_get_color_stop_rgba);
-PLGI_PRED_DEF(plcairo_pattern_get_extend);
-PLGI_PRED_DEF(plcairo_pattern_get_filter);
-PLGI_PRED_DEF(plcairo_pattern_get_linear_points);
-PLGI_PRED_DEF(plcairo_pattern_get_matrix);
-PLGI_PRED_DEF(plcairo_pattern_get_radial_circles);
-PLGI_PRED_DEF(plcairo_pattern_get_rgba);
-PLGI_PRED_DEF(plcairo_pattern_get_surface);
-PLGI_PRED_DEF(plcairo_pattern_get_type);
-PLGI_PRED_DEF(plcairo_mesh_pattern_begin_patch);
-PLGI_PRED_DEF(plcairo_mesh_pattern_curve_to);
-PLGI_PRED_DEF(plcairo_mesh_pattern_end_patch);
-PLGI_PRED_DEF(plcairo_mesh_pattern_get_control_point);
-PLGI_PRED_DEF(plcairo_mesh_pattern_get_corner_color_rgba);
-PLGI_PRED_DEF(plcairo_mesh_pattern_get_patch_count);
-PLGI_PRED_DEF(plcairo_mesh_pattern_get_path);
-PLGI_PRED_DEF(plcairo_mesh_pattern_line_to);
-PLGI_PRED_DEF(plcairo_mesh_pattern_move_to);
-PLGI_PRED_DEF(plcairo_mesh_pattern_set_control_point);
-PLGI_PRED_DEF(plcairo_mesh_pattern_set_corner_color_rgb);
-PLGI_PRED_DEF(plcairo_mesh_pattern_set_corner_color_rgba);
-PLGI_PRED_DEF(plcairo_pattern_set_extend);
-PLGI_PRED_DEF(plcairo_pattern_set_filter);
-PLGI_PRED_DEF(plcairo_pattern_set_matrix);
+PLCAIRO_PRED_DEF(plcairo_pattern_add_color_stop_rgb);
+PLCAIRO_PRED_DEF(plcairo_pattern_add_color_stop_rgba);
+PLCAIRO_PRED_DEF(plcairo_pattern_create_for_surface);
+PLCAIRO_PRED_DEF(plcairo_pattern_create_linear);
+PLCAIRO_PRED_DEF(plcairo_pattern_create_mesh);
+PLCAIRO_PRED_DEF(plcairo_pattern_create_radial);
+PLCAIRO_PRED_DEF(plcairo_pattern_create_rgb);
+PLCAIRO_PRED_DEF(plcairo_pattern_create_rgba);
+PLCAIRO_PRED_DEF(plcairo_pattern_get_color_stop_count);
+PLCAIRO_PRED_DEF(plcairo_pattern_get_color_stop_rgba);
+PLCAIRO_PRED_DEF(plcairo_pattern_get_extend);
+PLCAIRO_PRED_DEF(plcairo_pattern_get_filter);
+PLCAIRO_PRED_DEF(plcairo_pattern_get_linear_points);
+PLCAIRO_PRED_DEF(plcairo_pattern_get_matrix);
+PLCAIRO_PRED_DEF(plcairo_pattern_get_radial_circles);
+PLCAIRO_PRED_DEF(plcairo_pattern_get_rgba);
+PLCAIRO_PRED_DEF(plcairo_pattern_get_surface);
+PLCAIRO_PRED_DEF(plcairo_pattern_get_type);
+PLCAIRO_PRED_DEF(plcairo_mesh_pattern_begin_patch);
+PLCAIRO_PRED_DEF(plcairo_mesh_pattern_curve_to);
+PLCAIRO_PRED_DEF(plcairo_mesh_pattern_end_patch);
+PLCAIRO_PRED_DEF(plcairo_mesh_pattern_get_control_point);
+PLCAIRO_PRED_DEF(plcairo_mesh_pattern_get_corner_color_rgba);
+PLCAIRO_PRED_DEF(plcairo_mesh_pattern_get_patch_count);
+PLCAIRO_PRED_DEF(plcairo_mesh_pattern_get_path);
+PLCAIRO_PRED_DEF(plcairo_mesh_pattern_line_to);
+PLCAIRO_PRED_DEF(plcairo_mesh_pattern_move_to);
+PLCAIRO_PRED_DEF(plcairo_mesh_pattern_set_control_point);
+PLCAIRO_PRED_DEF(plcairo_mesh_pattern_set_corner_color_rgb);
+PLCAIRO_PRED_DEF(plcairo_mesh_pattern_set_corner_color_rgba);
+PLCAIRO_PRED_DEF(plcairo_pattern_set_extend);
+PLCAIRO_PRED_DEF(plcairo_pattern_set_filter);
+PLCAIRO_PRED_DEF(plcairo_pattern_set_matrix);
 
 
 
@@ -398,25 +440,25 @@ cairo_bool_t plcairo_term_to_region_overlap(term_t t,
 cairo_bool_t plcairo_region_overlap_to_term(cairo_region_overlap_t overlap,
                                             term_t t) PLGI_WARN_UNUSED;
 
-PLGI_PRED_DEF(plcairo_region_contains_point);
-PLGI_PRED_DEF(plcairo_region_contains_rectangle);
-PLGI_PRED_DEF(plcairo_region_create);
-PLGI_PRED_DEF(plcairo_region_create_rectangle);
-PLGI_PRED_DEF(plcairo_region_create_rectangles);
-PLGI_PRED_DEF(plcairo_region_equal);
-PLGI_PRED_DEF(plcairo_region_get_extents);
-PLGI_PRED_DEF(plcairo_region_get_rectangle);
-PLGI_PRED_DEF(plcairo_region_intersect);
-PLGI_PRED_DEF(plcairo_region_intersect_rectangle);
-PLGI_PRED_DEF(plcairo_region_is_empty);
-PLGI_PRED_DEF(plcairo_region_num_rectangles);
-PLGI_PRED_DEF(plcairo_region_subtract);
-PLGI_PRED_DEF(plcairo_region_subtract_rectangle);
-PLGI_PRED_DEF(plcairo_region_translate);
-PLGI_PRED_DEF(plcairo_region_union);
-PLGI_PRED_DEF(plcairo_region_union_rectangle);
-PLGI_PRED_DEF(plcairo_region_xor);
-PLGI_PRED_DEF(plcairo_region_xor_rectangle);
+PLCAIRO_PRED_DEF(plcairo_region_contains_point);
+PLCAIRO_PRED_DEF(plcairo_region_contains_rectangle);
+PLCAIRO_PRED_DEF(plcairo_region_create);
+PLCAIRO_PRED_DEF(plcairo_region_create_rectangle);
+PLCAIRO_PRED_DEF(plcairo_region_create_rectangles);
+PLCAIRO_PRED_DEF(plcairo_region_equal);
+PLCAIRO_PRED_DEF(plcairo_region_get_extents);
+PLCAIRO_PRED_DEF(plcairo_region_get_rectangle);
+PLCAIRO_PRED_DEF(plcairo_region_intersect);
+PLCAIRO_PRED_DEF(plcairo_region_intersect_rectangle);
+PLCAIRO_PRED_DEF(plcairo_region_is_empty);
+PLCAIRO_PRED_DEF(plcairo_region_num_rectangles);
+PLCAIRO_PRED_DEF(plcairo_region_subtract);
+PLCAIRO_PRED_DEF(plcairo_region_subtract_rectangle);
+PLCAIRO_PRED_DEF(plcairo_region_translate);
+PLCAIRO_PRED_DEF(plcairo_region_union);
+PLCAIRO_PRED_DEF(plcairo_region_union_rectangle);
+PLCAIRO_PRED_DEF(plcairo_region_xor);
+PLCAIRO_PRED_DEF(plcairo_region_xor_rectangle);
 
 
 
@@ -424,17 +466,17 @@ PLGI_PRED_DEF(plcairo_region_xor_rectangle);
                  *    Cairo Transformation     *
                  *******************************/
 
-PLGI_PRED_DEF(plcairo_device_to_user);
-PLGI_PRED_DEF(plcairo_device_to_user_distance);
-PLGI_PRED_DEF(plcairo_get_matrix);
-PLGI_PRED_DEF(plcairo_identity_matrix);
-PLGI_PRED_DEF(plcairo_rotate);
-PLGI_PRED_DEF(plcairo_scale);
-PLGI_PRED_DEF(plcairo_set_matrix);
-PLGI_PRED_DEF(plcairo_transform);
-PLGI_PRED_DEF(plcairo_translate);
-PLGI_PRED_DEF(plcairo_user_to_device);
-PLGI_PRED_DEF(plcairo_user_to_device_distance);
+PLCAIRO_PRED_DEF(plcairo_device_to_user);
+PLCAIRO_PRED_DEF(plcairo_device_to_user_distance);
+PLCAIRO_PRED_DEF(plcairo_get_matrix);
+PLCAIRO_PRED_DEF(plcairo_identity_matrix);
+PLCAIRO_PRED_DEF(plcairo_rotate);
+PLCAIRO_PRED_DEF(plcairo_scale);
+PLCAIRO_PRED_DEF(plcairo_set_matrix);
+PLCAIRO_PRED_DEF(plcairo_transform);
+PLCAIRO_PRED_DEF(plcairo_translate);
+PLCAIRO_PRED_DEF(plcairo_user_to_device);
+PLCAIRO_PRED_DEF(plcairo_user_to_device_distance);
 
 
 
@@ -476,26 +518,26 @@ cairo_bool_t plcairo_term_to_text_cluster_flags(term_t t,
 cairo_bool_t plcairo_text_cluster_flags_to_term(cairo_text_cluster_flags_t flags,
                                                 term_t t) PLGI_WARN_UNUSED;
 
-PLGI_PRED_DEF(plcairo_font_extents);
-PLGI_PRED_DEF(plcairo_get_font_face);
-PLGI_PRED_DEF(plcairo_get_font_matrix);
-PLGI_PRED_DEF(plcairo_get_font_options);
-PLGI_PRED_DEF(plcairo_get_scaled_font);
-PLGI_PRED_DEF(plcairo_glyph_extents);
-PLGI_PRED_DEF(plcairo_select_font_face);
-PLGI_PRED_DEF(plcairo_set_font_face);
-PLGI_PRED_DEF(plcairo_set_font_matrix);
-PLGI_PRED_DEF(plcairo_set_font_options);
-PLGI_PRED_DEF(plcairo_set_font_size);
-PLGI_PRED_DEF(plcairo_set_scaled_font);
-PLGI_PRED_DEF(plcairo_show_glyphs);
-PLGI_PRED_DEF(plcairo_show_text);
-PLGI_PRED_DEF(plcairo_show_text_glyphs);
-PLGI_PRED_DEF(plcairo_text_extents);
-PLGI_PRED_DEF(plcairo_toy_font_face_create);
-PLGI_PRED_DEF(plcairo_toy_font_face_get_family);
-PLGI_PRED_DEF(plcairo_toy_font_face_get_slant);
-PLGI_PRED_DEF(plcairo_toy_font_face_get_weight);
+PLCAIRO_PRED_DEF(plcairo_font_extents);
+PLCAIRO_PRED_DEF(plcairo_get_font_face);
+PLCAIRO_PRED_DEF(plcairo_get_font_matrix);
+PLCAIRO_PRED_DEF(plcairo_get_font_options);
+PLCAIRO_PRED_DEF(plcairo_get_scaled_font);
+PLCAIRO_PRED_DEF(plcairo_glyph_extents);
+PLCAIRO_PRED_DEF(plcairo_select_font_face);
+PLCAIRO_PRED_DEF(plcairo_set_font_face);
+PLCAIRO_PRED_DEF(plcairo_set_font_matrix);
+PLCAIRO_PRED_DEF(plcairo_set_font_options);
+PLCAIRO_PRED_DEF(plcairo_set_font_size);
+PLCAIRO_PRED_DEF(plcairo_set_scaled_font);
+PLCAIRO_PRED_DEF(plcairo_show_glyphs);
+PLCAIRO_PRED_DEF(plcairo_show_text);
+PLCAIRO_PRED_DEF(plcairo_show_text_glyphs);
+PLCAIRO_PRED_DEF(plcairo_text_extents);
+PLCAIRO_PRED_DEF(plcairo_toy_font_face_create);
+PLCAIRO_PRED_DEF(plcairo_toy_font_face_get_family);
+PLCAIRO_PRED_DEF(plcairo_toy_font_face_get_slant);
+PLCAIRO_PRED_DEF(plcairo_toy_font_face_get_weight);
 
 
 
@@ -503,7 +545,7 @@ PLGI_PRED_DEF(plcairo_toy_font_face_get_weight);
                  *     Cairo Raster Source     *
                  *******************************/
 
-PLGI_PRED_DEF(plcairo_pattern_create_raster_source);
+PLCAIRO_PRED_DEF(plcairo_pattern_create_raster_source);
 
 
 
@@ -530,7 +572,7 @@ cairo_bool_t plcairo_term_to_font_type(term_t t,
 cairo_bool_t plcairo_font_type_to_term(cairo_font_type_t font_type,
                                        term_t t) PLGI_WARN_UNUSED;
 
-PLGI_PRED_DEF(plcairo_font_face_get_type);
+PLCAIRO_PRED_DEF(plcairo_font_face_get_type);
 
 
 
@@ -567,17 +609,17 @@ cairo_bool_t plcairo_term_to_text_extents(term_t t,
 cairo_bool_t plcairo_text_extents_to_term(cairo_text_extents_t *extents,
                                           term_t t) PLGI_WARN_UNUSED;
 
-PLGI_PRED_DEF(plcairo_scaled_font_create);
-PLGI_PRED_DEF(plcairo_scaled_font_extents);
-PLGI_PRED_DEF(plcairo_scaled_font_get_ctm);
-PLGI_PRED_DEF(plcairo_scaled_font_get_font_face);
-PLGI_PRED_DEF(plcairo_scaled_font_get_font_matrix);
-PLGI_PRED_DEF(plcairo_scaled_font_get_font_options);
-PLGI_PRED_DEF(plcairo_scaled_font_get_scale_matrix);
-PLGI_PRED_DEF(plcairo_scaled_font_get_type);
-PLGI_PRED_DEF(plcairo_scaled_font_glyph_extents);
-PLGI_PRED_DEF(plcairo_scaled_font_text_extents);
-PLGI_PRED_DEF(plcairo_scaled_font_text_to_glyphs);
+PLCAIRO_PRED_DEF(plcairo_scaled_font_create);
+PLCAIRO_PRED_DEF(plcairo_scaled_font_extents);
+PLCAIRO_PRED_DEF(plcairo_scaled_font_get_ctm);
+PLCAIRO_PRED_DEF(plcairo_scaled_font_get_font_face);
+PLCAIRO_PRED_DEF(plcairo_scaled_font_get_font_matrix);
+PLCAIRO_PRED_DEF(plcairo_scaled_font_get_font_options);
+PLCAIRO_PRED_DEF(plcairo_scaled_font_get_scale_matrix);
+PLCAIRO_PRED_DEF(plcairo_scaled_font_get_type);
+PLCAIRO_PRED_DEF(plcairo_scaled_font_glyph_extents);
+PLCAIRO_PRED_DEF(plcairo_scaled_font_text_extents);
+PLCAIRO_PRED_DEF(plcairo_scaled_font_text_to_glyphs);
 
 
 
@@ -616,18 +658,18 @@ cairo_bool_t plcairo_term_to_subpixel_order(term_t t,
 cairo_bool_t plcairo_subpixel_order_to_term(cairo_subpixel_order_t subpixel_order,
                                             term_t t) PLGI_WARN_UNUSED;
 
-PLGI_PRED_DEF(plcairo_font_options_create);
-PLGI_PRED_DEF(plcairo_font_options_equal);
-PLGI_PRED_DEF(plcairo_font_options_get_antialias);
-PLGI_PRED_DEF(plcairo_font_options_get_hint_metrics);
-PLGI_PRED_DEF(plcairo_font_options_get_hint_style);
-PLGI_PRED_DEF(plcairo_font_options_get_subpixel_order);
-PLGI_PRED_DEF(plcairo_font_options_hash);
-PLGI_PRED_DEF(plcairo_font_options_merge);
-PLGI_PRED_DEF(plcairo_font_options_set_antialias);
-PLGI_PRED_DEF(plcairo_font_options_set_hint_metrics);
-PLGI_PRED_DEF(plcairo_font_options_set_hint_style);
-PLGI_PRED_DEF(plcairo_font_options_set_subpixel_order);
+PLCAIRO_PRED_DEF(plcairo_font_options_create);
+PLCAIRO_PRED_DEF(plcairo_font_options_equal);
+PLCAIRO_PRED_DEF(plcairo_font_options_get_antialias);
+PLCAIRO_PRED_DEF(plcairo_font_options_get_hint_metrics);
+PLCAIRO_PRED_DEF(plcairo_font_options_get_hint_style);
+PLCAIRO_PRED_DEF(plcairo_font_options_get_subpixel_order);
+PLCAIRO_PRED_DEF(plcairo_font_options_hash);
+PLCAIRO_PRED_DEF(plcairo_font_options_merge);
+PLCAIRO_PRED_DEF(plcairo_font_options_set_antialias);
+PLCAIRO_PRED_DEF(plcairo_font_options_set_hint_metrics);
+PLCAIRO_PRED_DEF(plcairo_font_options_set_hint_style);
+PLCAIRO_PRED_DEF(plcairo_font_options_set_subpixel_order);
 
 
 
@@ -654,18 +696,18 @@ cairo_bool_t plcairo_term_to_device_type(term_t               t,
 cairo_bool_t plcairo_device_type_to_term(cairo_device_type_t device_type,
                                          term_t              t) PLGI_WARN_UNUSED;
 
-PLGI_PRED_DEF(plcairo_device_acquire);
-PLGI_PRED_DEF(plcairo_device_finish);
-PLGI_PRED_DEF(plcairo_device_flush);
-PLGI_PRED_DEF(plcairo_device_get_type);
-PLGI_PRED_DEF(plcairo_device_observer_elapsed);
-PLGI_PRED_DEF(plcairo_device_observer_fill_elapsed);
-PLGI_PRED_DEF(plcairo_device_observer_glyphs_elapsed);
-PLGI_PRED_DEF(plcairo_device_observer_mask_elapsed);
-PLGI_PRED_DEF(plcairo_device_observer_paint_elapsed);
-PLGI_PRED_DEF(plcairo_device_observer_print);
-PLGI_PRED_DEF(plcairo_device_observer_stroke_elapsed);
-PLGI_PRED_DEF(plcairo_device_release);
+PLCAIRO_PRED_DEF(plcairo_device_acquire);
+PLCAIRO_PRED_DEF(plcairo_device_finish);
+PLCAIRO_PRED_DEF(plcairo_device_flush);
+PLCAIRO_PRED_DEF(plcairo_device_get_type);
+PLCAIRO_PRED_DEF(plcairo_device_observer_elapsed);
+PLCAIRO_PRED_DEF(plcairo_device_observer_fill_elapsed);
+PLCAIRO_PRED_DEF(plcairo_device_observer_glyphs_elapsed);
+PLCAIRO_PRED_DEF(plcairo_device_observer_mask_elapsed);
+PLCAIRO_PRED_DEF(plcairo_device_observer_paint_elapsed);
+PLCAIRO_PRED_DEF(plcairo_device_observer_print);
+PLCAIRO_PRED_DEF(plcairo_device_observer_stroke_elapsed);
+PLCAIRO_PRED_DEF(plcairo_device_release);
 
 
 
@@ -698,29 +740,29 @@ cairo_bool_t plcairo_term_to_surface_type(term_t                t,
 cairo_bool_t plcairo_surface_type_to_term(cairo_surface_type_t surface_type,
                                           term_t               t) PLGI_WARN_UNUSED;
 
-PLGI_PRED_DEF(plcairo_surface_copy_page);
-PLGI_PRED_DEF(plcairo_surface_create_for_rectangle);
-PLGI_PRED_DEF(plcairo_surface_create_similar);
-PLGI_PRED_DEF(plcairo_surface_create_similar_image);
-PLGI_PRED_DEF(plcairo_surface_finish);
-PLGI_PRED_DEF(plcairo_surface_flush);
-PLGI_PRED_DEF(plcairo_surface_get_content);
-PLGI_PRED_DEF(plcairo_surface_get_device);
-PLGI_PRED_DEF(plcairo_surface_get_device_offset);
-PLGI_PRED_DEF(plcairo_surface_get_device_scale);
-PLGI_PRED_DEF(plcairo_surface_get_fallback_resolution);
-PLGI_PRED_DEF(plcairo_surface_get_font_options);
-PLGI_PRED_DEF(plcairo_surface_get_type);
-PLGI_PRED_DEF(plcairo_surface_has_show_text_glyphs);
-PLGI_PRED_DEF(plcairo_surface_map_to_image);
-PLGI_PRED_DEF(plcairo_surface_mark_dirty);
-PLGI_PRED_DEF(plcairo_surface_mark_dirty_rectangle);
-PLGI_PRED_DEF(plcairo_surface_set_device_offset);
-PLGI_PRED_DEF(plcairo_surface_set_device_scale);
-PLGI_PRED_DEF(plcairo_surface_set_fallback_resolution);
-PLGI_PRED_DEF(plcairo_surface_show_page);
-PLGI_PRED_DEF(plcairo_surface_supports_mime_type);
-PLGI_PRED_DEF(plcairo_surface_unmap_image);
+PLCAIRO_PRED_DEF(plcairo_surface_copy_page);
+PLCAIRO_PRED_DEF(plcairo_surface_create_for_rectangle);
+PLCAIRO_PRED_DEF(plcairo_surface_create_similar);
+PLCAIRO_PRED_DEF(plcairo_surface_create_similar_image);
+PLCAIRO_PRED_DEF(plcairo_surface_finish);
+PLCAIRO_PRED_DEF(plcairo_surface_flush);
+PLCAIRO_PRED_DEF(plcairo_surface_get_content);
+PLCAIRO_PRED_DEF(plcairo_surface_get_device);
+PLCAIRO_PRED_DEF(plcairo_surface_get_device_offset);
+PLCAIRO_PRED_DEF(plcairo_surface_get_device_scale);
+PLCAIRO_PRED_DEF(plcairo_surface_get_fallback_resolution);
+PLCAIRO_PRED_DEF(plcairo_surface_get_font_options);
+PLCAIRO_PRED_DEF(plcairo_surface_get_type);
+PLCAIRO_PRED_DEF(plcairo_surface_has_show_text_glyphs);
+PLCAIRO_PRED_DEF(plcairo_surface_map_to_image);
+PLCAIRO_PRED_DEF(plcairo_surface_mark_dirty);
+PLCAIRO_PRED_DEF(plcairo_surface_mark_dirty_rectangle);
+PLCAIRO_PRED_DEF(plcairo_surface_set_device_offset);
+PLCAIRO_PRED_DEF(plcairo_surface_set_device_scale);
+PLCAIRO_PRED_DEF(plcairo_surface_set_fallback_resolution);
+PLCAIRO_PRED_DEF(plcairo_surface_show_page);
+PLCAIRO_PRED_DEF(plcairo_surface_supports_mime_type);
+PLCAIRO_PRED_DEF(plcairo_surface_unmap_image);
 
 
 
@@ -734,11 +776,11 @@ cairo_bool_t plcairo_term_to_format(term_t          t,
 cairo_bool_t plcairo_format_to_term(cairo_format_t format,
                                     term_t         t) PLGI_WARN_UNUSED;
 
-PLGI_PRED_DEF(plcairo_image_surface_create);
-PLGI_PRED_DEF(plcairo_image_surface_get_format);
-PLGI_PRED_DEF(plcairo_image_surface_get_height);
-PLGI_PRED_DEF(plcairo_image_surface_get_stride);
-PLGI_PRED_DEF(plcairo_image_surface_get_width);
+PLCAIRO_PRED_DEF(plcairo_image_surface_create);
+PLCAIRO_PRED_DEF(plcairo_image_surface_get_format);
+PLCAIRO_PRED_DEF(plcairo_image_surface_get_height);
+PLCAIRO_PRED_DEF(plcairo_image_surface_get_stride);
+PLCAIRO_PRED_DEF(plcairo_image_surface_get_width);
 
 
 
@@ -746,12 +788,12 @@ PLGI_PRED_DEF(plcairo_image_surface_get_width);
                  *      Cairo PDF Surface      *
                  *******************************/
 
-PLGI_PRED_DEF(plcairo_pdf_get_versions);
-PLGI_PRED_DEF(plcairo_pdf_surface_create);
-PLGI_PRED_DEF(plcairo_pdf_surface_create_for_stream);
-PLGI_PRED_DEF(plcairo_pdf_surface_restrict_to_version);
-PLGI_PRED_DEF(plcairo_pdf_surface_set_size);
-PLGI_PRED_DEF(plcairo_pdf_version_to_string);
+PLCAIRO_PRED_DEF(plcairo_pdf_get_versions);
+PLCAIRO_PRED_DEF(plcairo_pdf_surface_create);
+PLCAIRO_PRED_DEF(plcairo_pdf_surface_create_for_stream);
+PLCAIRO_PRED_DEF(plcairo_pdf_surface_restrict_to_version);
+PLCAIRO_PRED_DEF(plcairo_pdf_surface_set_size);
+PLCAIRO_PRED_DEF(plcairo_pdf_version_to_string);
 
 
 
@@ -759,10 +801,10 @@ PLGI_PRED_DEF(plcairo_pdf_version_to_string);
                  *      Cairo PNG Surface      *
                  *******************************/
 
-PLGI_PRED_DEF(plcairo_image_surface_create_from_png);
-PLGI_PRED_DEF(plcairo_image_surface_create_from_png_stream);
-PLGI_PRED_DEF(plcairo_surface_write_to_png);
-PLGI_PRED_DEF(plcairo_surface_write_to_png_stream);
+PLCAIRO_PRED_DEF(plcairo_image_surface_create_from_png);
+PLCAIRO_PRED_DEF(plcairo_image_surface_create_from_png_stream);
+PLCAIRO_PRED_DEF(plcairo_surface_write_to_png);
+PLCAIRO_PRED_DEF(plcairo_surface_write_to_png_stream);
 
 
 
@@ -770,17 +812,17 @@ PLGI_PRED_DEF(plcairo_surface_write_to_png_stream);
                  *  Cairo PostScript Surface   *
                  *******************************/
 
-PLGI_PRED_DEF(plcairo_ps_get_levels);
-PLGI_PRED_DEF(plcairo_ps_level_to_string);
-PLGI_PRED_DEF(plcairo_ps_surface_create);
-PLGI_PRED_DEF(plcairo_ps_surface_create_for_stream);
-PLGI_PRED_DEF(plcairo_ps_surface_dsc_begin_page_setup);
-PLGI_PRED_DEF(plcairo_ps_surface_dsc_begin_setup);
-PLGI_PRED_DEF(plcairo_ps_surface_dsc_comment);
-PLGI_PRED_DEF(plcairo_ps_surface_get_eps);
-PLGI_PRED_DEF(plcairo_ps_surface_restrict_to_level);
-PLGI_PRED_DEF(plcairo_ps_surface_set_eps);
-PLGI_PRED_DEF(plcairo_ps_surface_set_size);
+PLCAIRO_PRED_DEF(plcairo_ps_get_levels);
+PLCAIRO_PRED_DEF(plcairo_ps_level_to_string);
+PLCAIRO_PRED_DEF(plcairo_ps_surface_create);
+PLCAIRO_PRED_DEF(plcairo_ps_surface_create_for_stream);
+PLCAIRO_PRED_DEF(plcairo_ps_surface_dsc_begin_page_setup);
+PLCAIRO_PRED_DEF(plcairo_ps_surface_dsc_begin_setup);
+PLCAIRO_PRED_DEF(plcairo_ps_surface_dsc_comment);
+PLCAIRO_PRED_DEF(plcairo_ps_surface_get_eps);
+PLCAIRO_PRED_DEF(plcairo_ps_surface_restrict_to_level);
+PLCAIRO_PRED_DEF(plcairo_ps_surface_set_eps);
+PLCAIRO_PRED_DEF(plcairo_ps_surface_set_size);
 
 
 
@@ -788,9 +830,9 @@ PLGI_PRED_DEF(plcairo_ps_surface_set_size);
                  *   Cairo Recording Surface   *
                  *******************************/
 
-PLGI_PRED_DEF(plcairo_recording_surface_create);
-PLGI_PRED_DEF(plcairo_recording_surface_get_extents);
-PLGI_PRED_DEF(plcairo_recording_surface_ink_extents);
+PLCAIRO_PRED_DEF(plcairo_recording_surface_create);
+PLCAIRO_PRED_DEF(plcairo_recording_surface_get_extents);
+PLCAIRO_PRED_DEF(plcairo_recording_surface_ink_extents);
 
 
 
@@ -798,11 +840,11 @@ PLGI_PRED_DEF(plcairo_recording_surface_ink_extents);
                  *      Cairo SVG Surface      *
                  *******************************/
 
-PLGI_PRED_DEF(plcairo_svg_get_versions);
-PLGI_PRED_DEF(plcairo_svg_surface_create);
-PLGI_PRED_DEF(plcairo_svg_surface_create_for_stream);
-PLGI_PRED_DEF(plcairo_svg_surface_restrict_to_version);
-PLGI_PRED_DEF(plcairo_svg_version_to_string);
+PLCAIRO_PRED_DEF(plcairo_svg_get_versions);
+PLCAIRO_PRED_DEF(plcairo_svg_surface_create);
+PLCAIRO_PRED_DEF(plcairo_svg_surface_create_for_stream);
+PLCAIRO_PRED_DEF(plcairo_svg_surface_restrict_to_version);
+PLCAIRO_PRED_DEF(plcairo_svg_version_to_string);
 
 
 
@@ -810,14 +852,14 @@ PLGI_PRED_DEF(plcairo_svg_version_to_string);
                  *    Cairo Script Surface     *
                  *******************************/
 
-PLGI_PRED_DEF(plcairo_script_create);
-PLGI_PRED_DEF(plcairo_script_create_for_stream);
-PLGI_PRED_DEF(plcairo_script_from_recording_surface);
-PLGI_PRED_DEF(plcairo_script_get_mode);
-PLGI_PRED_DEF(plcairo_script_set_mode);
-PLGI_PRED_DEF(plcairo_script_surface_create);
-PLGI_PRED_DEF(plcairo_script_surface_create_for_target);
-PLGI_PRED_DEF(plcairo_script_write_comment);
+PLCAIRO_PRED_DEF(plcairo_script_create);
+PLCAIRO_PRED_DEF(plcairo_script_create_for_stream);
+PLCAIRO_PRED_DEF(plcairo_script_from_recording_surface);
+PLCAIRO_PRED_DEF(plcairo_script_get_mode);
+PLCAIRO_PRED_DEF(plcairo_script_set_mode);
+PLCAIRO_PRED_DEF(plcairo_script_surface_create);
+PLCAIRO_PRED_DEF(plcairo_script_surface_create_for_target);
+PLCAIRO_PRED_DEF(plcairo_script_write_comment);
 
 
 
@@ -833,18 +875,18 @@ cairo_bool_t plcairo_term_to_matrix(term_t t,
 cairo_bool_t plcairo_matrix_to_term(cairo_matrix_t *matrix,
                                     term_t t) PLGI_WARN_UNUSED;
 
-PLGI_PRED_DEF(plcairo_matrix_init);
-PLGI_PRED_DEF(plcairo_matrix_init_identity);
-PLGI_PRED_DEF(plcairo_matrix_init_rotate);
-PLGI_PRED_DEF(plcairo_matrix_init_scale);
-PLGI_PRED_DEF(plcairo_matrix_init_translate);
-PLGI_PRED_DEF(plcairo_matrix_invert);
-PLGI_PRED_DEF(plcairo_matrix_multiply);
-PLGI_PRED_DEF(plcairo_matrix_rotate);
-PLGI_PRED_DEF(plcairo_matrix_scale);
-PLGI_PRED_DEF(plcairo_matrix_transform_distance);
-PLGI_PRED_DEF(plcairo_matrix_transform_point);
-PLGI_PRED_DEF(plcairo_matrix_translate);
+PLCAIRO_PRED_DEF(plcairo_matrix_init);
+PLCAIRO_PRED_DEF(plcairo_matrix_init_identity);
+PLCAIRO_PRED_DEF(plcairo_matrix_init_rotate);
+PLCAIRO_PRED_DEF(plcairo_matrix_init_scale);
+PLCAIRO_PRED_DEF(plcairo_matrix_init_translate);
+PLCAIRO_PRED_DEF(plcairo_matrix_invert);
+PLCAIRO_PRED_DEF(plcairo_matrix_multiply);
+PLCAIRO_PRED_DEF(plcairo_matrix_rotate);
+PLCAIRO_PRED_DEF(plcairo_matrix_scale);
+PLCAIRO_PRED_DEF(plcairo_matrix_transform_distance);
+PLCAIRO_PRED_DEF(plcairo_matrix_transform_point);
+PLCAIRO_PRED_DEF(plcairo_matrix_translate);
 
 
                 /*******************************

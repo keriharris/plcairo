@@ -27,6 +27,14 @@ TOPDIR=$SCRIPTDIR/..
 VERSION=$(cat $TOPDIR/VERSION)
 PACKDIR=pack-$VERSION/plcairo
 
+VERSION_MAJOR=$(grep "#define PLCAIRO_VERSION_MAJOR" $TOPDIR/src/plcairo.h | sed -e "s:.* ::")
+VERSION_MINOR=$(grep "#define PLCAIRO_VERSION_MINOR" $TOPDIR/src/plcairo.h | sed -e "s:.* ::")
+VERSION_MICRO=$(grep "#define PLCAIRO_VERSION_MICRO" $TOPDIR/src/plcairo.h | sed -e "s:.* ::")
+if [[ "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_MICRO}" != "$VERSION" ]]; then
+	echo "Version mismatch between VERSION and plcairo.h"
+	exit
+fi
+
 cd $SCRIPTDIR
 rm -rf pack-$VERSION
 
@@ -47,7 +55,7 @@ cp $TOPDIR/src/config.h.in $PACKDIR/src/
 cp $TOPDIR/src/Makefile.in $PACKDIR/src/
 sed -i -e "s:@SWI_SOLIBDIR@:../\$(PACKSODIR):" \
        -e "s:@SWI_PLLIBDIR@:../prolog:" \
-       -e "/\$(INSTALL_PROGRAM)/{h;N;N;N;N;N;x}" $PACKDIR/src/Makefile.in
+       -e "/\$(INSTALL_PROGRAM)/{h;N;x}" $PACKDIR/src/Makefile.in
 
 mkdir -p $PACKDIR/examples
 cp $TOPDIR/examples/*.pl $PACKDIR/examples/

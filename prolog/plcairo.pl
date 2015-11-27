@@ -330,7 +330,10 @@
                      cairo_matrix_scale/3,
                      cairo_matrix_transform_distance/5,
                      cairo_matrix_transform_point/5,
-                     cairo_matrix_translate/3
+                     cairo_matrix_translate/3,
+
+                     /* PLcairo Specific */
+                     plcairo_version/1
                    ]).
 
 

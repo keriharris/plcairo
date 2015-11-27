@@ -340,4 +340,7 @@ install_plcairo()
 
   /* Cairo Rectangle */
   plcairo_register_rectangle_int_t();
+
+  /* PLcairo Specific */
+  PLCAIRO_PRED_REG("plcairo_version", 1, plcairo_version);
 }

@@ -26,6 +26,23 @@
 
 
                 /*******************************
+                 *           Version           *
+                 *******************************/
+
+#define PLCAIRO_VERSION_MAJOR 0
+#define PLCAIRO_VERSION_MINOR 9
+#define PLCAIRO_VERSION_MICRO 0
+
+#define PLCAIRO_VERSION_ENCODE(major, minor, micro) \
+          ( (major * 10000) + (minor * 100) + (micro * 1) )
+
+#define PLCAIRO_VERSION PLCAIRO_VERSION_ENCODE(PLCAIRO_VERSION_MAJOR, \
+                                               PLCAIRO_VERSION_MINOR, \
+                                               PLCAIRO_VERSION_MICRO)
+
+
+
+                /*******************************
                  *            Debug            *
                  *******************************/
 
@@ -99,7 +116,7 @@ gboolean fname ## __impl(term_t t0, control_t fctxt)
 #define FA8 t0+8
 #define FA9 t0+9
 
-//#define FCTXT (control_t)fctxt
+PLCAIRO_PRED_DEF(plcairo_version);
 
 
 

@@ -333,6 +333,7 @@
                      cairo_matrix_translate/3,
 
                      /* PLcairo Specific */
+                     plcairo_debug/1,
                      plcairo_version/1
                    ]).
 

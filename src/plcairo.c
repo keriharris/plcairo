@@ -342,5 +342,6 @@ install_plcairo()
   plcairo_register_rectangle_int_t();
 
   /* PLcairo Specific */
+  PLCAIRO_PRED_REG("plcairo_debug", 1, plcairo_debug);
   PLCAIRO_PRED_REG("plcairo_version", 1, plcairo_version);
 }

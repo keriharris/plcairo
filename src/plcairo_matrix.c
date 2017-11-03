@@ -83,7 +83,7 @@ plcairo_matrix_to_term(cairo_matrix_t *matrix,
   PLCAIRO_debug("    cairo_matrix_t: %p  --->  term: 0x%lx", matrix, t);
 
   if ( !matrix )
-  { return ( plgi_put_null(t0) && PL_unify(t, t0) );
+  { return ( plcairo_put_null(t0) && PL_unify(t, t0) );
   }
 
   data = matrix;

@@ -17,6 +17,7 @@
 */
 
 #define PL_ARITY_AS_SIZE 1
+#include <gmp.h>
 #include <SWI-Stream.h>
 #include <SWI-Prolog.h>
 #include <cairo.h>
@@ -125,29 +126,26 @@ PLCAIRO_PRED_DEF(plcairo_debug);
                  *    Cairo Integral Types     *
                  *******************************/
 
-#define plcairo_term_to_bool(t, v) plgi_term_to_gboolean(t, v)
-#define plcairo_bool_to_term(v, t) plgi_gboolean_to_term(v, t)
+cairo_bool_t plcairo_term_to_bool(term_t t, cairo_bool_t *v) PLGI_WARN_UNUSED;
+cairo_bool_t plcairo_bool_to_term(cairo_bool_t v, term_t t) PLGI_WARN_UNUSED;
 
-#define plcairo_term_to_char(t, v) plgi_term_to_gint8(t, v)
-#define plcairo_char_to_term(v, t) plgi_gint8_to_term(v, t)
+cairo_bool_t plcairo_term_to_int(term_t t, int *v) PLGI_WARN_UNUSED;
+cairo_bool_t plcairo_int_to_term(int v, term_t t) PLGI_WARN_UNUSED;
 
-#define plcairo_term_to_int(t, v) plgi_term_to_gint(t, v)
-#define plcairo_int_to_term(v, t) plgi_gint_to_term(v, t)
+cairo_bool_t plcairo_term_to_unsigned_int(term_t t, unsigned int *v) PLGI_WARN_UNUSED;
+cairo_bool_t plcairo_unsigned_int_to_term(unsigned int v, term_t t) PLGI_WARN_UNUSED;
 
-#define plcairo_term_to_unsigned_int(t, v) plgi_term_to_guint(t, v)
-#define plcairo_unsigned_int_to_term(v, t) plgi_guint_to_term(v, t)
+cairo_bool_t plcairo_term_to_long(term_t t, long *v) PLGI_WARN_UNUSED;
+cairo_bool_t plcairo_long_to_term(long v, term_t t) PLGI_WARN_UNUSED;
 
-#define plcairo_term_to_long(t, v) plgi_term_to_glong(t, v)
-#define plcairo_long_to_term(v, t) plgi_glong_to_term(v, t)
+cairo_bool_t plcairo_term_to_unsigned_long(term_t t, unsigned long *v) PLGI_WARN_UNUSED;
+cairo_bool_t plcairo_unsigned_long_to_term(unsigned long v, term_t t) PLGI_WARN_UNUSED;
 
-#define plcairo_term_to_unsigned_long(t, v) plgi_term_to_gulong(t, v)
-#define plcairo_unsigned_long_to_term(v, t) plgi_gulong_to_term(v, t)
+cairo_bool_t plcairo_term_to_double(term_t t, double *v) PLGI_WARN_UNUSED;
+cairo_bool_t plcairo_double_to_term(double v, term_t t) PLGI_WARN_UNUSED;
 
-#define plcairo_term_to_double(t, v) plgi_term_to_gdouble(t, v)
-#define plcairo_double_to_term(v, t) plgi_gdouble_to_term(v, t)
-
-#define plcairo_term_to_string(t, v) plgi_term_to_utf8(t, v)
-#define plcairo_string_to_term(v, t) plgi_utf8_to_term(v, t)
+cairo_bool_t plcairo_term_to_string(term_t t, char **v) PLGI_WARN_UNUSED;
+cairo_bool_t plcairo_string_to_term(char *v, term_t t) PLGI_WARN_UNUSED;
 
 
 

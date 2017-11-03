@@ -53,7 +53,7 @@ plcairo_scaled_font_to_term(cairo_scaled_font_t *scaled_font,
   PLCAIRO_debug("    cairo_scaled_font_t: %p  --->  term: 0x%lx", scaled_font, t);
 
   if ( !scaled_font )
-  { return ( plgi_put_null(t0) && PL_unify(t, t0) );
+  { return ( plcairo_put_null(t0) && PL_unify(t, t0) );
   }
 
   data = scaled_font;
@@ -131,7 +131,7 @@ plcairo_font_extents_to_term(cairo_font_extents_t *extents,
   PLCAIRO_debug("    cairo_font_extents_t: %p  --->  term: 0x%lx", extents, t);
 
   if ( !extents )
-  { return ( plgi_put_null(t0) && PL_unify(t, t0) );
+  { return ( plcairo_put_null(t0) && PL_unify(t, t0) );
   }
 
   data = g_memdup(extents, sizeof(*extents));
@@ -210,7 +210,7 @@ plcairo_text_extents_to_term(cairo_text_extents_t *extents,
   PLCAIRO_debug("    cairo_text_extents_t: %p  --->  term: 0x%lx", extents, t);
 
   if ( !extents )
-  { return ( plgi_put_null(t0) && PL_unify(t, t0) );
+  { return ( plcairo_put_null(t0) && PL_unify(t, t0) );
   }
 
   data = g_memdup(extents, sizeof(*extents));

@@ -53,7 +53,7 @@ plcairo_surface_to_term(cairo_surface_t *surface,
   PLCAIRO_debug("    cairo_surface_t: %p  --->  term: 0x%lx", surface, t);
 
   if ( !surface )
-  { return ( plgi_put_null(t0) && PL_unify(t, t0) );
+  { return ( plcairo_put_null(t0) && PL_unify(t, t0) );
   }
 
   PLCAIRO_CHECK_SURFACE(surface);

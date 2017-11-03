@@ -53,7 +53,7 @@ plcairo_font_options_to_term(cairo_font_options_t *font_options,
   PLCAIRO_debug("    cairo_font_options_t: %p  --->  term: 0x%lx", font_options, t);
 
   if ( !font_options )
-  { return ( plgi_put_null(t0) && PL_unify(t, t0) );
+  { return ( plcairo_put_null(t0) && PL_unify(t, t0) );
   }
 
   data = font_options;

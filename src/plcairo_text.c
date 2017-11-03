@@ -215,7 +215,7 @@ plcairo_glyph_to_term(cairo_glyph_t *glyph,
   PLCAIRO_debug("    cairo_glyph_t: %p  --->  term: 0x%lx", glyph, t);
 
   if ( !glyph )
-  { return ( plgi_put_null(t0) && PL_unify(t, t0) );
+  { return ( plcairo_put_null(t0) && PL_unify(t, t0) );
   }
 
   data = g_memdup(glyph, sizeof(*glyph));
@@ -290,7 +290,7 @@ plcairo_text_cluster_to_term(cairo_text_cluster_t *text_cluster,
   PLCAIRO_debug("    cairo_text_cluster_t: %p  --->  term: 0x%lx", text_cluster, t);
 
   if ( !text_cluster )
-  { return ( plgi_put_null(t0) && PL_unify(t, t0) );
+  { return ( plcairo_put_null(t0) && PL_unify(t, t0) );
   }
 
   data = g_memdup(text_cluster, sizeof(*text_cluster));

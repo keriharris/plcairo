@@ -53,7 +53,7 @@ plcairo_device_to_term(cairo_device_t *device,
   PLCAIRO_debug("    cairo_device_t: %p  --->  term: 0x%lx", device, t);
 
   if ( !device )
-  { return ( plgi_put_null(t0) && PL_unify(t, t0) );
+  { return ( plcairo_put_null(t0) && PL_unify(t, t0) );
   }
 
   data = device;

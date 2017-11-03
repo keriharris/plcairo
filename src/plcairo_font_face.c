@@ -54,7 +54,7 @@ plcairo_font_face_to_term(cairo_font_face_t *font_face,
   PLCAIRO_debug("    CairoFontFace: %p  --->  term: 0x%lx", font_face, t);
 
   if ( !font_face )
-  { return ( plgi_put_null(t0) && PL_unify(t, t0) );
+  { return ( plcairo_put_null(t0) && PL_unify(t, t0) );
   }
 
   data = font_face;

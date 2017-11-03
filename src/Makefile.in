@@ -34,7 +34,7 @@ INSTALL=@INSTALL@
 INSTALL_PROGRAM=@INSTALL_PROGRAM@
 INSTALL_DATA=@INSTALL_DATA@
 
-OBJECTS= plcairo.o plcairo_callbacks.o plcairo_context.o plcairo_debug.o plcairo_device.o plcairo_error.o plcairo_font_face.o plcairo_font_options.o plcairo_image_surface.o plcairo_matrix.o plcairo_path.o plcairo_pattern.o plcairo_pdf_surface.o plcairo_png_surface.o plcairo_ps_surface.o plcairo_raster_source.o plcairo_recording_surface.o plcairo_region.o plcairo_scaled_font.o plcairo_script_surface.o plcairo_surface.o plcairo_svg_surface.o plcairo_text.o plcairo_transformation.o plcairo_version.o
+OBJECTS= plcairo.o plcairo_callbacks.o plcairo_context.o plcairo_debug.o plcairo_device.o plcairo_error.o plcairo_font_face.o plcairo_font_options.o plcairo_image_surface.o plcairo_matrix.o plcairo_path.o plcairo_pattern.o plcairo_pdf_surface.o plcairo_png_surface.o plcairo_ps_surface.o plcairo_raster_source.o plcairo_recording_surface.o plcairo_region.o plcairo_scaled_font.o plcairo_script_surface.o plcairo_surface.o plcairo_svg_surface.o plcairo_text.o plcairo_transformation.o plcairo_types.o plcairo_version.o
 
 all: plcairo.so
 

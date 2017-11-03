@@ -53,7 +53,7 @@ plcairo_pattern_to_term(cairo_pattern_t *pattern,
   PLCAIRO_debug("    cairo_pattern_t: %p  --->  term: 0x%lx", pattern, t);
 
   if ( !pattern )
-  { return ( plgi_put_null(t0) && PL_unify(t, t0) );
+  { return ( plcairo_put_null(t0) && PL_unify(t, t0) );
   }
 
   data = pattern;

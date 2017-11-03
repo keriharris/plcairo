@@ -53,7 +53,7 @@ plcairo_region_to_term(cairo_region_t *region,
   PLCAIRO_debug("    cairo_region_t: %p  --->  term: 0x%lx", region, t);
 
   if ( !region )
-  { return ( plgi_put_null(t0) && PL_unify(t, t0) );
+  { return ( plcairo_put_null(t0) && PL_unify(t, t0) );
   }
 
   data = region;
@@ -203,7 +203,7 @@ plcairo_rectangle_int_to_term(cairo_rectangle_int_t *rectangle,
   PLCAIRO_debug("    cairo_rectangle_int_t: %p  --->  term: 0x%lx", rectangle, t);
 
   if ( !rectangle )
-  { return ( plgi_put_null(t0) && PL_unify(t, t0) );
+  { return ( plcairo_put_null(t0) && PL_unify(t, t0) );
   }
 
   data = rectangle;

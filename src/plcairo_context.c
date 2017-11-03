@@ -53,7 +53,7 @@ plcairo_context_to_term(cairo_t *cr,
   PLCAIRO_debug("    cairo_t: %p  --->  term: 0x%lx", cr, t);
 
   if ( !cr )
-  { return ( plgi_put_null(t0) && PL_unify(t, t0) );
+  { return ( plcairo_put_null(t0) && PL_unify(t, t0) );
   }
 
   data = cr;
@@ -751,7 +751,7 @@ plcairo_rectangle_to_term(cairo_rectangle_t *rectangle,
   PLCAIRO_debug("    cairo_rectangle_t: %p  --->  term: 0x%lx", rectangle, t);
 
   if ( !rectangle )
-  { return ( plgi_put_null(t0) && PL_unify(t, t0) );
+  { return ( plcairo_put_null(t0) && PL_unify(t, t0) );
   }
 
   data = rectangle;

@@ -112,7 +112,7 @@ plcairo_term_to_path(term_t         t,
       data->header.length = 2;
 
       if ( !PL_get_list(list, head, list) )
-      { plgi_raise_error("Missing CairoPoint in CairoPath after CAIRO_PATH_MOVE_TO");
+      { plcairo_raise_error("Missing CairoPoint in CairoPath after CAIRO_PATH_MOVE_TO");
         goto error;
       }
       if ( !cairo_term_to_path_data_point(head, data + 1) ) goto error;
@@ -123,7 +123,7 @@ plcairo_term_to_path(term_t         t,
       data->header.length = 2;
 
       if ( !PL_get_list(list, head, list) )
-      { plgi_raise_error("Missing CairoPoint in CairoPath after CAIRO_PATH_LINE_TO");
+      { plcairo_raise_error("Missing CairoPoint in CairoPath after CAIRO_PATH_LINE_TO");
         goto error;
       }
       if ( !cairo_term_to_path_data_point(head, data + 1) ) goto error;
@@ -134,19 +134,19 @@ plcairo_term_to_path(term_t         t,
       data->header.length = 4;
 
       if ( !PL_get_list(list, head, list) )
-      { plgi_raise_error("Missing 1st CairoPoint in CairoPath after CAIRO_PATH_CURVE_TO");
+      { plcairo_raise_error("Missing 1st CairoPoint in CairoPath after CAIRO_PATH_CURVE_TO");
         goto error;
       }
       if ( !cairo_term_to_path_data_point(head, data + 1) ) goto error;
 
       if ( !PL_get_list(list, head, list) )
-      { plgi_raise_error("Missing 2nd CairoPoint in CairoPath after CAIRO_PATH_CURVE_TO");
+      { plcairo_raise_error("Missing 2nd CairoPoint in CairoPath after CAIRO_PATH_CURVE_TO");
         goto error;
       }
       if ( !cairo_term_to_path_data_point(head, data + 2) ) goto error;
 
       if ( !PL_get_list(list, head, list) )
-      { plgi_raise_error("Missing 3rd CairoPoint in CairoPath after CAIRO_PATH_CURVE_TO");
+      { plcairo_raise_error("Missing 3rd CairoPoint in CairoPath after CAIRO_PATH_CURVE_TO");
         goto error;
       }
       if ( !cairo_term_to_path_data_point(head, data + 3) ) goto error;

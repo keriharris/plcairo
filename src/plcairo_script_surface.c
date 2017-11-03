@@ -257,35 +257,35 @@ PLCAIRO_PRED_IMPL(plcairo_script_write_comment)
 #else
 
 PLCAIRO_PRED_IMPL(plcairo_script_create)
-{ return plgi_raise_error("cairo_script_create/2 not supported");
+{ return plcairo_raise_error("cairo_script_create/2 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_script_create_for_stream)
-{ return plgi_raise_error("cairo_script_create_for_stream/2 not supported");
+{ return plcairo_raise_error("cairo_script_create_for_stream/2 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_script_from_recording_surface)
-{ return plgi_raise_error("cairo_script_from_recording_surface/2 not supported");
+{ return plcairo_raise_error("cairo_script_from_recording_surface/2 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_script_get_mode)
-{ return plgi_raise_error("cairo_script_get_mode/2 not supported");
+{ return plcairo_raise_error("cairo_script_get_mode/2 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_script_set_mode)
-{ return plgi_raise_error("cairo_script_set_mode/2 not supported");
+{ return plcairo_raise_error("cairo_script_set_mode/2 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_script_surface_create)
-{ return plgi_raise_error("cairo_script_surface_create/5 not supported");
+{ return plcairo_raise_error("cairo_script_surface_create/5 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_script_surface_create_for_target)
-{ return plgi_raise_error("cairo_script_surface_create_for_target/3 not supported");
+{ return plcairo_raise_error("cairo_script_surface_create_for_target/3 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_script_write_comment)
-{ return plgi_raise_error("cairo_script_write_comment/2 not supported");
+{ return plcairo_raise_error("cairo_script_write_comment/2 not supported");
 }
 
 #endif

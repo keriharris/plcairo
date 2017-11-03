@@ -313,47 +313,47 @@ PLCAIRO_PRED_IMPL(plcairo_ps_surface_set_size)
 #else
 
 PLCAIRO_PRED_IMPL(plcairo_ps_get_levels)
-{ return plgi_raise_error("cairo_ps_get_levels/1 not supported");
+{ return plcairo_raise_error("cairo_ps_get_levels/1 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_ps_level_to_string)
-{ return plgi_raise_error("cairo_ps_level_to_string/2 not supported");
+{ return plcairo_raise_error("cairo_ps_level_to_string/2 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_ps_surface_create)
-{ return plgi_raise_error("cairo_ps_surface_create/4 not supported");
+{ return plcairo_raise_error("cairo_ps_surface_create/4 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_ps_surface_create_for_stream)
-{ return plgi_raise_error("cairo_ps_surface_create_for_stream/4 not supported");
+{ return plcairo_raise_error("cairo_ps_surface_create_for_stream/4 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_ps_surface_dsc_begin_page_setup)
-{ return plgi_raise_error("cairo_ps_surface_dsc_begin_page_setup/1 not supported");
+{ return plcairo_raise_error("cairo_ps_surface_dsc_begin_page_setup/1 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_ps_surface_dsc_begin_setup)
-{ return plgi_raise_error("cairo_ps_surface_dsc_begin_setup/1 not supported");
+{ return plcairo_raise_error("cairo_ps_surface_dsc_begin_setup/1 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_ps_surface_dsc_comment)
-{ return plgi_raise_error("cairo_ps_surface_dsc_comment/2 not supported");
+{ return plcairo_raise_error("cairo_ps_surface_dsc_comment/2 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_ps_surface_get_eps)
-{ return plgi_raise_error("cairo_ps_surface_get_eps/2 not supported");
+{ return plcairo_raise_error("cairo_ps_surface_get_eps/2 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_ps_surface_restrict_to_level)
-{ return plgi_raise_error("cairo_ps_surface_restrict_to_level/2 not supported");
+{ return plcairo_raise_error("cairo_ps_surface_restrict_to_level/2 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_ps_surface_set_eps)
-{ return plgi_raise_error("cairo_ps_surface_set_eps/2 not supported");
+{ return plcairo_raise_error("cairo_ps_surface_set_eps/2 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_ps_surface_set_size)
-{ return plgi_raise_error("cairo_ps_surface_set_size/3 not supported");
+{ return plcairo_raise_error("cairo_ps_surface_set_size/3 not supported");
 }
 
 #endif

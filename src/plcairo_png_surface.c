@@ -111,19 +111,19 @@ PLCAIRO_PRED_IMPL(plcairo_surface_write_to_png_stream)
 #else
 
 PLCAIRO_PRED_IMPL(plcairo_image_surface_create_from_png)
-{ return plgi_raise_error("cairo_image_surface_create_from_png/2 not supported");
+{ return plcairo_raise_error("cairo_image_surface_create_from_png/2 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_image_surface_create_from_png_stream)
-{ return plgi_raise_error("cairo_image_surface_create_from_png_stream/2 not supported");
+{ return plcairo_raise_error("cairo_image_surface_create_from_png_stream/2 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_surface_write_to_png)
-{ return plgi_raise_error("cairo_surface_write_to_png/2 not supported");
+{ return plcairo_raise_error("cairo_surface_write_to_png/2 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_surface_write_to_png_stream)
-{ return plgi_raise_error("cairo_surface_write_to_png_stream/2 not supported");
+{ return plcairo_raise_error("cairo_surface_write_to_png_stream/2 not supported");
 }
 
 #endif

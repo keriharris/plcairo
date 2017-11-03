@@ -23,7 +23,7 @@
                  *      Foreign Predicates      *
                  *******************************/
 
-PLGI_PRED_IMPL(plcairo_version)
+PLCAIRO_PRED_IMPL(plcairo_version)
 {
   term_t t_version = FA0;
 

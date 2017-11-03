@@ -76,7 +76,7 @@ int plcairo_exit_debug(int status, void *arg);
                       __func__, \
                       plcairo_debug_n_dashes+2, plcairo_debug_dashes)
 
-#define PLGI_WARN_UNUSED G_GNUC_WARN_UNUSED_RESULT
+#define PLCAIRO_WARN_UNUSED G_GNUC_WARN_UNUSED_RESULT
 
 
 
@@ -126,26 +126,29 @@ PLCAIRO_PRED_DEF(plcairo_debug);
                  *    Cairo Integral Types     *
                  *******************************/
 
-cairo_bool_t plcairo_term_to_bool(term_t t, cairo_bool_t *v) PLGI_WARN_UNUSED;
-cairo_bool_t plcairo_bool_to_term(cairo_bool_t v, term_t t) PLGI_WARN_UNUSED;
+cairo_bool_t plcairo_get_null(term_t t, void **v) PLCAIRO_WARN_UNUSED;
+cairo_bool_t plcairo_put_null(term_t t) PLCAIRO_WARN_UNUSED;
 
-cairo_bool_t plcairo_term_to_int(term_t t, int *v) PLGI_WARN_UNUSED;
-cairo_bool_t plcairo_int_to_term(int v, term_t t) PLGI_WARN_UNUSED;
+cairo_bool_t plcairo_term_to_bool(term_t t, cairo_bool_t *v) PLCAIRO_WARN_UNUSED;
+cairo_bool_t plcairo_bool_to_term(cairo_bool_t v, term_t t) PLCAIRO_WARN_UNUSED;
 
-cairo_bool_t plcairo_term_to_unsigned_int(term_t t, unsigned int *v) PLGI_WARN_UNUSED;
-cairo_bool_t plcairo_unsigned_int_to_term(unsigned int v, term_t t) PLGI_WARN_UNUSED;
+cairo_bool_t plcairo_term_to_int(term_t t, int *v) PLCAIRO_WARN_UNUSED;
+cairo_bool_t plcairo_int_to_term(int v, term_t t) PLCAIRO_WARN_UNUSED;
 
-cairo_bool_t plcairo_term_to_long(term_t t, long *v) PLGI_WARN_UNUSED;
-cairo_bool_t plcairo_long_to_term(long v, term_t t) PLGI_WARN_UNUSED;
+cairo_bool_t plcairo_term_to_unsigned_int(term_t t, unsigned int *v) PLCAIRO_WARN_UNUSED;
+cairo_bool_t plcairo_unsigned_int_to_term(unsigned int v, term_t t) PLCAIRO_WARN_UNUSED;
 
-cairo_bool_t plcairo_term_to_unsigned_long(term_t t, unsigned long *v) PLGI_WARN_UNUSED;
-cairo_bool_t plcairo_unsigned_long_to_term(unsigned long v, term_t t) PLGI_WARN_UNUSED;
+cairo_bool_t plcairo_term_to_long(term_t t, long *v) PLCAIRO_WARN_UNUSED;
+cairo_bool_t plcairo_long_to_term(long v, term_t t) PLCAIRO_WARN_UNUSED;
 
-cairo_bool_t plcairo_term_to_double(term_t t, double *v) PLGI_WARN_UNUSED;
-cairo_bool_t plcairo_double_to_term(double v, term_t t) PLGI_WARN_UNUSED;
+cairo_bool_t plcairo_term_to_unsigned_long(term_t t, unsigned long *v) PLCAIRO_WARN_UNUSED;
+cairo_bool_t plcairo_unsigned_long_to_term(unsigned long v, term_t t) PLCAIRO_WARN_UNUSED;
 
-cairo_bool_t plcairo_term_to_string(term_t t, char **v) PLGI_WARN_UNUSED;
-cairo_bool_t plcairo_string_to_term(char *v, term_t t) PLGI_WARN_UNUSED;
+cairo_bool_t plcairo_term_to_double(term_t t, double *v) PLCAIRO_WARN_UNUSED;
+cairo_bool_t plcairo_double_to_term(double v, term_t t) PLCAIRO_WARN_UNUSED;
+
+cairo_bool_t plcairo_term_to_string(term_t t, char **v) PLCAIRO_WARN_UNUSED;
+cairo_bool_t plcairo_string_to_term(char *v, term_t t) PLCAIRO_WARN_UNUSED;
 
 
 
@@ -217,54 +220,54 @@ cairo_bool_t plcairo_string_to_term(char *v, term_t t) PLGI_WARN_UNUSED;
           }
 
 cairo_bool_t plcairo_term_to_context(term_t t,
-                                     cairo_t **cr) PLGI_WARN_UNUSED;
+                                     cairo_t **cr) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_context_to_term(cairo_t *cr,
-                                     term_t t) PLGI_WARN_UNUSED;
+                                     term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_antialias(term_t t,
-                                       cairo_antialias_t *antialias) PLGI_WARN_UNUSED;
+                                       cairo_antialias_t *antialias) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_antialias_to_term(cairo_antialias_t antialias,
-                                       term_t t) PLGI_WARN_UNUSED;
+                                       term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_fill_rule(term_t t,
-                                       cairo_fill_rule_t *fill_rule) PLGI_WARN_UNUSED;
+                                       cairo_fill_rule_t *fill_rule) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_fill_rule_to_term(cairo_fill_rule_t fill_rule,
-                                       term_t t) PLGI_WARN_UNUSED;
+                                       term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_line_cap(term_t t,
-                                      cairo_line_cap_t *line_cap) PLGI_WARN_UNUSED;
+                                      cairo_line_cap_t *line_cap) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_line_cap_to_term(cairo_line_cap_t line_cap,
-                                      term_t t) PLGI_WARN_UNUSED;
+                                      term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_line_join(term_t t,
-                                       cairo_line_join_t *line_join) PLGI_WARN_UNUSED;
+                                       cairo_line_join_t *line_join) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_line_join_to_term(cairo_line_join_t line_join,
-                                       term_t t) PLGI_WARN_UNUSED;
+                                       term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_operator(term_t t,
-                                      cairo_operator_t *op) PLGI_WARN_UNUSED;
+                                      cairo_operator_t *op) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_operator_to_term(cairo_operator_t op,
-                                      term_t t) PLGI_WARN_UNUSED;
+                                      term_t t) PLCAIRO_WARN_UNUSED;
 
 void plcairo_register_rectangle_t(void);
 
 cairo_bool_t plcairo_term_to_rectangle(term_t t,
-                                       cairo_rectangle_t **rectangle) PLGI_WARN_UNUSED;
+                                       cairo_rectangle_t **rectangle) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_rectangle_to_term(cairo_rectangle_t *rectangle,
-                                       term_t t) PLGI_WARN_UNUSED;
+                                       term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_rectangle_list(term_t t,
-                                            cairo_rectangle_list_t **rectangle) PLGI_WARN_UNUSED;
+                                            cairo_rectangle_list_t **rectangle) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_rectangle_list_to_term(cairo_rectangle_list_t *rectangle_list,
-                                            term_t t) PLGI_WARN_UNUSED;
+                                            term_t t) PLCAIRO_WARN_UNUSED;
 
 PLCAIRO_PRED_DEF(plcairo_clip);
 PLCAIRO_PRED_DEF(plcairo_clip_extents);
@@ -328,16 +331,16 @@ PLCAIRO_PRED_DEF(plcairo_set_source_surface);
                  *******************************/
 
 cairo_bool_t plcairo_term_to_path(term_t t,
-                                  cairo_path_t **type) PLGI_WARN_UNUSED;
+                                  cairo_path_t **type) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_path_to_term(cairo_path_t *type,
-                                  term_t t) PLGI_WARN_UNUSED;
+                                  term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_path_data_type(term_t t,
-                                            cairo_path_data_type_t *type) PLGI_WARN_UNUSED;
+                                            cairo_path_data_type_t *type) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_path_data_type_to_term(cairo_path_data_type_t type,
-                                            term_t t) PLGI_WARN_UNUSED;
+                                            term_t t) PLCAIRO_WARN_UNUSED;
 
 PLCAIRO_PRED_DEF(plcairo_append_path);
 PLCAIRO_PRED_DEF(plcairo_arc);
@@ -374,28 +377,28 @@ PLCAIRO_PRED_DEF(plcairo_text_path);
           }
 
 cairo_bool_t plcairo_term_to_pattern(term_t t,
-                                     cairo_pattern_t **pattern) PLGI_WARN_UNUSED;
+                                     cairo_pattern_t **pattern) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_pattern_to_term(cairo_pattern_t *pattern,
-                                     term_t t) PLGI_WARN_UNUSED;
+                                     term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_extend(term_t t,
-                                    cairo_extend_t *extend) PLGI_WARN_UNUSED;
+                                    cairo_extend_t *extend) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_extend_to_term(cairo_extend_t extend,
-                                    term_t t) PLGI_WARN_UNUSED;
+                                    term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_filter(term_t t,
-                                    cairo_filter_t *filter) PLGI_WARN_UNUSED;
+                                    cairo_filter_t *filter) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_filter_to_term(cairo_filter_t filter,
-                                    term_t t) PLGI_WARN_UNUSED;
+                                    term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_pattern_type(term_t t,
-                                          cairo_pattern_type_t *type) PLGI_WARN_UNUSED;
+                                          cairo_pattern_type_t *type) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_pattern_type_to_term(cairo_pattern_type_t type,
-                                          term_t t) PLGI_WARN_UNUSED;
+                                          term_t t) PLCAIRO_WARN_UNUSED;
 
 PLCAIRO_PRED_DEF(plcairo_pattern_add_color_stop_rgb);
 PLCAIRO_PRED_DEF(plcairo_pattern_add_color_stop_rgba);
@@ -445,16 +448,16 @@ PLCAIRO_PRED_DEF(plcairo_pattern_set_matrix);
           }
 
 cairo_bool_t plcairo_term_to_region(term_t t,
-                                    cairo_region_t **region) PLGI_WARN_UNUSED;
+                                    cairo_region_t **region) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_region_to_term(cairo_region_t *region,
-                                    term_t t) PLGI_WARN_UNUSED;
+                                    term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_region_overlap(term_t t,
-                                            cairo_region_overlap_t *overlap) PLGI_WARN_UNUSED;
+                                            cairo_region_overlap_t *overlap) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_region_overlap_to_term(cairo_region_overlap_t overlap,
-                                            term_t t) PLGI_WARN_UNUSED;
+                                            term_t t) PLCAIRO_WARN_UNUSED;
 
 PLCAIRO_PRED_DEF(plcairo_region_contains_point);
 PLCAIRO_PRED_DEF(plcairo_region_contains_rectangle);
@@ -501,38 +504,38 @@ PLCAIRO_PRED_DEF(plcairo_user_to_device_distance);
                  *******************************/
 
 cairo_bool_t plcairo_term_to_font_slant(term_t t,
-                                        cairo_font_slant_t *slant) PLGI_WARN_UNUSED;
+                                        cairo_font_slant_t *slant) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_font_slant_to_term(cairo_font_slant_t slant,
-                                        term_t t) PLGI_WARN_UNUSED;
+                                        term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_font_weight(term_t t,
-                                         cairo_font_weight_t *weight) PLGI_WARN_UNUSED;
+                                         cairo_font_weight_t *weight) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_font_weight_to_term(cairo_font_weight_t weight,
-                                         term_t t) PLGI_WARN_UNUSED;
+                                         term_t t) PLCAIRO_WARN_UNUSED;
 
 void plcairo_register_glyph_t(void);
 
 cairo_bool_t plcairo_term_to_glyph(term_t t,
-                                   cairo_glyph_t **glyph) PLGI_WARN_UNUSED;
+                                   cairo_glyph_t **glyph) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_glyph_to_term(cairo_glyph_t *glyph,
-                                   term_t t) PLGI_WARN_UNUSED;
+                                   term_t t) PLCAIRO_WARN_UNUSED;
 
 void plcairo_register_text_cluster_t(void);
 
 cairo_bool_t plcairo_term_to_text_cluster(term_t t,
-                                          cairo_text_cluster_t **text_cluster) PLGI_WARN_UNUSED;
+                                          cairo_text_cluster_t **text_cluster) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_text_cluster_to_term(cairo_text_cluster_t *text_cluster,
-                                          term_t t) PLGI_WARN_UNUSED;
+                                          term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_text_cluster_flags(term_t t,
-                                                cairo_text_cluster_flags_t *flags) PLGI_WARN_UNUSED;
+                                                cairo_text_cluster_flags_t *flags) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_text_cluster_flags_to_term(cairo_text_cluster_flags_t flags,
-                                                term_t t) PLGI_WARN_UNUSED;
+                                                term_t t) PLCAIRO_WARN_UNUSED;
 
 PLCAIRO_PRED_DEF(plcairo_font_extents);
 PLCAIRO_PRED_DEF(plcairo_get_font_face);
@@ -577,16 +580,16 @@ PLCAIRO_PRED_DEF(plcairo_pattern_create_raster_source);
           }
 
 cairo_bool_t plcairo_term_to_font_face(term_t t,
-                                       cairo_font_face_t **font_face) PLGI_WARN_UNUSED;
+                                       cairo_font_face_t **font_face) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_font_face_to_term(cairo_font_face_t *font_face,
-                                       term_t t) PLGI_WARN_UNUSED;
+                                       term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_font_type(term_t t,
-                                       cairo_font_type_t *font_type) PLGI_WARN_UNUSED;
+                                       cairo_font_type_t *font_type) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_font_type_to_term(cairo_font_type_t font_type,
-                                       term_t t) PLGI_WARN_UNUSED;
+                                       term_t t) PLCAIRO_WARN_UNUSED;
 
 PLCAIRO_PRED_DEF(plcairo_font_face_get_type);
 
@@ -604,26 +607,26 @@ PLCAIRO_PRED_DEF(plcairo_font_face_get_type);
           }
 
 cairo_bool_t plcairo_term_to_scaled_font(term_t t,
-                                         cairo_scaled_font_t **scaled_font) PLGI_WARN_UNUSED;
+                                         cairo_scaled_font_t **scaled_font) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_scaled_font_to_term(cairo_scaled_font_t *scaled_font,
-                                         term_t t) PLGI_WARN_UNUSED;
+                                         term_t t) PLCAIRO_WARN_UNUSED;
 
 void plcairo_register_font_extents_t(void);
 
 cairo_bool_t plcairo_term_to_font_extents(term_t t,
-                                          cairo_font_extents_t **extents) PLGI_WARN_UNUSED;
+                                          cairo_font_extents_t **extents) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_font_extents_to_term(cairo_font_extents_t *extents,
-                                          term_t t) PLGI_WARN_UNUSED;
+                                          term_t t) PLCAIRO_WARN_UNUSED;
 
 void plcairo_register_text_extents_t(void);
 
 cairo_bool_t plcairo_term_to_text_extents(term_t t,
-                                          cairo_text_extents_t **extents) PLGI_WARN_UNUSED;
+                                          cairo_text_extents_t **extents) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_text_extents_to_term(cairo_text_extents_t *extents,
-                                          term_t t) PLGI_WARN_UNUSED;
+                                          term_t t) PLCAIRO_WARN_UNUSED;
 
 PLCAIRO_PRED_DEF(plcairo_scaled_font_create);
 PLCAIRO_PRED_DEF(plcairo_scaled_font_extents);
@@ -651,28 +654,28 @@ PLCAIRO_PRED_DEF(plcairo_scaled_font_text_to_glyphs);
           }
 
 cairo_bool_t plcairo_term_to_font_options(term_t t,
-                                          cairo_font_options_t **font_options) PLGI_WARN_UNUSED;
+                                          cairo_font_options_t **font_options) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_font_options_to_term(cairo_font_options_t *font_options,
-                                          term_t t) PLGI_WARN_UNUSED;
+                                          term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_hint_metrics(term_t t,
-                                          cairo_hint_metrics_t *hint_metrics) PLGI_WARN_UNUSED;
+                                          cairo_hint_metrics_t *hint_metrics) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_hint_metrics_to_term(cairo_hint_metrics_t hint_metrics,
-                                          term_t t) PLGI_WARN_UNUSED;
+                                          term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_hint_style(term_t t,
-                                        cairo_hint_style_t *hint_style) PLGI_WARN_UNUSED;
+                                        cairo_hint_style_t *hint_style) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_hint_style_to_term(cairo_hint_style_t hint_style,
-                                        term_t t) PLGI_WARN_UNUSED;
+                                        term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_subpixel_order(term_t t,
-                                            cairo_subpixel_order_t *subpixel_order) PLGI_WARN_UNUSED;
+                                            cairo_subpixel_order_t *subpixel_order) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_subpixel_order_to_term(cairo_subpixel_order_t subpixel_order,
-                                            term_t t) PLGI_WARN_UNUSED;
+                                            term_t t) PLCAIRO_WARN_UNUSED;
 
 PLCAIRO_PRED_DEF(plcairo_font_options_create);
 PLCAIRO_PRED_DEF(plcairo_font_options_equal);
@@ -701,16 +704,16 @@ PLCAIRO_PRED_DEF(plcairo_font_options_set_subpixel_order);
           }
 
 cairo_bool_t plcairo_term_to_device(term_t           t,
-                                    cairo_device_t **device) PLGI_WARN_UNUSED;
+                                    cairo_device_t **device) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_device_to_term(cairo_device_t *device,
-                                    term_t          t) PLGI_WARN_UNUSED;
+                                    term_t          t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_device_type(term_t               t,
-                                         cairo_device_type_t *device_type) PLGI_WARN_UNUSED;
+                                         cairo_device_type_t *device_type) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_device_type_to_term(cairo_device_type_t device_type,
-                                         term_t              t) PLGI_WARN_UNUSED;
+                                         term_t              t) PLCAIRO_WARN_UNUSED;
 
 PLCAIRO_PRED_DEF(plcairo_device_acquire);
 PLCAIRO_PRED_DEF(plcairo_device_finish);
@@ -739,22 +742,22 @@ PLCAIRO_PRED_DEF(plcairo_device_release);
           }
 
 cairo_bool_t plcairo_term_to_surface(term_t t,
-                                     cairo_surface_t **surface) PLGI_WARN_UNUSED;
+                                     cairo_surface_t **surface) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_surface_to_term(cairo_surface_t *surface,
-                                     term_t t) PLGI_WARN_UNUSED;
+                                     term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_content(term_t t,
-                                     cairo_content_t *content) PLGI_WARN_UNUSED;
+                                     cairo_content_t *content) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_content_to_term(cairo_content_t content,
-                                     term_t t) PLGI_WARN_UNUSED;
+                                     term_t t) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_term_to_surface_type(term_t                t,
-                                          cairo_surface_type_t *surface_type) PLGI_WARN_UNUSED;
+                                          cairo_surface_type_t *surface_type) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_surface_type_to_term(cairo_surface_type_t surface_type,
-                                          term_t               t) PLGI_WARN_UNUSED;
+                                          term_t               t) PLCAIRO_WARN_UNUSED;
 
 PLCAIRO_PRED_DEF(plcairo_surface_copy_page);
 PLCAIRO_PRED_DEF(plcairo_surface_create_for_rectangle);
@@ -787,10 +790,10 @@ PLCAIRO_PRED_DEF(plcairo_surface_unmap_image);
                  *******************************/
 
 cairo_bool_t plcairo_term_to_format(term_t          t,
-                                    cairo_format_t *format) PLGI_WARN_UNUSED;
+                                    cairo_format_t *format) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_format_to_term(cairo_format_t format,
-                                    term_t         t) PLGI_WARN_UNUSED;
+                                    term_t         t) PLCAIRO_WARN_UNUSED;
 
 PLCAIRO_PRED_DEF(plcairo_image_surface_create);
 PLCAIRO_PRED_DEF(plcairo_image_surface_get_format);
@@ -886,10 +889,10 @@ PLCAIRO_PRED_DEF(plcairo_script_write_comment);
 void plcairo_register_matrix_t(void);
 
 cairo_bool_t plcairo_term_to_matrix(term_t t,
-                                    cairo_matrix_t **matrix) PLGI_WARN_UNUSED;
+                                    cairo_matrix_t **matrix) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_matrix_to_term(cairo_matrix_t *matrix,
-                                    term_t t) PLGI_WARN_UNUSED;
+                                    term_t t) PLCAIRO_WARN_UNUSED;
 
 PLCAIRO_PRED_DEF(plcairo_matrix_init);
 PLCAIRO_PRED_DEF(plcairo_matrix_init_identity);
@@ -912,10 +915,10 @@ PLCAIRO_PRED_DEF(plcairo_matrix_translate);
 void plcairo_register_rectangle_int_t(void);
 
 cairo_bool_t plcairo_term_to_rectangle_int(term_t                  t,
-                                           cairo_rectangle_int_t **rectangle) PLGI_WARN_UNUSED;
+                                           cairo_rectangle_int_t **rectangle) PLCAIRO_WARN_UNUSED;
 
 cairo_bool_t plcairo_rectangle_int_to_term(cairo_rectangle_int_t *rectangle,
-                                           term_t                 t) PLGI_WARN_UNUSED;
+                                           term_t                 t) PLCAIRO_WARN_UNUSED;
 
 
 
@@ -924,7 +927,7 @@ cairo_bool_t plcairo_rectangle_int_to_term(cairo_rectangle_int_t *rectangle,
                  *******************************/
 
 cairo_bool_t plcairo_term_to_closure(term_t   t_closure,
-                                     void   **closure) PLGI_WARN_UNUSED;
+                                     void   **closure) PLCAIRO_WARN_UNUSED;
 
 cairo_status_t plcairo_write_func(void *closure,
                                   const unsigned char *data,

@@ -93,15 +93,15 @@ PLCAIRO_PRED_IMPL(plcairo_recording_surface_ink_extents)
 #else
 
 PLCAIRO_PRED_IMPL(plcairo_recording_surface_create)
-{ return plgi_raise_error("cairo_recording_surface_create/3 not supported");
+{ return plcairo_raise_error("cairo_recording_surface_create/3 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_recording_surface_get_extents)
-{ return plgi_raise_error("cairo_recording_surface_get_extents/2 not supported");
+{ return plcairo_raise_error("cairo_recording_surface_get_extents/2 not supported");
 }
 
 PLCAIRO_PRED_IMPL(plcairo_recording_surface_ink_extents)
-{ return plgi_raise_error("cairo_recording_surface_ink_extents/5 not supported");
+{ return plcairo_raise_error("cairo_recording_surface_ink_extents/5 not supported");
 }
 
 #endif

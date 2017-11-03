@@ -27,7 +27,7 @@ cairo_bool_t plcairo_debug_active(void)
 }
 
 
-int plgi_exit_debug(int status, void *arg)
+int plcairo_exit_debug(int status, void *arg)
 {
   debug_active = FALSE;
 

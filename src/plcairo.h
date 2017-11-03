@@ -59,7 +59,7 @@ int plcairo_exit_debug(int status, void *arg);
              } \
            } while (0)
 
-#define plcairo_debug_dashes "--------------------------"
+#define plcairo_debug_dashes "------------------------"
 #define plcairo_debug_n_dashes \
         ( (int)( strlen(plcairo_debug_dashes) - strlen(__func__) / 2 ) )
 
@@ -88,11 +88,11 @@ int plcairo_exit_debug(int status, void *arg);
 
 #define PLCAIRO_PRED_IMPL(fname) \
  \
-gboolean fname ## __impl(term_t t0, control_t fctxt); \
+cairo_bool_t fname ## __impl(term_t t0, control_t fctxt); \
  \
 foreign_t fname(term_t t0, int arity, void *fctxt) \
 { \
-  gint ret; \
+  int ret; \
   PLCAIRO_debug_header; \
   ret = fname ## __impl(t0, (control_t)fctxt); \
   PLCAIRO_debug("%s retval: %d", __func__, ret); \
@@ -100,7 +100,7 @@ foreign_t fname(term_t t0, int arity, void *fctxt) \
   return ret; \
 } \
  \
-gboolean fname ## __impl(term_t t0, control_t fctxt)
+cairo_bool_t fname ## __impl(term_t t0, control_t fctxt)
 
 #define PLCAIRO_PRED_REG(name, arity, fname) \
 	PL_register_foreign(name, arity, fname, PL_FA_VARARGS)
@@ -117,6 +117,7 @@ gboolean fname ## __impl(term_t t0, control_t fctxt)
 #define FA9 t0+9
 
 PLCAIRO_PRED_DEF(plcairo_version);
+PLCAIRO_PRED_DEF(plcairo_debug);
 
 
 

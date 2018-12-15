@@ -188,6 +188,10 @@
                      /* Cairo Raster Source */
                      cairo_pattern_create_raster_source/4,
 
+                     /* Cairo Tag */
+                     cairo_tag_begin/3,
+                     cairo_tag_end/2,
+
                      /* Cairo Font Face */
                      cairo_font_face_get_type/2,
 
@@ -211,12 +215,14 @@
                      cairo_font_options_get_hint_metrics/2,
                      cairo_font_options_get_hint_style/2,
                      cairo_font_options_get_subpixel_order/2,
+                     cairo_font_options_get_variations/2,
                      cairo_font_options_hash/2,
                      cairo_font_options_merge/2,
                      cairo_font_options_set_antialias/2,
                      cairo_font_options_set_hint_metrics/2,
                      cairo_font_options_set_hint_style/2,
                      cairo_font_options_set_subpixel_order/2,
+                     cairo_font_options_set_variations/2,
 
 /* FIXME: add cairo freetype fonts */
 /* FIXME: add cairo win32 fonts */
@@ -271,10 +277,14 @@
 
                      /* Cairo PDF Surface */
                      cairo_pdf_get_versions/1,
+                     cairo_pdf_surface_add_outline/6,
                      cairo_pdf_surface_create/4,
                      cairo_pdf_surface_create_for_stream/4,
                      cairo_pdf_surface_restrict_to_version/2,
+                     cairo_pdf_surface_set_metadata/3,
+                     cairo_pdf_surface_set_page_label/2,
                      cairo_pdf_surface_set_size/3,
+                     cairo_pdf_surface_set_thumbnail_size/3,
                      cairo_pdf_version_to_string/2,
 
                      /* Cairo PNG Surface */
@@ -305,7 +315,9 @@
                      cairo_svg_get_versions/1,
                      cairo_svg_surface_create/4,
                      cairo_svg_surface_create_for_stream/4,
+                     cairo_svg_surface_get_document_unit/2,
                      cairo_svg_surface_restrict_to_version/2,
+                     cairo_svg_surface_set_document_unit/2,
                      cairo_svg_version_to_string/2,
 
                      /* Cairo Script Surface */

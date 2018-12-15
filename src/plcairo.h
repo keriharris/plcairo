@@ -569,6 +569,15 @@ PLCAIRO_PRED_DEF(plcairo_pattern_create_raster_source);
 
 
                 /*******************************
+                 *          Cairo Tag          *
+                 *******************************/
+
+PLCAIRO_PRED_DEF(plcairo_tag_begin);
+PLCAIRO_PRED_DEF(plcairo_tag_end);
+
+
+
+                /*******************************
                  *       Cairo Font Face       *
                  *******************************/
 
@@ -683,12 +692,14 @@ PLCAIRO_PRED_DEF(plcairo_font_options_get_antialias);
 PLCAIRO_PRED_DEF(plcairo_font_options_get_hint_metrics);
 PLCAIRO_PRED_DEF(plcairo_font_options_get_hint_style);
 PLCAIRO_PRED_DEF(plcairo_font_options_get_subpixel_order);
+PLCAIRO_PRED_DEF(plcairo_font_options_get_variations);
 PLCAIRO_PRED_DEF(plcairo_font_options_hash);
 PLCAIRO_PRED_DEF(plcairo_font_options_merge);
 PLCAIRO_PRED_DEF(plcairo_font_options_set_antialias);
 PLCAIRO_PRED_DEF(plcairo_font_options_set_hint_metrics);
 PLCAIRO_PRED_DEF(plcairo_font_options_set_hint_style);
 PLCAIRO_PRED_DEF(plcairo_font_options_set_subpixel_order);
+PLCAIRO_PRED_DEF(plcairo_font_options_set_variations);
 
 
 
@@ -808,10 +819,14 @@ PLCAIRO_PRED_DEF(plcairo_image_surface_get_width);
                  *******************************/
 
 PLCAIRO_PRED_DEF(plcairo_pdf_get_versions);
+PLCAIRO_PRED_DEF(plcairo_pdf_surface_add_outline);
 PLCAIRO_PRED_DEF(plcairo_pdf_surface_create);
 PLCAIRO_PRED_DEF(plcairo_pdf_surface_create_for_stream);
 PLCAIRO_PRED_DEF(plcairo_pdf_surface_restrict_to_version);
+PLCAIRO_PRED_DEF(plcairo_pdf_surface_set_metadata);
+PLCAIRO_PRED_DEF(plcairo_pdf_surface_set_page_label);
 PLCAIRO_PRED_DEF(plcairo_pdf_surface_set_size);
+PLCAIRO_PRED_DEF(plcairo_pdf_surface_set_thumbnail_size);
 PLCAIRO_PRED_DEF(plcairo_pdf_version_to_string);
 
 
@@ -862,7 +877,9 @@ PLCAIRO_PRED_DEF(plcairo_recording_surface_ink_extents);
 PLCAIRO_PRED_DEF(plcairo_svg_get_versions);
 PLCAIRO_PRED_DEF(plcairo_svg_surface_create);
 PLCAIRO_PRED_DEF(plcairo_svg_surface_create_for_stream);
+PLCAIRO_PRED_DEF(plcairo_svg_surface_get_document_unit);
 PLCAIRO_PRED_DEF(plcairo_svg_surface_restrict_to_version);
+PLCAIRO_PRED_DEF(plcairo_svg_surface_set_document_unit);
 PLCAIRO_PRED_DEF(plcairo_svg_version_to_string);
 
 

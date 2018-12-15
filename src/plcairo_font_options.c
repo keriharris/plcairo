@@ -438,6 +438,29 @@ PLCAIRO_PRED_IMPL(plcairo_font_options_get_subpixel_order)
 }
 
 
+PLCAIRO_PRED_IMPL(plcairo_font_options_get_variations)
+{
+#if CAIRO_VERSION >= CAIRO_VERSION_ENCODE(1, 16, 0)
+  term_t t_options = FA0;
+  term_t t_variations = FA1;
+
+  cairo_font_options_t *options;
+  char *variations;
+
+  if ( !plcairo_term_to_font_options(t_options, &options) ) return FALSE;
+
+  variations = (char*)cairo_font_options_get_variations(options);
+  PLCAIRO_CHECK_FONT_OPTIONS(options);
+
+  if ( !plcairo_string_to_term(variations, t_variations) ) return FALSE;
+
+  return TRUE;
+#else
+  return plcairo_raise_error("cairo_font_options_get_variations/2 requires Cairo >= v1.16");
+#endif
+}
+
+
 PLCAIRO_PRED_IMPL(plcairo_font_options_hash)
 {
   term_t t_options = FA0;
@@ -544,4 +567,26 @@ PLCAIRO_PRED_IMPL(plcairo_font_options_set_subpixel_order)
   PLCAIRO_CHECK_FONT_OPTIONS(options);
 
   return TRUE;
+}
+
+
+PLCAIRO_PRED_IMPL(plcairo_font_options_set_variations)
+{
+#if CAIRO_VERSION >= CAIRO_VERSION_ENCODE(1, 16, 0)
+  term_t t_options = FA0;
+  term_t t_variations = FA1;
+
+  cairo_font_options_t *options;
+  char *variations;
+
+  if ( !plcairo_term_to_font_options(t_options, &options) ) return FALSE;
+  if ( !plcairo_term_to_string(t_variations, &variations) ) return FALSE;
+
+  cairo_font_options_set_variations(options, variations);
+  PLCAIRO_CHECK_FONT_OPTIONS(options);
+
+  return TRUE;
+#else
+  return plcairo_raise_error("cairo_font_options_set_variations/2 requires Cairo >= v1.16");
+#endif
 }

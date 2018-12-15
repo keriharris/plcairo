@@ -196,6 +196,10 @@ install_plcairo()
   /* Cairo Raster Source */
   PLCAIRO_PRED_REG("cairo_pattern_create_raster_source", 4, plcairo_pattern_create_raster_source);
 
+  /* Cairo Tag */
+  PLCAIRO_PRED_REG("cairo_tag_begin", 3, plcairo_tag_begin);
+  PLCAIRO_PRED_REG("cairo_tag_end", 2, plcairo_tag_end);
+
   /* Cairo Font Face */
   PLCAIRO_PRED_REG("cairo_font_face_get_type", 2, plcairo_font_face_get_type);
 
@@ -221,12 +225,14 @@ install_plcairo()
   PLCAIRO_PRED_REG("cairo_font_options_get_hint_metrics", 2, plcairo_font_options_get_hint_metrics);
   PLCAIRO_PRED_REG("cairo_font_options_get_hint_style", 2, plcairo_font_options_get_hint_style);
   PLCAIRO_PRED_REG("cairo_font_options_get_subpixel_order", 2, plcairo_font_options_get_subpixel_order);
+  PLCAIRO_PRED_REG("cairo_font_options_get_variations", 2, plcairo_font_options_get_variations);
   PLCAIRO_PRED_REG("cairo_font_options_hash", 2, plcairo_font_options_hash);
   PLCAIRO_PRED_REG("cairo_font_options_merge", 2, plcairo_font_options_merge);
   PLCAIRO_PRED_REG("cairo_font_options_set_antialias", 2, plcairo_font_options_set_antialias);
   PLCAIRO_PRED_REG("cairo_font_options_set_hint_metrics", 2, plcairo_font_options_set_hint_metrics);
   PLCAIRO_PRED_REG("cairo_font_options_set_hint_style", 2, plcairo_font_options_set_hint_style);
   PLCAIRO_PRED_REG("cairo_font_options_set_subpixel_order", 2, plcairo_font_options_set_subpixel_order);
+  PLCAIRO_PRED_REG("cairo_font_options_set_variations", 2, plcairo_font_options_set_variations);
 
   /* Cairo Device */
   PLCAIRO_PRED_REG("cairo_device_acquire", 1, plcairo_device_acquire);
@@ -276,10 +282,14 @@ install_plcairo()
 
   /* Cairo PDF Surface */
   PLCAIRO_PRED_REG("cairo_pdf_get_versions", 1, plcairo_pdf_get_versions);
+  PLCAIRO_PRED_REG("cairo_pdf_surface_add_outline", 6, plcairo_pdf_surface_add_outline);
   PLCAIRO_PRED_REG("cairo_pdf_surface_create", 4, plcairo_pdf_surface_create);
   PLCAIRO_PRED_REG("cairo_pdf_surface_create_for_stream", 4, plcairo_pdf_surface_create_for_stream);
   PLCAIRO_PRED_REG("cairo_pdf_surface_restrict_to_version", 2, plcairo_pdf_surface_restrict_to_version);
+  PLCAIRO_PRED_REG("cairo_pdf_surface_set_metadata", 3, plcairo_pdf_surface_set_metadata);
+  PLCAIRO_PRED_REG("cairo_pdf_surface_set_page_label", 2, plcairo_pdf_surface_set_page_label);
   PLCAIRO_PRED_REG("cairo_pdf_surface_set_size", 3, plcairo_pdf_surface_set_size);
+  PLCAIRO_PRED_REG("cairo_pdf_surface_set_thumbnail_size", 3, plcairo_pdf_surface_set_thumbnail_size);
   PLCAIRO_PRED_REG("cairo_pdf_version_to_string", 2, plcairo_pdf_version_to_string);
 
   /* Cairo PNG Surface */
@@ -310,7 +320,9 @@ install_plcairo()
   PLCAIRO_PRED_REG("cairo_svg_get_versions", 1, plcairo_svg_get_versions);
   PLCAIRO_PRED_REG("cairo_svg_surface_create", 4, plcairo_svg_surface_create);
   PLCAIRO_PRED_REG("cairo_svg_surface_create_for_stream", 4, plcairo_svg_surface_create_for_stream);
+  PLCAIRO_PRED_REG("cairo_svg_surface_get_document_unit", 2, plcairo_svg_surface_get_document_unit);
   PLCAIRO_PRED_REG("cairo_svg_surface_restrict_to_version", 2, plcairo_svg_surface_restrict_to_version);
+  PLCAIRO_PRED_REG("cairo_svg_surface_set_document_unit", 2, plcairo_svg_surface_set_document_unit);
   PLCAIRO_PRED_REG("cairo_svg_version_to_string", 2, plcairo_svg_version_to_string);
 
   /* Cairo Script Surface */

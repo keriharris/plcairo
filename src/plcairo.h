@@ -31,7 +31,7 @@
                  *******************************/
 
 #define PLCAIRO_VERSION_MAJOR 1
-#define PLCAIRO_VERSION_MINOR 0
+#define PLCAIRO_VERSION_MINOR 1
 #define PLCAIRO_VERSION_MICRO 0
 
 #define PLCAIRO_VERSION_ENCODE(major, minor, micro) \

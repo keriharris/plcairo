@@ -60,7 +60,7 @@ plcairo_context_to_term(cairo_t *cr,
   blob_type = PLGI_BLOB_BOXED;
 
   if ( !plgi_put_blob(blob_type, CAIRO_GOBJECT_TYPE_CONTEXT,
-                      PL_new_atom("CairoContext"), TRUE, data, t0) )
+                      PL_new_atom("CairoContext"), data, t0, NULL) )
   { return FALSE;
   }
 
@@ -758,7 +758,7 @@ plcairo_rectangle_to_term(cairo_rectangle_t *rectangle,
   blob_type = PLGI_BLOB_BOXED;
 
   if ( !plgi_put_blob(blob_type, CAIRO_GOBJECT_TYPE_RECTANGLE,
-                      PL_new_atom("CairoRectangle"), TRUE, data, t0) )
+                      PL_new_atom("CairoRectangle"), data, t0, NULL) )
   { return FALSE;
   }
 

@@ -90,7 +90,7 @@ plcairo_matrix_to_term(cairo_matrix_t *matrix,
   blob_type = PLGI_BLOB_BOXED;
 
   if ( !plgi_put_blob(blob_type, CAIRO_GOBJECT_TYPE_MATRIX,
-                      PL_new_atom("CairoMatrix"), TRUE, data, t0) )
+                      PL_new_atom("CairoMatrix"), data, t0, NULL) )
   { return FALSE;
   }
 

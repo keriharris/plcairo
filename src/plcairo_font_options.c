@@ -60,7 +60,7 @@ plcairo_font_options_to_term(cairo_font_options_t *font_options,
   blob_type = PLGI_BLOB_BOXED;
 
   if ( !plgi_put_blob(blob_type, CAIRO_GOBJECT_TYPE_FONT_OPTIONS,
-                      PL_new_atom("CairoFontOptions"), TRUE, data, t0) )
+                      PL_new_atom("CairoFontOptions"), data, t0, NULL) )
   { return FALSE;
   }
 

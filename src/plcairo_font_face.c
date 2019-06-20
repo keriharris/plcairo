@@ -61,7 +61,7 @@ plcairo_font_face_to_term(cairo_font_face_t *font_face,
   blob_type = PLGI_BLOB_BOXED;
 
   if ( !plgi_put_blob(blob_type, CAIRO_GOBJECT_TYPE_FONT_FACE,
-                      PL_new_atom("CairoFontFace"), TRUE, data, t0) )
+                      PL_new_atom("CairoFontFace"), data, t0, NULL) )
   { return FALSE;
   }
 

@@ -60,7 +60,7 @@ plcairo_device_to_term(cairo_device_t *device,
   blob_type = PLGI_BLOB_BOXED;
 
   if ( !plgi_put_blob(blob_type, CAIRO_GOBJECT_TYPE_DEVICE,
-                      PL_new_atom("CairoDevice"), TRUE, data, t0) )
+                      PL_new_atom("CairoDevice"), data, t0, NULL) )
   { return FALSE;
   }
 

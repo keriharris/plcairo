@@ -60,7 +60,7 @@ plcairo_pattern_to_term(cairo_pattern_t *pattern,
   blob_type = PLGI_BLOB_BOXED;
 
   if ( !plgi_put_blob(blob_type, CAIRO_GOBJECT_TYPE_PATTERN,
-                      PL_new_atom("CairoPattern"), TRUE, data, t0) )
+                      PL_new_atom("CairoPattern"), data, t0, NULL) )
   { return FALSE;
   }
 

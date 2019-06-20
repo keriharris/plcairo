@@ -60,7 +60,7 @@ plcairo_scaled_font_to_term(cairo_scaled_font_t *scaled_font,
   blob_type = PLGI_BLOB_BOXED;
 
   if ( !plgi_put_blob(blob_type, CAIRO_GOBJECT_TYPE_SCALED_FONT,
-                      PL_new_atom("CairoScaledFont"), TRUE, data, t0) )
+                      PL_new_atom("CairoScaledFont"), data, t0, NULL) )
   { return FALSE;
   }
 
@@ -138,7 +138,7 @@ plcairo_font_extents_to_term(cairo_font_extents_t *extents,
   blob_type = PLGI_BLOB_SIMPLE;
 
   if ( !plgi_put_blob(blob_type, G_TYPE_NONE,
-                      PL_new_atom("CairoFontExtents"), TRUE, data, t0) )
+                      PL_new_atom("CairoFontExtents"), data, t0, NULL) )
   { return FALSE;
   }
 
@@ -217,7 +217,7 @@ plcairo_text_extents_to_term(cairo_text_extents_t *extents,
   blob_type = PLGI_BLOB_SIMPLE;
 
   if ( !plgi_put_blob(blob_type, G_TYPE_NONE,
-                      PL_new_atom("CairoTextExtents"), TRUE, data, t0) )
+                      PL_new_atom("CairoTextExtents"), data, t0, NULL) )
   { return FALSE;
   }
 

@@ -62,7 +62,7 @@ plcairo_surface_to_term(cairo_surface_t *surface,
   blob_type = PLGI_BLOB_BOXED;
 
   if ( !plgi_put_blob(blob_type, CAIRO_GOBJECT_TYPE_SURFACE,
-                      PL_new_atom("CairoSurface"), TRUE, data, t0) )
+                      PL_new_atom("CairoSurface"), data, t0, NULL) )
   { return FALSE;
   }
 

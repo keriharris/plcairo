@@ -222,7 +222,7 @@ plcairo_glyph_to_term(cairo_glyph_t *glyph,
   blob_type = PLGI_BLOB_SIMPLE;
 
   if ( !plgi_put_blob(blob_type, G_TYPE_NONE,
-                      PL_new_atom("CairoGlyph"), TRUE, data, t0) )
+                      PL_new_atom("CairoGlyph"), data, t0, NULL) )
   { return FALSE;
   }
 
@@ -297,7 +297,7 @@ plcairo_text_cluster_to_term(cairo_text_cluster_t *text_cluster,
   blob_type = PLGI_BLOB_SIMPLE;
 
   if ( !plgi_put_blob(blob_type, G_TYPE_NONE,
-                      PL_new_atom("CairoTextCluster"), TRUE, data, t0) )
+                      PL_new_atom("CairoTextCluster"), data, t0, NULL) )
   { return FALSE;
   }
 

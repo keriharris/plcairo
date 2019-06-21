@@ -22,8 +22,6 @@ QUIET_CC= @echo "   [CC]      $@" 1>&2;
 QUIET_LD= @echo "   [LD]      $@" 1>&2;
 
 PROLOGDIR=../prolog
-SWI_SOLIBDIR=@SWI_SOLIBDIR@
-SWI_PLLIBDIR=@SWI_PLLIBDIR@
 
 CFLAGS+= -Wall -fPIC -I. @SWI_CFLAGS@ @PLGI_CFLAGS@ @CAIRO_CFLAGS@ @CAIRO_GOBJECT_CFLAGS@ @GI_CFLAGS@
 LDFLAGS= -Wall -shared @SWI_LIBS@ @PLGI_LIBS@ @CAIRO_LIBS@ @CAIRO_GOBJECT_LIBS@ @GI_LIBS@
@@ -33,6 +31,10 @@ CC=@CC@
 INSTALL=@INSTALL@
 INSTALL_PROGRAM=@INSTALL_PROGRAM@
 INSTALL_DATA=@INSTALL_DATA@
+
+INSTALL_PREFIX=@prefix@/plcairo
+INSTALL_SOLIBDIR=$(INSTALL_PREFIX)/lib
+INSTALL_PLLIBDIR=$(INSTALL_PREFIX)/prolog
 
 OBJECTS= plcairo.o plcairo_callbacks.o plcairo_context.o plcairo_debug.o plcairo_device.o plcairo_error.o plcairo_font_face.o plcairo_font_options.o plcairo_image_surface.o plcairo_matrix.o plcairo_path.o plcairo_pattern.o plcairo_pdf_surface.o plcairo_png_surface.o plcairo_ps_surface.o plcairo_raster_source.o plcairo_recording_surface.o plcairo_region.o plcairo_scaled_font.o plcairo_script_surface.o plcairo_surface.o plcairo_svg_surface.o plcairo_tag.o plcairo_text.o plcairo_transformation.o plcairo_types.o plcairo_version.o
 
@@ -45,9 +47,10 @@ plcairo.so: $(OBJECTS)
 	$(QUIET_CC)$(CC) $(CFLAGS) -o $@ -c $^
 
 install: plcairo.so
-	mkdir -p $(DESTDIR)$(SWI_SOLIBDIR)
-	$(INSTALL_PROGRAM) plcairo.so $(DESTDIR)$(SWI_SOLIBDIR)
-	$(INSTALL_DATA) $(PROLOGDIR)/plcairo.pl $(DESTDIR)$(SWI_PLLIBDIR)
+	mkdir -p $(DESTDIR)$(INSTALL_SOLIBDIR)
+	$(INSTALL_PROGRAM) plcairo.so $(DESTDIR)$(INSTALL_SOLIBDIR)
+	mkdir -p $(DESTDIR)$(INSTALL_PLLIBDIR)
+	$(INSTALL_DATA) $(PROLOGDIR)/plcairo.pl $(DESTDIR)$(INSTALL_PLLIBDIR)
 
 clean:
 	rm -f *.o *.so
